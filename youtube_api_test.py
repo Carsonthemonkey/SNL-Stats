@@ -12,10 +12,16 @@ assert API_KEY is not None
 VIDEO_ID = "dQw4w9WgXcQ" 
 
 # encode the URL with the data we want
-url = f"https://www.googleapis.com/youtube/v3/videos?id={VIDEO_ID}&part=statistics&key={API_KEY}"
+url = f"https://www.googleapis.com/youtube/v3/videos"
+
+query_params = {
+    "key": API_KEY,
+    "id": VIDEO_ID,
+    "part": "statistics,snippet,contentDetails"
+}
 
 # call the api with a timeout of 15 seconds
-response = requests.get(url, timeout=15)
+response = requests.get(url, params=query_params, timeout=15)
 
 # convert the json response to a python dictionary
 data = response.json()
