@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 
 class Video(BaseModel):
-    id: str
+    video_id: str
     title: str
     duration: int
     view_count: int
@@ -11,7 +11,7 @@ class Video(BaseModel):
 # Example validation
 def main():
     v = {
-        "id": "whee",
+        "video_id": "whee",
         "title": "hello",
         "duration": 6,
         "view_count": 6,
