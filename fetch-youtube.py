@@ -22,7 +22,10 @@ def main():
     #     "like_count": 6,
     #     "comment_count": 6
     # }
-    pass
+    get_video_id()
+    data = call_api()
+    data = convert_to_video_object(parse_data(data))
+
 
 def get_video_id():
     pass
@@ -56,10 +59,10 @@ def call_api():
     print(json.dumps(data, indent=4))
     return data
 
-def parse_data():
+def parse_data(data):
     pass
 
-def convert_to_video_object():
+def convert_to_video_object(v):
     v = Video(**v)
     print(type(v))
     return(v)
