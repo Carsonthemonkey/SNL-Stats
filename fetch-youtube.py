@@ -20,6 +20,10 @@ def main():
 
 
 def get_video_id():
+    # actually maybe this should just be given as an argument to the call_api
+    # could have user input it here but I don;t think that serves the purpose we want
+    # maybe have a function that gets the encoder url and then the other function can do 
+    # the actual calling of the api
     pass
 
 def call_api():
@@ -66,8 +70,6 @@ def convert_to_video_object(v):
     v = Video(**v)
     print(type(v))
     return(v)
-
-
 
 if __name__ == "__main__":
     main()
