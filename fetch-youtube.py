@@ -64,7 +64,7 @@ def parse_data(data):
     #     "like_count": 6,
     #     "comment_count": 6
     # }
-    pass
+    return data
 
 def convert_to_video_object(v):
     v = Video(**v)
