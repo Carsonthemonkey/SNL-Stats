@@ -14,16 +14,15 @@ class Video(BaseModel):
 
 # Example validation
 def main():
-    v = {
-        "video_id": "whee",
-        "title": "hello",
-        "duration": 6,
-        "view_count": 6,
-        "like_count": 6,
-        "comment_count": 6
-    }
-    v = Video(**v)
-    print(type(v))
+    # v = {
+    #     "video_id": "whee",
+    #     "title": "hello",
+    #     "duration": 6,
+    #     "view_count": 6,
+    #     "like_count": 6,
+    #     "comment_count": 6
+    # }
+    pass
 
 def get_video_id():
     pass
@@ -61,7 +60,9 @@ def parse_data():
     pass
 
 def convert_to_video_object():
-    pass
+    v = Video(**v)
+    print(type(v))
+    return(v)
 
 
 
