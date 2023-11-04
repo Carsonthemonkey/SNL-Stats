@@ -14,8 +14,9 @@ class Video(BaseModel):
 
 # Example validation
 def main():
+    VIDEO_ID = "dQw4w9WgXcQ"
     get_video_id()
-    data = call_api()
+    data = call_api(VIDEO_ID)
     data = convert_to_video_object(parse_data(data))
 
 
@@ -26,14 +27,13 @@ def get_video_id():
     # the actual calling of the api
     pass
 
-def call_api():
+def call_api(VIDEO_ID):
     # This is using HTTPS request rather than the python wrapper for the API for now. 
     # The python library seems overcomplicated to me, but we may need it down the line
     load_dotenv() # load .env file
 
     API_KEY = os.getenv("YOUTUBE_API_KEY") # Get api key
     assert API_KEY is not None
-    VIDEO_ID = "dQw4w9WgXcQ" 
 
     # start of URL
     url = f"https://www.googleapis.com/youtube/v3/videos"
