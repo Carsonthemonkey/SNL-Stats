@@ -7,7 +7,7 @@ from pydantic import BaseModel
 class Video(BaseModel):
     video_id: str
     title: str
-    duration: int
+    duration: str
     view_count: int
     like_count: int
     comment_count: int
@@ -18,6 +18,7 @@ def main():
     get_video_id()
     data = call_api(VIDEO_ID)
     video_data = parse_data(data)
+    return video_data
 
 
 def get_video_id():
@@ -56,15 +57,17 @@ def call_api(VIDEO_ID):
     return data
 
 def parse_data(data):
+    assert isinstance(data, dict)
+
     v = Video(
-        video_id="whee",
-        title="hello",
-        duration=6,
-        view_count=6,
-        like_count=6,
-        comment_count=6
+        video_id=data["items"][0]["id"],
+        title=data["items"][0]["snippet"]["title"],
+        duration=data["items"][0]["contentDetails"]["duration"],
+        view_count=data["items"][0]["statistics"]["viewCount"],
+        like_count=data["items"][0]["statistics"]["likeCount"],
+        comment_count=data["items"][0]["statistics"]["commentCount"]
     )
-    return data
+    return v
 
 if __name__ == "__main__":
     main()
