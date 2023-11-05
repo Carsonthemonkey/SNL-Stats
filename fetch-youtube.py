@@ -17,7 +17,7 @@ def main():
     VIDEO_ID = "dQw4w9WgXcQ"
     get_video_id()
     data = call_api(VIDEO_ID)
-    data = convert_to_video_object(parse_data(data))
+    data = parse_data(data)
 
 
 def get_video_id():
@@ -64,12 +64,8 @@ def parse_data(data):
     #     "like_count": 6,
     #     "comment_count": 6
     # }
+    v = Video()
     return data
-
-def convert_to_video_object(v):
-    v = Video(**v)
-    print(type(v))
-    return(v)
 
 if __name__ == "__main__":
     main()
