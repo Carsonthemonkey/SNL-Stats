@@ -13,20 +13,10 @@ class Video(BaseModel):
     comment_count: int
 
 # Example validation
-def main():
-    VIDEO_ID = "dQw4w9WgXcQ"
-    get_video_id()
-    data = call_api(VIDEO_ID)
+def get_video_data(video_id):
+    data = call_api(video_id)
     video_data = parse_data(data)
     return video_data
-
-
-def get_video_id():
-    # actually maybe this should just be given as an argument to the call_api
-    # could have user input it here but I don;t think that serves the purpose we want
-    # maybe have a function that gets the encoder url and then the other function can do 
-    # the actual calling of the api
-    pass
 
 def call_api(VIDEO_ID):
     # This is using HTTPS request rather than the python wrapper for the API for now. 
@@ -70,4 +60,4 @@ def parse_data(data):
     return v
 
 if __name__ == "__main__":
-    main()
+    get_video_data()
