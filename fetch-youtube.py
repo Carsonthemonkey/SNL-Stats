@@ -36,7 +36,7 @@ def call_api(VIDEO_ID):
     data = response.json()
     assert isinstance(data, dict)
 
-    print(json.dumps(data, indent=4))
+    # print(json.dumps(data, indent=4))
     return data
 
 def parse_data(data):
