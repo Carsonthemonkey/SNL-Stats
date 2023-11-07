@@ -2,15 +2,8 @@ import os
 import requests
 import json
 from dotenv import load_dotenv
-from pydantic import BaseModel
+from schema import Video
 
-class Video(BaseModel):
-    video_id: str
-    title: str
-    duration: str
-    view_count: int
-    like_count: int
-    comment_count: int
 
 # Example validation
 def get_video_data(video_id):
@@ -60,4 +53,5 @@ def parse_data(data):
     return v
 
 if __name__ == "__main__":
-    get_video_data()
+    v = get_video_data("dQw4w9WgXcQ")
+    print(dict(v))
