@@ -3,7 +3,7 @@ import re
 import requests
 import bs4
 from bs4 import BeautifulSoup
-from src.schema import Scene
+from schema import Scene
 from typing import List
 import json
 
