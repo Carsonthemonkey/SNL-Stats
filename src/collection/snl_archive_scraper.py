@@ -3,9 +3,17 @@ import re
 import requests
 import bs4
 from bs4 import BeautifulSoup
-from schema import Scene
+from src.schema import Scene
 from typing import List
 import json
+
+async def get_all_episode_urls():
+    URL = "http://www.snlarchives.net/Episodes/"
+    res = requests.get(URL, timeout=20)
+    soup = BeautifulSoup(res.content, 'html.parser')
+    chunks = soup.find_all(name='table', class_='sketch-roles')
+    for chunk in chunks:
+        print(chunk)
 
 async def get_scenes_from_episode_url(url: str) -> List[Scene]:
     res = requests.get(url, timeout=20)
