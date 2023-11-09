@@ -2,7 +2,7 @@ import os
 import requests
 import json
 from dotenv import load_dotenv
-from src.schema import Video
+from schema import Video
 
 
 # Example validation
