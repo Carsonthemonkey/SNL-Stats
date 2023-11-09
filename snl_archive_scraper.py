@@ -49,7 +49,6 @@ def get_scene_title(card) -> str:
 def get_scene_actors(card) -> list:
     actor_regex = re.compile(r'person-\d+')
     actor_tds = card.find_all(name='td', class_=actor_regex)
-    print(actor_tds, end = "\n\n")
     actors = []
     for td in actor_tds:
         actor = td.contents[0]
