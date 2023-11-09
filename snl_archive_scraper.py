@@ -8,12 +8,17 @@ from typing import List
 import json
 
 async def get_all_episode_urls():
-    URL = "http://www.snlarchives.net/Episodes/"
-    res = requests.get(URL, timeout=20)
+    BASE_URL = "http://www.snlarchives.net/Episodes/"
+    res = requests.get(BASE_URL, timeout=20)
     soup = BeautifulSoup(res.content, 'html.parser')
     chunks = soup.find_all(name='table', class_='sketch-roles')
+    urls = []
     for chunk in chunks:
-        print(chunk)
+        for tag in chunk.children:
+            if isinstance(tag, bs4.NavigableString) or tag is None:
+                continue
+            urls.append(BASE_URL + tag.td.a['href'])
+    return urls
 
 async def get_scenes_from_episode_url(url: str) -> List[Scene]:
     res = requests.get(url, timeout=20)
@@ -53,7 +58,10 @@ def get_scene_actors(card) -> list:
     return actors
 
 if __name__ == "__main__":
-    result = asyncio.run(get_scenes_from_episode_url("http://www.snlarchives.net/Episodes/?20200307"))
+    episodes = asyncio.run(get_all_episode_urls())
+    for episode in episodes:
+        print(episode)
+    # result = asyncio.run(get_scenes_from_episode_url("http://www.snlarchives.net/Episodes/?20200307"))
     # print(result)
-    with open('scenes.json', 'w') as f:
-        json.dump([dict(card) for card in result], f)
+    # with open('scenes.json', 'w') as f:
+    #     json.dump([dict(card) for card in result], f)
