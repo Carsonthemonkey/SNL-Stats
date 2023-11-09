@@ -29,7 +29,7 @@ async def get_scenes_from_episode_url(url: str, session: aiohttp.ClientSession) 
     class_regex = re.compile('card-sketch.*')
     # inside div id full
     cards = soup.find(id='full').find_all(class_=class_regex)
-    print("done")
+    # print("done")
     return [Scene(
         title=get_scene_title(card),
         scene_type=get_scene_type(card),
