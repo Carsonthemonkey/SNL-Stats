@@ -41,14 +41,14 @@ def call_api(VIDEO_ID):
 
 def parse_data(data):
     assert isinstance(data, dict)
-
+    data = data["items"][0]
     v = Video(
-        video_id=data["items"][0]["id"],
-        title=data["items"][0]["snippet"]["title"],
-        duration=data["items"][0]["contentDetails"]["duration"],
-        view_count=data["items"][0]["statistics"]["viewCount"],
-        like_count=data["items"][0]["statistics"]["likeCount"],
-        comment_count=data["items"][0]["statistics"]["commentCount"]
+        video_id=data["id"],
+        title=data["snippet"]["title"],
+        duration=data["contentDetails"]["duration"],
+        view_count=data["statistics"]["viewCount"],
+        like_count=data["statistics"]["likeCount"],
+        comment_count=data["statistics"]["commentCount"]
     )
     return v
 
