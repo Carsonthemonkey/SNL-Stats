@@ -33,7 +33,6 @@ async def main():
 
         scenes = [dict(scene) for episode in episodes if episode is not None for scene in episode if scene is not None]
 
-        #! This data is not writing correctly at the moment
         print(scenes)
         with open("data/scenes.json", "w", encoding="utf-8") as f:
             f.write(json.dumps(scenes))
