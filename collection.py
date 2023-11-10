@@ -3,6 +3,7 @@ import asyncio
 import aiohttp
 from tqdm.asyncio import tqdm
 from snl_archive_scraper import get_all_episode_urls, get_scenes_from_episode_url
+import datetime
 import json
 
 async def main():
@@ -33,10 +34,13 @@ async def main():
 
         scenes = [dict(scene) for episode in episodes if episode is not None for scene in episode if scene is not None]
 
-        print(scenes)
         with open("data/scenes.json", "w", encoding="utf-8") as f:
-            f.write(json.dumps(scenes))
+            data = {
+                "last_collected": datetime.datetime.now().isoformat(),
+                "scene_data": scenes
+            }
+            f.write(json.dumps(data))
 
-
+        # Collect youtube data here
 
 asyncio.run(main())
