@@ -21,20 +21,27 @@ async def get_all_episode_urls(session: aiohttp.ClientSession):
             urls.append(BASE_URL + tag.td.a['href'])
     return urls
 
-async def get_scenes_from_episode_url(url: str, session: aiohttp.ClientSession) -> List[Scene]:
-    async with session.get(url) as res:
-        soup = BeautifulSoup(await res.text(), 'html.parser')
+async def get_scenes_from_episode_url(url: str, session: aiohttp.ClientSession, semaphore: asyncio.Semaphore = None) -> List[Scene]:
+    if semaphore is None:
+        semaphore = asyncio.Semaphore(50)
+    
+    try:
+        async with semaphore:
+            async with session.get(url) as res:
+                soup = BeautifulSoup(await res.text(), 'html.parser')
 
-    # card is div with classes 'card' and 'card-sketch...' has class card
-    class_regex = re.compile('card-sketch.*')
-    # inside div id full
-    cards = soup.find(id='full').find_all(class_=class_regex)
-    # print("done")
-    return [Scene(
-        title=get_scene_title(card),
-        scene_type=get_scene_type(card),
-        cast=get_scene_actors(card)
-    ) for card in cards]
+            # card is div with classes 'card' and 'card-sketch...' has class card
+            class_regex = re.compile('card-sketch.*')
+            # inside div id full
+            cards = soup.find(id='full').find_all(class_=class_regex)
+            # print("done")
+            return [Scene(
+                title=get_scene_title(card),
+                scene_type=get_scene_type(card),
+                cast=get_scene_actors(card)
+            ) for card in cards]
+    except TimeoutError:
+        print(f"TimeoutError for url: {url}")
 
     
 def get_scene_type(card) -> str:
