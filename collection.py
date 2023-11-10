@@ -39,7 +39,7 @@ async def main():
                 "last_collected": datetime.datetime.now().isoformat(),
                 "scene_data": scenes
             }
-            f.write(json.dumps(data))
+            json.dump(data, f, indent=4)
 
         # Collect youtube data here
 
