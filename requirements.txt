@@ -1,3 +1,4 @@
+aiohttp==3.9.0b0
 annotated-types==0.6.0
 beautifulsoup4==4.12.2
 bs4==0.0.1
