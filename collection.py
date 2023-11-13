@@ -2,7 +2,7 @@ import argparse
 import asyncio
 import aiohttp
 from tqdm.asyncio import tqdm
-from snl_archive_scraper import get_all_episode_urls, get_scenes_from_episode_url
+from data_collection.snl_archive_scraper import get_all_episode_urls, get_scenes_from_episode_url
 import datetime
 import json
 

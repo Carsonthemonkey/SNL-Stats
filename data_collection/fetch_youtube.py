@@ -4,7 +4,6 @@ import json
 from dotenv import load_dotenv
 from schema import Video
 
-
 # Example validation
 def get_video_data(video_id):
     data = call_api(video_id)
