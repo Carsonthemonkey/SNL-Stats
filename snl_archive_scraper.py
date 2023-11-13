@@ -21,10 +21,7 @@ async def get_all_episode_urls(session: aiohttp.ClientSession):
             urls.append(BASE_URL + tag.td.a['href'])
     return urls
 
-async def get_scenes_from_episode_url(url: str, session: aiohttp.ClientSession, semaphore: asyncio.Semaphore = None) -> List[Scene]:
-    if semaphore is None:
-        semaphore = asyncio.Semaphore(50)
-    
+async def get_scenes_from_episode_url(url: str, session: aiohttp.ClientSession, semaphore: asyncio.Semaphore) -> List[Scene]:
     try:
         async with semaphore:
             async with session.get(url) as res:
@@ -42,6 +39,7 @@ async def get_scenes_from_episode_url(url: str, session: aiohttp.ClientSession, 
             ) for card in cards]
     except TimeoutError:
         print(f"TimeoutError for url: {url}")
+
 
     
 def get_scene_type(card) -> str:
@@ -69,8 +67,8 @@ def get_scene_actors(card) -> list:
 async def _demo():
     async with aiohttp.ClientSession() as session:
     #     episodes = await get_all_episode_urls(session)
-            result = await get_scenes_from_episode_url("http://www.snlarchives.net/Episodes/?20200307", session)
-            print(result)
+        result = await get_scenes_from_episode_url("http://www.snlarchives.net/Episodes/?20200307", session, asyncio.Semaphore(15))
+        print(result)
     # for episode in episodes:
     #     print(episode)
 
