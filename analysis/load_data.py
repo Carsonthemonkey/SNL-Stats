@@ -2,7 +2,7 @@ import json
 
 _cached_scenes = None
 
-def get_scene_data():
+def load_scene_data():
     global _cached_scenes
 
     if _cached_scenes is not None:
@@ -14,4 +14,4 @@ def get_scene_data():
 
 
 if __name__ == '__main__':
-    print(get_scene_data())
+    print(load_scene_data())
