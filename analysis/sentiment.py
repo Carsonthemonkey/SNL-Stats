@@ -1,8 +1,14 @@
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import numpy as np
 
 def score_comment_sentiment(comment: str) -> float:
     analyzer = SentimentIntensityAnalyzer()
     return analyzer.polarity_scores(comment)['compound']
+
+def get_sentiment_stats(strings: list) -> dict:
+    sentiments = np.array([score_comment_sentiment(string) for string in strings])
+    data = {"mean": sentiments.mean(), "standard_dev": sentiments.std()}
+    return data
 
 
 if __name__ == "__main__":

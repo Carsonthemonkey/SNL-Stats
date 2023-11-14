@@ -69,11 +69,13 @@ def parse_video_statistics(data: dict) -> Video:
     return v
 
 async def main():
+    from analysis.sentiment import get_sentiment_stats
     session = aiohttp.ClientSession()
     semaphore = asyncio.Semaphore(15)
     comments = await get_video_comments("6euomDxdHsY", 2000, session, semaphore)
     for comment in comments:
         print(comment)
+    print(get_sentiment_stats(comments))
     await session.close()
 
 
