@@ -33,7 +33,6 @@ def fetch_video(video_id: str) -> dict:
     # convert the json response to a python dictionary
     return response.json()
 
-#TODO: make this async
 async def get_video_comments(video_id: str, comment_number: int, session: aiohttp.ClientSession) -> list:
     comments_endpoint = "https://www.googleapis.com/youtube/v3/commentThreads"
     query_params = {
