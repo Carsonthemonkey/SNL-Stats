@@ -36,7 +36,7 @@ def get_video_data(playlist_id):
         "key": API_KEY,
         "playlistId": playlist_id, # should be UUqFzWxSCi39LnW1JKFR3efg for SNL
         "part": "snippet",
-        "maxResults": 2000
+        "maxResults": 50
     }
 
     # call the api with a timeout of 15 seconds
@@ -47,6 +47,7 @@ def get_video_data(playlist_id):
     data = data_res["items"]
     assert isinstance(data, list)
 
+    # TODO: make this async
     while data_res.get("nextPageToken"):
         query_params['pageToken'] = data_res['nextPageToken']
         print("on to " + query_params['pageToken'])
