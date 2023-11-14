@@ -10,12 +10,19 @@ def main():
     assert API_KEY is not None
 
     # start of URL
-    url = f"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=UUqFzWxSCi39LnW1JKFR3efg&key={API_KEY}"
+    url = f"https://www.googleapis.com/youtube/v3/playlistItems"
     # "UCqFzWxSCi39LnW1JKFR3efg" # SNL channel id
     # uploads playlist id: UUqFzWxSCi39LnW1JKFR3efg
 
+    query_params = {
+        "key": API_KEY,
+        "playlistId": "UUqFzWxSCi39LnW1JKFR3efg",
+        "part": "snippet"
+        # maxResults=50
+    }
+
     # call the api with a timeout of 15 seconds
-    response = requests.get(url, timeout=15)
+    response = requests.get(url, params=query_params, timeout=15)
 
     # convert the json response to a python dictionary
     data = response.json()
