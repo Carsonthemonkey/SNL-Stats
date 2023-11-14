@@ -14,11 +14,12 @@ async def main():
         help="fetch up to date scene data instead of relying on stored data",
         action="store_true",
     )
+    parser.add_argument('--all', '-a', help="re-collect all data", action='store_true')
 
     args = parser.parse_args()
 
     # Load or collect scene data
-    if args.scrape_scenes:
+    if args.scrape_scenes or args.all:
         print("Scraping scenes...")
         async with aiohttp.ClientSession() as session:
             urls = await get_all_episode_urls(session)
