@@ -30,7 +30,25 @@ def fetch_video(video_id: str) -> dict:
 
     # convert the json response to a python dictionary
     return response.json()
-    
+
+#TODO: make this async
+def get_video_comments(video_id: str, comment_number) -> list:
+    comments_endpoint = "https://www.googleapis.com/youtube/v3/commentThreads"
+    query_params = {
+        "key": API_KEY,
+        "videoId": video_id,
+        "maxResults": comment_number,
+        "part": "snippet,replies"
+    }
+    comment_data = requests.get(comments_endpoint, params=query_params, timeout=15).json()
+    comments = [comment['snippet']['topLevelComment']['snippet']['textOriginal'] for comment in comment_data['items']]
+    while comment_data.get('nextPageToken'):
+        # print(comment_data['nextPageToken'])
+        print(query_params)
+        query_params['pageToken'] = comment_data['nextPageToken']
+        comment_data = requests.get(comments_endpoint, params=query_params, timeout=15).json()
+        comments.extend([comment['snippet']['topLevelComment']['snippet']['textOriginal'] for comment in comment_data['items']])
+    return comments
 
 def parse_video_statistics(data: dict) -> Video:
     assert isinstance(data, dict)
@@ -46,5 +64,7 @@ def parse_video_statistics(data: dict) -> Video:
     return v
 
 if __name__ == "__main__":
-    v = get_video_data("dQw4w9WgXcQ")
-    print(dict(v))
+    comments = get_video_comments("6euomDxdHsY", 2000)
+    for comment in comments:
+        print(comment)
+    # print(dict(v))
