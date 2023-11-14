@@ -4,27 +4,25 @@ import json
 from dotenv import load_dotenv
 from schema import Video
 
-# Example validation
-def get_video_data(video_id):
-    data = call_api(video_id)
-    video_data = parse_data(data)
+load_dotenv() # load .env file
+API_KEY = os.getenv("YOUTUBE_API_KEY") # Get api key
+assert API_KEY is not None
+
+def get_video_data(video_id: str):
+    data = fetch_video(video_id)
+    video_data = parse_video_statistics(data)
     return video_data
 
-def call_api(VIDEO_ID):
+def fetch_video(video_id: str) -> dict:
     # This is using HTTPS request rather than the python wrapper for the API for now. 
     # The python library seems overcomplicated to me, but we may need it down the line
-    load_dotenv() # load .env file
-
-    API_KEY = os.getenv("YOUTUBE_API_KEY") # Get api key
-    assert API_KEY is not None
-
     # start of URL
     url = f"https://www.googleapis.com/youtube/v3/videos"
 
     # encode the url with the data we want
     query_params = {
         "key": API_KEY,
-        "id": VIDEO_ID,
+        "id": video_id,
         "part": "statistics,snippet,contentDetails"
     }
 
@@ -32,13 +30,10 @@ def call_api(VIDEO_ID):
     response = requests.get(url, params=query_params, timeout=15)
 
     # convert the json response to a python dictionary
-    data = response.json()
-    assert isinstance(data, dict)
+    return response.json()
+    
 
-    # print(json.dumps(data, indent=4))
-    return data
-
-def parse_data(data):
+def parse_video_statistics(data: dict) -> Video:
     assert isinstance(data, dict)
     data = data["items"][0]
     v = Video(
