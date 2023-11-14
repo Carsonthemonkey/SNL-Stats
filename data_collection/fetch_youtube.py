@@ -9,12 +9,12 @@ load_dotenv() # load .env file
 API_KEY = os.getenv("YOUTUBE_API_KEY") # Get api key
 assert API_KEY is not None
 
-def get_video_data(video_id: str):
-    data = fetch_video(video_id)
+async def get_video_data(video_id: str, session: aiohttp.ClientSession, semaphore: asyncio.Semaphore):
+    data = await fetch_video(video_id, session, semaphore)
     video_data = parse_video_statistics(data)
     return video_data
 
-def fetch_video(video_id: str) -> dict:
+async def fetch_video(video_id: str, session: aiohttp.ClientSession, semaphore: asyncio.Semaphore) -> dict:
     # This is using HTTPS request rather than the python wrapper for the API for now. 
     # The python library seems overcomplicated to me, but we may need it down the line
     # start of URL
@@ -28,10 +28,10 @@ def fetch_video(video_id: str) -> dict:
     }
 
     # call the api with a timeout of 15 seconds
-    response = requests.get(url, params=query_params, timeout=15)
+    async with semaphore:
+        async with session.get(url, params=query_params, timeout=15) as response:
+            return await response.json()
 
-    # convert the json response to a python dictionary
-    return response.json()
 
 async def get_video_comments(video_id: str, comment_number: int, session: aiohttp.ClientSession, semaphore: asyncio.Semaphore) -> list:
     comments_endpoint = "https://www.googleapis.com/youtube/v3/commentThreads"
@@ -71,7 +71,9 @@ def parse_video_statistics(data: dict) -> Video:
 async def main():
     session = aiohttp.ClientSession()
     semaphore = asyncio.Semaphore(15)
+    video_stats = await get_video_data("dQw4w9WgXcQ", session, semaphore)
     comments = await get_video_comments("6euomDxdHsY", 2000, session, semaphore)
+    print(video_stats)
     for comment in comments:
         print(comment)
     await session.close()
