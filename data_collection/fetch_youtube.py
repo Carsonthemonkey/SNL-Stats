@@ -33,7 +33,7 @@ def fetch_video(video_id: str) -> dict:
     # convert the json response to a python dictionary
     return response.json()
 
-async def get_video_comments(video_id: str, comment_number: int, session: aiohttp.ClientSession) -> list:
+async def get_video_comments(video_id: str, comment_number: int, session: aiohttp.ClientSession, semaphore: asyncio.Semaphore) -> list:
     comments_endpoint = "https://www.googleapis.com/youtube/v3/commentThreads"
     query_params = {
         "key": API_KEY,
@@ -42,15 +42,16 @@ async def get_video_comments(video_id: str, comment_number: int, session: aiohtt
         "part": "snippet,replies"
     }
     try:
-        async with session.get(comments_endpoint, params=query_params, timeout=15) as res:       
-            comment_data = await res.json()
-            comments = [comment['snippet']['topLevelComment']['snippet']['textOriginal'] for comment in comment_data['items']]
-            while comment_data.get('nextPageToken'):
-                query_params['pageToken'] = comment_data['nextPageToken']
-                async with session.get(comments_endpoint, params=query_params, timeout=15) as res:
-                    comment_data = await res.json()
-                    comments.extend([comment['snippet']['topLevelComment']['snippet']['textOriginal'] for comment in comment_data['items']])
-            return comments
+        async with semaphore:
+            async with session.get(comments_endpoint, params=query_params, timeout=15) as res:       
+                comment_data = await res.json()
+                comments = [comment['snippet']['topLevelComment']['snippet']['textOriginal'] for comment in comment_data['items']]
+                while comment_data.get('nextPageToken'):
+                    query_params['pageToken'] = comment_data['nextPageToken']
+                    async with session.get(comments_endpoint, params=query_params, timeout=15) as res:
+                        comment_data = await res.json()
+                        comments.extend([comment['snippet']['topLevelComment']['snippet']['textOriginal'] for comment in comment_data['items']])
+                return comments
     except TimeoutError:
         print(f'Timeout Error for video ID: {video_id}')
 
@@ -69,7 +70,8 @@ def parse_video_statistics(data: dict) -> Video:
 
 async def main():
     session = aiohttp.ClientSession()
-    comments = await get_video_comments("6euomDxdHsY", 2000, session)
+    semaphore = asyncio.Semaphore(15)
+    comments = await get_video_comments("6euomDxdHsY", 2000, session, semaphore)
     for comment in comments:
         print(comment)
     await session.close()
