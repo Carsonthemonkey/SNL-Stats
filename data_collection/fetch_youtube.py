@@ -1,30 +1,29 @@
 import os
 import requests
-import json
+import asyncio
+import aiohttp
 from dotenv import load_dotenv
 from schema import Video
 
-# Example validation
-def get_video_data(video_id):
-    data = call_api(video_id)
-    video_data = parse_data(data)
+load_dotenv() # load .env file
+API_KEY = os.getenv("YOUTUBE_API_KEY") # Get api key
+assert API_KEY is not None
+
+def get_video_data(video_id: str):
+    data = fetch_video(video_id)
+    video_data = parse_video_statistics(data)
     return video_data
 
-def call_api(VIDEO_ID):
+def fetch_video(video_id: str) -> dict:
     # This is using HTTPS request rather than the python wrapper for the API for now. 
     # The python library seems overcomplicated to me, but we may need it down the line
-    load_dotenv() # load .env file
-
-    API_KEY = os.getenv("YOUTUBE_API_KEY") # Get api key
-    assert API_KEY is not None
-
     # start of URL
     url = f"https://www.googleapis.com/youtube/v3/videos"
 
     # encode the url with the data we want
     query_params = {
         "key": API_KEY,
-        "id": VIDEO_ID,
+        "id": video_id,
         "part": "statistics,snippet,contentDetails"
     }
 
@@ -32,13 +31,31 @@ def call_api(VIDEO_ID):
     response = requests.get(url, params=query_params, timeout=15)
 
     # convert the json response to a python dictionary
-    data = response.json()
-    assert isinstance(data, dict)
+    return response.json()
 
-    # print(json.dumps(data, indent=4))
-    return data
+#TODO: make this async
+async def get_video_comments(video_id: str, comment_number: int, session: aiohttp.ClientSession) -> list:
+    comments_endpoint = "https://www.googleapis.com/youtube/v3/commentThreads"
+    query_params = {
+        "key": API_KEY,
+        "videoId": video_id,
+        "maxResults": comment_number,
+        "part": "snippet,replies"
+    }
+    try:
+        async with session.get(comments_endpoint, params=query_params, timeout=15) as res:       
+            comment_data = await res.json()
+            comments = [comment['snippet']['topLevelComment']['snippet']['textOriginal'] for comment in comment_data['items']]
+            while comment_data.get('nextPageToken'):
+                query_params['pageToken'] = comment_data['nextPageToken']
+                async with session.get(comments_endpoint, params=query_params, timeout=15) as res:
+                    comment_data = await res.json()
+                    comments.extend([comment['snippet']['topLevelComment']['snippet']['textOriginal'] for comment in comment_data['items']])
+            return comments
+    except TimeoutError:
+        print(f'Timeout Error for video ID: {video_id}')
 
-def parse_data(data):
+def parse_video_statistics(data: dict) -> Video:
     assert isinstance(data, dict)
     data = data["items"][0]
     v = Video(
@@ -51,6 +68,13 @@ def parse_data(data):
     )
     return v
 
+async def main():
+    session = aiohttp.ClientSession()
+    comments = await get_video_comments("6euomDxdHsY", 2000, session)
+    for comment in comments:
+        print(comment)
+    await session.close()
+
+
 if __name__ == "__main__":
-    v = get_video_data("dQw4w9WgXcQ")
-    print(dict(v))
+    asyncio.run(main())
