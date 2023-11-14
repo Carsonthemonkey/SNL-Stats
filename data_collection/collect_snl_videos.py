@@ -10,7 +10,7 @@ def main():
     assert API_KEY is not None
 
     # start of URL
-    url = f"https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername=SaturdayNightLive&key={API_KEY}"
+    url = f"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=UUqFzWxSCi39LnW1JKFR3efg&key={API_KEY}"
     # "UCqFzWxSCi39LnW1JKFR3efg" # SNL channel id
     # gave me "uploads": "UUqFzWxSCi39LnW1JKFR3efg
 
