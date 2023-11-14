@@ -24,16 +24,16 @@ def get_uploads_playlist(username):
     data = response.json()
     assert isinstance(data, dict)
 
-    print(json.dumps(data, indent=4))
-    print(data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"])
-    return data
+    # print(json.dumps(data, indent=4))
+    # print(data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"])
+    return data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
 def get_video_data(playlist_id):
     url = f"https://www.googleapis.com/youtube/v3/playlistItems"
 
     query_params = {
         "key": API_KEY,
-        "playlistId": "UUqFzWxSCi39LnW1JKFR3efg", # should be UUqFzWxSCi39LnW1JKFR3efg for SNL
+        "playlistId": playlist_id, # should be UUqFzWxSCi39LnW1JKFR3efg for SNL
         "part": "snippet",
         "maxResults": 50 # TODO: probably want to use nextPageToken to get all videos
     }
@@ -49,8 +49,6 @@ def get_video_data(playlist_id):
     return data
 
 def get_video_id_list(data):
-    print(type(data))
-    assert isinstance(data, dict)
     ids = [d["snippet"]["resourceId"]["videoId"] for d in data["items"]]
     return ids
 
