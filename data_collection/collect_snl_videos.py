@@ -12,7 +12,7 @@ def main():
     # start of URL
     url = f"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId=UUqFzWxSCi39LnW1JKFR3efg&key={API_KEY}"
     # "UCqFzWxSCi39LnW1JKFR3efg" # SNL channel id
-    # gave me "uploads": "UUqFzWxSCi39LnW1JKFR3efg
+    # uploads playlist id: UUqFzWxSCi39LnW1JKFR3efg
 
     # call the api with a timeout of 15 seconds
     response = requests.get(url, timeout=15)
