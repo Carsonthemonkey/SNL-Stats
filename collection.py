@@ -3,6 +3,7 @@ import asyncio
 import aiohttp
 from tqdm.asyncio import tqdm
 from data_collection.snl_archive_scraper import get_all_episode_urls, get_scenes_from_episode_url
+from analysis.load_data import load_scene_data
 import datetime
 import json
 
@@ -16,6 +17,7 @@ async def main():
 
     args = parser.parse_args()
 
+    # Load or collect scene data
     if args.scrape_scenes:
         print("Scraping scenes...")
         async with aiohttp.ClientSession() as session:
@@ -40,7 +42,8 @@ async def main():
                 "scene_data": scenes
             }
             json.dump(data, f, indent=4)
-
+    else:
+        scenes = load_scene_data()
         # Collect youtube data here
 
 asyncio.run(main())
