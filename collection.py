@@ -44,6 +44,10 @@ async def main():
             json.dump(data, f, indent=4)
     else:
         scenes = load_scene_data()
-        # Collect youtube data here
+    
+
+    # Collect or load youtube stats
+
+    # Collect or load comment sentiment
 
 asyncio.run(main())
