@@ -135,6 +135,9 @@ def get_scene_by_title(title: str, scenes: list) -> dict:
     for scene in scenes:
         if scene['title'] == title:
             return scene
-        
 
-asyncio.run(main())
+
+if __name__ == '__main__':
+    # This block will be executed only if the script is run as the main program
+    multiprocessing.freeze_support()  # This is necessary for Windows support
+    asyncio.run(main())
