@@ -9,29 +9,35 @@ load_dotenv() # load .env file
 API_KEY = os.getenv("YOUTUBE_API_KEY") # Get api key
 assert API_KEY is not None
 
-def get_video_data(video_id: str):
-    data = fetch_video(video_id)
-    video_data = parse_video_statistics(data)
+def get_video_data(video_ids: list) -> list:
+    video_data = fetch_video(video_ids)
+    video_data = [parse_video_statistics(video) for video in video_data]
     return video_data
 
-def fetch_video(video_id: str) -> dict:
+def fetch_video(video_ids: list) -> dict:
     # This is using HTTPS request rather than the python wrapper for the API for now. 
     # The python library seems overcomplicated to me, but we may need it down the line
     # start of URL
-    url = f"https://www.googleapis.com/youtube/v3/videos"
+    videos_endpoint = f"https://www.googleapis.com/youtube/v3/videos"
 
     # encode the url with the data we want
     query_params = {
         "key": API_KEY,
-        "id": video_id,
+        "id": video_ids,
         "part": "statistics,snippet,contentDetails"
     }
 
     # call the api with a timeout of 15 seconds
-    response = requests.get(url, params=query_params, timeout=15)
+    response = requests.get(videos_endpoint, params=query_params, timeout=15).json()
+    video_stats = response['items']
+    while response.get('nextPageToken'):
+        response = requests.get(videos_endpoint, params=query_params, timeout=15).json()
+        response = response.json()
+        query_params['pageId'] = response['nextPageToken']
+        response = requests.get(videos_endpoint, params=query_params, timeout=15)
+        video_stats.extend(response.json()['items'])
 
-    # convert the json response to a python dictionary
-    return response.json()
+    return video_stats
 
 async def get_video_comments(video_id: str, comment_number: int, session: aiohttp.ClientSession, semaphore: asyncio.Semaphore) -> list:
     comments_endpoint = "https://www.googleapis.com/youtube/v3/commentThreads"
@@ -57,7 +63,7 @@ async def get_video_comments(video_id: str, comment_number: int, session: aiohtt
 
 def parse_video_statistics(data: dict) -> Video:
     assert isinstance(data, dict)
-    data = data["items"][0]
+    # data = data["items"][0]
     v = Video(
         video_id=data["id"],
         title=data["snippet"]["title"],
@@ -70,13 +76,12 @@ def parse_video_statistics(data: dict) -> Video:
 
 async def main():
     from analysis.sentiment import get_sentiment_stats
-    session = aiohttp.ClientSession()
-    semaphore = asyncio.Semaphore(15)
-    comments = await get_video_comments("6euomDxdHsY", 2000, session, semaphore)
-    for comment in comments:
-        print(comment)
-    print(get_sentiment_stats(comments))
-    await session.close()
+    # session = aiohttp.ClientSession()
+    # semaphore = asyncio.Semaphore(15)
+    videos = get_video_data(["dQw4w9WgXcQ", "P-MrIIEIPek"])
+    for video in videos:
+        print(dict(video))
+    # await session.close()
 
 
 if __name__ == "__main__":
