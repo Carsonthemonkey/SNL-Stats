@@ -100,18 +100,26 @@ async def main():
     scene_titles = [
         scene["title"] for scene in scenes["scene_data"] if scene["title"] is not None
     ]
+
     # match videos based on title
     composite_data = []
-    # matching_titles = []
-    for video in sync_tqdm(filtered_videos, desc="Indexing video titles"):
-        if video['title'] is None:
-            continue
-        composite_data.append(get_combined_data_from_video_info(video, scene_titles, scenes['scene_data']))
+    
+    # load function args into list of tuples for multiprocessing
+    args = [(vid, scene_titles, scenes['scene_data']) for vid in filtered_videos if vid['title'] is not None]
+    
+    num_processes = multiprocessing.cpu_count()
+    print(f'Utilizing {num_processes} CPU cores for title matching')
+    with multiprocessing.Pool(processes=num_processes) as pool:
+        for result in sync_tqdm(pool.imap_unordered(multi_core_wrapper, args),total=len(args) , desc="Indexing video titles"):
+            composite_data.append(result)
 
     print(len(composite_data))
     print(composite_data[0])
     
     # Collect or load comment sentiment
+
+def multi_core_wrapper(args: tuple):
+    return get_combined_data_from_video_info(*args)
 
 def get_combined_data_from_video_info(video_info: dict, scene_titles, scene_data: list) -> dict:
     matching_scene_title = get_matching_string(video_info['title'], scene_titles, 0.9)
