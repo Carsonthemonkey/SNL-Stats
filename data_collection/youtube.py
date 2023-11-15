@@ -72,7 +72,7 @@ def _fetch_channel_videos(playlist_id):
 
     query_params = {
         "key": API_KEY,
-        "playlistId": playlist_id,  # should be UUqFzWxSCi39LnW1JKFR3efg for SNL
+        "playlistId": playlist_id,
         "part": "snippet",
         "maxResults": 50,
     }
@@ -85,7 +85,6 @@ def _fetch_channel_videos(playlist_id):
     data = data_res["items"]
     assert isinstance(data, list)
 
-    # TODO: add a progress bar?
     with tqdm(total=None, desc='fetching channel videos', unit=' videos', ncols=100) as pbar:
         last_len = len(data)
         pbar.update(last_len)
@@ -101,7 +100,7 @@ def _fetch_channel_videos(playlist_id):
     return data
 
 
-def _fetch_uploads_playlist(username: str):
+def _fetch_uploads_playlist(username: str): # returns the id of the uploads playlist
     url = f"https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername={username}&key={API_KEY}"
 
     # call the api with a timeout of 15 seconds
@@ -170,7 +169,6 @@ def _extract_video_info(videos):
 
 
 async def main():
-
     # session = aiohttp.ClientSession()
     # semaphore = asyncio.Semaphore(15)
     videos = fetch_video_statistics(["dQw4w9WgXcQ", "P-MrIIEIPek"])
