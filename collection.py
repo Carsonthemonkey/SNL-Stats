@@ -1,12 +1,15 @@
 import argparse
+import multiprocessing
 import asyncio
 import aiohttp
 from tqdm.asyncio import tqdm
+from tqdm import tqdm as sync_tqdm
 from data_collection.snl_archive_scraper import (
     get_all_episode_urls,
     get_scenes_from_episode_url,
 )
 from data_collection.youtube import fetch_all_channel_videos
+from data_collection.fuzzy_search import get_matching_string
 from analysis.load_data import (
     load_scene_data,
     load_video_data,
@@ -75,17 +78,30 @@ async def main():
     if args.get_stats or args.all:
         # collect youtube data
         print("Getting videos from youtube...")
-        video_data = fetch_all_channel_videos("SaturdayNightLive")
+        channel_videos = fetch_all_channel_videos("SaturdayNightLive")
 
         with open("data/channel_videos.json", "w", encoding="utf-8") as f:
             data = {
                 "last_collected": datetime.datetime.now().isoformat(),
-                "channel_videos": video_data,
+                "channel_videos": channel_videos,
             }
             json.dump(data, f, indent=4)
     else:
         # load youtube data
-        video_data = load_video_data()
+        channel_videos = load_video_data()
+    
+    video_titles = [video['title'] for video in channel_videos['channel_videos'] if video['title'] is not None]
+    scene_titles = [scene['title'] for scene in scenes['scene_data'] if scene['title'] is not None]
+    # match videos based on title
+    # composite_data = []
+    matching_titles = []
+    for title, video_index in zip(video_titles, sync_tqdm(range(len(channel_videos['channel_videos'])), desc="Indexing video titles")):
+        if title is None:
+            pass
+        matching_scene_title = get_matching_string(title, scene_titles, 0.9)
+        if matching_scene_title is not None:
+            matching_titles.append(matching_scene_title)
+
         
     # Collect or load comment sentiment
 

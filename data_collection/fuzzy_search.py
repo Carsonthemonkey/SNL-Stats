@@ -2,7 +2,7 @@ from fuzzywuzzy import process, fuzz
 
 
 def get_matching_string(string: str, strings: list, threshold: float = 0.8) -> str:
-    result = process.extractOne(string, strings, scorer=fuzz.token_set_ratio, score_cutoff=threshold*100) # token set ratio should work best for SNL titles
+    result = process.extractOne(string, strings, score_cutoff=threshold*100, scorer=fuzz.token_sort_ratio)
     if result is not None:
         return result[0]
 
