@@ -59,6 +59,7 @@ async def fetch_video_comments(
     except TimeoutError:
         print(f"Timeout Error for video ID: {video_id}")
 
+
 def fetch_all_channel_videos(username: str) -> list:
     playlist_id = _fetch_uploads_playlist_id(
         username
@@ -109,10 +110,6 @@ def _fetch_channel_videos(playlist_id):
 
     # print(json.dumps(data, indent=4))
     return data
-
-
-
-
 
 def _fetch_videos(video_ids: list) -> dict:
     videos_endpoint = f"https://www.googleapis.com/youtube/v3/videos"
