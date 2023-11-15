@@ -75,19 +75,17 @@ async def main():
     if args.get_stats or args.all:
         # collect youtube data
         print("Getting videos from youtube...")
-        ids = get_all_channel_video_ids("SaturdayNightLive")
-        print(ids)
-        print("number of ids collected " + len(id))
+        video_data = get_all_channel_video_ids("SaturdayNightLive")
 
-        with open("data/video_ids.json", "w", encoding="utf-8") as f:
+        with open("data/channel_videos.json", "w", encoding="utf-8") as f:
             data = {
                 "last_collected": datetime.datetime.now().isoformat(),
-                "id_data": ids,
+                "channel_videos": video_data,
             }
             json.dump(data, f, indent=4)
     else:
         # load youtube data
-        ids = load_video_data()
+        video_data = load_video_data()
         
     # Collect or load comment sentiment
 

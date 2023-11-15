@@ -20,7 +20,7 @@ def load_video_data():
     if _cached_videos is not None:
         return _cached_videos
     
-    with open("data/video_ids.json", "r", encoding="utf-8") as f:
+    with open("data/channel_videos.json", "r", encoding="utf-8") as f:
         _cached_videos = json.load(f)
     return _cached_videos
 
