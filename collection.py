@@ -6,7 +6,7 @@ from data_collection.snl_archive_scraper import (
     get_all_episode_urls,
     get_scenes_from_episode_url,
 )
-from data_collection.collect_snl_videos import get_all_channel_video_ids
+from data_collection.fetch_youtube import fetch_all_channel_videos
 from analysis.load_data import (
     load_scene_data,
     load_video_data,
@@ -75,7 +75,7 @@ async def main():
     if args.get_stats or args.all:
         # collect youtube data
         print("Getting videos from youtube...")
-        video_data = get_all_channel_video_ids("SaturdayNightLive")
+        video_data = fetch_all_channel_videos("SaturdayNightLive")
 
         with open("data/channel_videos.json", "w", encoding="utf-8") as f:
             data = {

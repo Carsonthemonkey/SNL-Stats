@@ -2,6 +2,7 @@ import os
 import requests
 import asyncio
 import aiohttp
+from tqdm import tqdm
 from dotenv import load_dotenv
 from schema import Video
 
@@ -57,6 +58,62 @@ async def fetch_video_comments(
     except TimeoutError:
         print(f"Timeout Error for video ID: {video_id}")
 
+def fetch_all_channel_videos(username: str) -> list:
+    playlist_id = _fetch_uploads_playlist(
+        username
+    )  # SNL's will be UUqFzWxSCi39LnW1JKFR3efg
+    data = _fetch_channel_videos(playlist_id)
+    return _extract_video_info(data)
+
+
+def _fetch_channel_videos(playlist_id):
+    url = f"https://www.googleapis.com/youtube/v3/playlistItems"
+
+    query_params = {
+        "key": API_KEY,
+        "playlistId": playlist_id,  # should be UUqFzWxSCi39LnW1JKFR3efg for SNL
+        "part": "snippet",
+        "maxResults": 50,
+    }
+
+    # call the api with a timeout of 15 seconds
+    response = requests.get(url, params=query_params, timeout=15)
+
+    # convert the json response to a python dictionary
+    data_res = response.json()
+    data = data_res["items"]
+    assert isinstance(data, list)
+
+    # TODO: add a progress bar?
+    with tqdm(total=None, desc='fetching channel videos', unit=' videos', ncols=100) as pbar:
+        last_len = len(data)
+        pbar.update(last_len)
+        while data_res.get("nextPageToken"):
+            query_params["pageToken"] = data_res["nextPageToken"]
+            response = requests.get(url, params=query_params, timeout=15)
+            data_res = response.json()
+            data.extend(data_res["items"])
+            pbar.update(len(data) - last_len)
+            last_len = len(data)
+
+    # print(json.dumps(data, indent=4))
+    return data
+
+
+def _fetch_uploads_playlist(username: str):
+    url = f"https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername={username}&key={API_KEY}"
+
+    # call the api with a timeout of 15 seconds
+    response = requests.get(url, timeout=15)
+
+    # convert the json response to a python dictionary
+    data = response.json()
+    assert isinstance(data, dict)
+
+    return data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+
+
+
 def _fetch_videos(video_ids: list) -> dict:
     videos_endpoint = f"https://www.googleapis.com/youtube/v3/videos"
 
@@ -99,6 +156,16 @@ def _extract_video_statistics(data: dict) -> Video:
         "comment_count": data["statistics"]["commentCount"],
     }
     return v
+
+def _extract_video_info(videos):
+    video_data = [
+        {
+            "id": video["snippet"]["resourceId"]["videoId"],
+            "title": video["snippet"]["title"],
+        }
+        for video in videos
+    ]
+    return video_data
 
 
 async def main():
