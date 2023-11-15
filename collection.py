@@ -26,8 +26,9 @@ async def main():
             print(f"found {len(urls)} episodes")
             pbar = tqdm(total=len(urls), desc="Collecting scene data")
 
-            def on_complete(future):
+            def on_complete():
                 pbar.update(1)
+
             semaphore = asyncio.Semaphore(15)
             tasks = [asyncio.create_task(get_scenes_from_episode_url(url, session, semaphore)) for url in urls]
 
