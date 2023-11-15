@@ -66,6 +66,17 @@ def fetch_all_channel_videos(username: str) -> list:
     data = _fetch_channel_videos(playlist_id)
     return _extract_video_info(data)
 
+def _fetch_uploads_playlist_id(username: str) -> str:
+    url = f"https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername={username}&key={API_KEY}"
+
+    # call the api with a timeout of 15 seconds
+    response = requests.get(url, timeout=15)
+
+    # convert the json response to a python dictionary
+    data = response.json()
+    assert isinstance(data, dict)
+
+    return data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
 def _fetch_channel_videos(playlist_id):
     url = f"https://www.googleapis.com/youtube/v3/playlistItems"
@@ -100,17 +111,6 @@ def _fetch_channel_videos(playlist_id):
     return data
 
 
-def _fetch_uploads_playlist_id(username: str) -> str:
-    url = f"https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername={username}&key={API_KEY}"
-
-    # call the api with a timeout of 15 seconds
-    response = requests.get(url, timeout=15)
-
-    # convert the json response to a python dictionary
-    data = response.json()
-    assert isinstance(data, dict)
-
-    return data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
 
 
