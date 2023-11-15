@@ -90,7 +90,7 @@ async def main():
         # load youtube data
         channel_videos = load_video_data()
 
-    blocked_strings = ["behind the sketch"] # Use this to manually filter titles
+    blocked_strings = ["behind the sketch", "behind the scenes", "bloopers", "(live)"] # Use this to manually filter titles
     filtered_videos = [
         video
         for video in channel_videos["channel_videos"]
