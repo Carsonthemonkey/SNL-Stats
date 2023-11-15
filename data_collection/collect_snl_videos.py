@@ -16,7 +16,6 @@ def get_all_channel_video_ids(username):
     )  # SNL's will be UUqFzWxSCi39LnW1JKFR3efg
     data = get_video_data(playlist_id)
     return extract_video_data(data)
-    # TODO: also want to return the video titles with the ids
 
 
 def get_uploads_playlist(username):
