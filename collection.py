@@ -6,7 +6,11 @@ from data_collection.snl_archive_scraper import (
     get_all_episode_urls,
     get_scenes_from_episode_url,
 )
-from analysis.load_data import load_scene_data
+from data_collection.collect_snl_videos import get_all_channel_video_ids
+from analysis.load_data import (
+    load_scene_data,
+    load_video_data,
+)
 import datetime
 import json
 
@@ -70,10 +74,20 @@ async def main():
     # Collect or load youtube stats
     if args.get_stats or args.all:
         # collect youtube data
-        pass
+        print("Getting videos from youtube...")
+        ids = get_all_channel_video_ids("SaturdayNightLive")
+        print(len(ids), ids)
+
+        with open("data/video_ids.json", "w", encoding="utf-8") as f:
+            data = {
+                "last_collected": datetime.datetime.now().isoformat(),
+                "id_data": ids,
+            }
+            json.dump(data, f, indent=4)
     else:
-        pass
         # load youtube data
+        ids = load_video_data()
+        
     # Collect or load comment sentiment
 
 
