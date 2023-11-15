@@ -1,8 +1,8 @@
 from fuzzywuzzy import process
 
 
-def get_matching_string(title: str, titles: list) -> str:
-    return process.extractOne(title, titles)
+def get_matching_string(string: str, strings: list) -> str:
+    return process.extractOne(string, strings)
 
 
 if __name__ == '__main__':
