@@ -89,21 +89,41 @@ async def main():
     else:
         # load youtube data
         channel_videos = load_video_data()
-    
-    video_titles = [video['title'] for video in channel_videos['channel_videos'] if video['title'] is not None]
-    scene_titles = [scene['title'] for scene in scenes['scene_data'] if scene['title'] is not None]
-    # match videos based on title
-    # composite_data = []
-    matching_titles = []
-    for title, video_index in zip(video_titles, sync_tqdm(range(len(channel_videos['channel_videos'])), desc="Indexing video titles")):
-        if title is None:
-            pass
-        matching_scene_title = get_matching_string(title, scene_titles, 0.9)
-        if matching_scene_title is not None:
-            matching_titles.append(matching_scene_title)
 
-        
+    blocked_strings = ["behind the sketch"] # Use this to manually filter titles
+    filtered_videos = [
+        video
+        for video in channel_videos["channel_videos"]
+        for blocked in blocked_strings
+        if video["title"] is not None and blocked not in video["title"].lower()
+    ]
+    scene_titles = [
+        scene["title"] for scene in scenes["scene_data"] if scene["title"] is not None
+    ]
+    # match videos based on title
+    composite_data = []
+    # matching_titles = []
+    for video in sync_tqdm(filtered_videos, desc="Indexing video titles"):
+        if video['title'] is None:
+            pass
+        matching_scene_title = get_matching_string(video['title'], scene_titles, 0.9)
+        if matching_scene_title is not None:
+            matching_scene = get_scene_by_title(matching_scene_title, scenes['scene_data'])
+            matched_video = {
+                'id': video['id'],
+                **matching_scene,
+            }
+            composite_data.append(matched_video)
+            # matching_titles.append(matching_scene_title)
+
+    print(len(composite_data))
+    print(composite_data[0])
     # Collect or load comment sentiment
 
+def get_scene_by_title(title: str, scenes: list) -> dict:
+    for scene in scenes:
+        if scene['title'] == title:
+            return scene
+        
 
 asyncio.run(main())
