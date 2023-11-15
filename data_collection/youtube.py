@@ -8,7 +8,8 @@ from schema import Video
 
 load_dotenv()  # load .env file
 API_KEY = os.getenv("YOUTUBE_API_KEY")  # Get api key
-assert API_KEY is not None
+if API_KEY is None: 
+    raise KeyError("API key not found in .env file")
 
 
 def fetch_video_statistics(video_ids: list) -> list:
