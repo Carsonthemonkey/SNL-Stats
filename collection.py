@@ -111,7 +111,8 @@ async def main():
     print(f'Utilizing {num_processes} CPU cores for title matching')
     with multiprocessing.Pool(processes=num_processes) as pool:
         for result in sync_tqdm(pool.imap_unordered(multi_core_wrapper, args),total=len(args) , desc="Indexing video titles"):
-            composite_data.append(result)
+            if result is not None:
+                composite_data.append(result)
 
     print(len(composite_data))
     print(composite_data[0])
