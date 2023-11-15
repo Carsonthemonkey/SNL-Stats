@@ -60,7 +60,7 @@ async def fetch_video_comments(
         print(f"Timeout Error for video ID: {video_id}")
 
 def fetch_all_channel_videos(username: str) -> list:
-    playlist_id = _fetch_uploads_playlist(
+    playlist_id = _fetch_uploads_playlist_id(
         username
     )  # SNL's will be UUqFzWxSCi39LnW1JKFR3efg
     data = _fetch_channel_videos(playlist_id)
@@ -100,7 +100,7 @@ def _fetch_channel_videos(playlist_id):
     return data
 
 
-def _fetch_uploads_playlist(username: str): # returns the id of the uploads playlist
+def _fetch_uploads_playlist_id(username: str) -> str:
     url = f"https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername={username}&key={API_KEY}"
 
     # call the api with a timeout of 15 seconds
