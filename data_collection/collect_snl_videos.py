@@ -47,7 +47,8 @@ def get_video_data(playlist_id):
     data = data_res["items"]
     assert isinstance(data, list)
 
-    # TODO: make this async
+    # TODO: add a progress bar?
+    # TODO: send output to a file
     while data_res.get("nextPageToken"):
         query_params['pageToken'] = data_res['nextPageToken']
         print("on to " + query_params['pageToken'])
