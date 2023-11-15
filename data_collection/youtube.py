@@ -133,7 +133,7 @@ def _fetch_videos(video_ids: list) -> dict:
 
     return video_stats
 
-def _extract_video_statistics(data: dict) -> Video:
+def _extract_video_statistics(data: dict) -> dict:
     assert isinstance(data, dict)
     # data = data["items"][0]
     # v = Video(
