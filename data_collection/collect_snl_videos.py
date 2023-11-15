@@ -25,8 +25,6 @@ def get_uploads_playlist(username):
     data = response.json()
     assert isinstance(data, dict)
 
-    # print(json.dumps(data, indent=4))
-    # print(data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"])
     return data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
 def get_video_data(playlist_id):
@@ -48,10 +46,8 @@ def get_video_data(playlist_id):
     assert isinstance(data, list)
 
     # TODO: add a progress bar?
-    # TODO: send output to a file
     while data_res.get("nextPageToken"):
         query_params['pageToken'] = data_res['nextPageToken']
-        # print("on to " + query_params['pageToken'])
         response = requests.get(url, params=query_params, timeout=15)
         data_res = response.json()
         data.extend(data_res["items"])
@@ -60,8 +56,7 @@ def get_video_data(playlist_id):
     return data
 
 def get_video_id_list(data):
-    print(data)
-    ids = [d["snippet"]["resourceId"]["videoId"] for d in data["items"]]
+    ids = [d["snippet"]["resourceId"]["videoId"] for d in data]
     return ids
 
 if __name__ == "__main__":

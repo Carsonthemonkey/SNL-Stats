@@ -76,7 +76,8 @@ async def main():
         # collect youtube data
         print("Getting videos from youtube...")
         ids = get_all_channel_video_ids("SaturdayNightLive")
-        print(len(ids), ids)
+        print(ids)
+        print("number of ids collected " + len(id))
 
         with open("data/video_ids.json", "w", encoding="utf-8") as f:
             data = {
