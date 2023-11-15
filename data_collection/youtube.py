@@ -28,7 +28,7 @@ async def fetch_video_comments(
     query_params = {
         "key": API_KEY,
         "videoId": video_id,
-        "maxResults": comment_number,
+        "maxResults": 5000,
         "part": "snippet,replies",
     }
     try:
@@ -41,21 +41,20 @@ async def fetch_video_comments(
                     comment["snippet"]["topLevelComment"]["snippet"]["textOriginal"]
                     for comment in comment_data["items"]
                 ]
+                yield comments
                 while comment_data.get("nextPageToken"):
                     query_params["pageToken"] = comment_data["nextPageToken"]
                     async with session.get(
                         comments_endpoint, params=query_params, timeout=15
                     ) as res:
                         comment_data = await res.json()
-                        comments.extend(
-                            [
+                        comments = [
                                 comment["snippet"]["topLevelComment"]["snippet"][
                                     "textOriginal"
                                 ]
                                 for comment in comment_data["items"]
                             ]
-                        )
-                return comments
+                        yield comments
     except TimeoutError:
         print(f"Timeout Error for video ID: {video_id}")
 
@@ -166,12 +165,17 @@ def _extract_video_info(videos):
 
 
 async def main():
-    # session = aiohttp.ClientSession()
-    # semaphore = asyncio.Semaphore(15)
-    videos = fetch_video_statistics(["dQw4w9WgXcQ", "P-MrIIEIPek"])
-    for video in videos:
-        print(video)
-    # await session.close()
+    session = aiohttp.ClientSession()
+    semaphore = asyncio.Semaphore(15)
+    comments = []
+    async for c in fetch_video_comments("P-MrIIEIPek", comment_number=200, semaphore=semaphore, session=session):
+        comments.extend(c)
+    print(comments)
+    print(len(comments))
+    # videos = fetch_video_statistics(["dQw4w9WgXcQ", "P-MrIIEIPek"])
+    # for video in videos:
+    #     print(video)
+    await session.close()
 
 
 if __name__ == "__main__":
