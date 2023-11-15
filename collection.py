@@ -105,20 +105,23 @@ async def main():
     # matching_titles = []
     for video in sync_tqdm(filtered_videos, desc="Indexing video titles"):
         if video['title'] is None:
-            pass
-        matching_scene_title = get_matching_string(video['title'], scene_titles, 0.9)
-        if matching_scene_title is not None:
-            matching_scene = get_scene_by_title(matching_scene_title, scenes['scene_data'])
-            matched_video = {
-                'id': video['id'],
-                **matching_scene,
-            }
-            composite_data.append(matched_video)
-            # matching_titles.append(matching_scene_title)
+            continue
+        composite_data.append(get_combined_data_from_video_info(video, scene_titles, scenes['scene_data']))
 
     print(len(composite_data))
     print(composite_data[0])
+    
     # Collect or load comment sentiment
+
+def get_combined_data_from_video_info(video_info: dict, scene_titles, scene_data: list) -> dict:
+    matching_scene_title = get_matching_string(video_info['title'], scene_titles, 0.9)
+    if matching_scene_title is not None:
+        matching_scene = get_scene_by_title(matching_scene_title, scene_data)
+        matched_video = {
+            'id': video_info['id'],
+            **matching_scene
+        }
+        return matched_video
 
 def get_scene_by_title(title: str, scenes: list) -> dict:
     for scene in scenes:
