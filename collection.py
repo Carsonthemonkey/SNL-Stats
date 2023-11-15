@@ -6,7 +6,7 @@ from data_collection.snl_archive_scraper import (
     get_all_episode_urls,
     get_scenes_from_episode_url,
 )
-from data_collection.fetch_youtube import fetch_all_channel_videos
+from data_collection.youtube import fetch_all_channel_videos
 from analysis.load_data import (
     load_scene_data,
     load_video_data,
