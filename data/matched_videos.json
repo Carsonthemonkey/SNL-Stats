@@ -1,0 +1,831 @@
+[
+    {
+        "id": "gDxYe2-8sI0",
+        "title": "Little Orphan Cassidy",
+        "scene_type": "Sketch",
+        "cast": [
+            "Timoth\u00e9e Chalamet",
+            "Mikey Day",
+            "Chloe Fineman",
+            "Molly Kearney",
+            "Chloe Troast"
+        ],
+        "sentiment": {
+            "mean": 0.9826977777777779,
+            "standard_deviation": 0.013998356870066163
+        }
+    },
+    {
+        "id": "JYqfVE-fykk",
+        "title": "Washington's Dream",
+        "scene_type": "Sketch",
+        "cast": [
+            "Nate Bargatze",
+            "Mikey Day",
+            "James Austin Johnson",
+            "Kenan Thompson",
+            "Bowen Yang"
+        ],
+        "sentiment": {
+            "mean": 0.9506448979591836,
+            "standard_deviation": 0.24165012043295508
+        }
+    },
+    {
+        "id": "qiTDb52mkbY",
+        "title": "Enrique's Daughter",
+        "scene_type": "Sketch",
+        "cast": [
+            "Bad Bunny",
+            "Mikey Day",
+            "Ego Nwodim",
+            "Kenan Thompson",
+            "Bowen Yang"
+        ],
+        "sentiment": {
+            "mean": 0.81498125,
+            "standard_deviation": 0.46828149416076387
+        }
+    },
+    {
+        "id": "eAES_fDO8Yc",
+        "title": "Wired Autocomplete Interview",
+        "scene_type": "Sketch",
+        "cast": [
+            "Pete Davidson",
+            "Mikey Day",
+            "Chloe Fineman",
+            "Marcello Hern\u00e1ndez",
+            "James Austin Johnson",
+            "Ego Nwodim",
+            "Chloe Troast"
+        ],
+        "sentiment": {
+            "mean": 0.8250357142857142,
+            "standard_deviation": 0.3874302473757472
+        }
+    },
+    {
+        "id": "Kbv1boSMF9o",
+        "title": "What Up With That?",
+        "scene_type": "Show",
+        "cast": [
+            "Gerard Butler",
+            "James Franco",
+            "Fred Armisen",
+            "Abby Elliott",
+            "Will Forte",
+            "Bill Hader",
+            "Nasim Pedrad",
+            "Jenny Slate",
+            "Jason Sudeikis",
+            "Kenan Thompson",
+            "Kristen Wiig"
+        ],
+        "sentiment": {
+            "mean": 0.8684533333333334,
+            "standard_deviation": 0.3130537373820809
+        }
+    },
+    {
+        "id": "mj85wztFyX8",
+        "title": "Coffee Talk",
+        "scene_type": "Show",
+        "cast": [
+            "Al Franken",
+            "Phil Hartman",
+            "Jan Hooks",
+            "Mike Myers",
+            "Conan O'Brien",
+            "Tom Schiller"
+        ],
+        "sentiment": {
+            "mean": 0.9806666666666667,
+            "standard_deviation": 0.003286673427984947
+        }
+    },
+    {
+        "id": "vLhWHZ8LWp0",
+        "title": "Traffic Altercation",
+        "scene_type": "Sketch",
+        "cast": [
+            "Quinta Brunson",
+            "Mikey Day",
+            "Chloe Fineman",
+            "Ego Nwodim"
+        ],
+        "sentiment": {
+            "mean": 0.8167741071428571,
+            "standard_deviation": 0.4726690683436411
+        }
+    },
+    {
+        "id": "pTYogejydKo",
+        "title": "Garrett from Hinge",
+        "scene_type": "Sketch",
+        "cast": [
+            "Travis Kelce",
+            "Heidi Gardner",
+            "Bowen Yang"
+        ],
+        "sentiment": {
+            "mean": 0.760868,
+            "standard_deviation": 0.503848299169502
+        }
+    },
+    {
+        "id": "AA0PwmQMVG8",
+        "title": "Straight Male Friend",
+        "scene_type": "Commercial",
+        "cast": [
+            "Travis Kelce",
+            "Chloe Fineman",
+            "Heidi Gardner",
+            "Steve Higgins",
+            "Sarah Sherman",
+            "Bowen Yang"
+        ],
+        "sentiment": {
+            "mean": 0.9888931034482759,
+            "standard_deviation": 0.033427209623930206
+        }
+    },
+    {
+        "id": "P_egAXAmVjA",
+        "title": "Abby the Ex-Girlfriend",
+        "scene_type": "Sketch",
+        "cast": [
+            "Travis Kelce",
+            "Jason Kelce",
+            "Chloe Fineman",
+            "Heidi Gardner",
+            "Ego Nwodim",
+            "Sarah Sherman"
+        ],
+        "sentiment": {
+            "mean": 0.8609384615384615,
+            "standard_deviation": 0.3712807366990469
+        }
+    },
+    {
+        "id": "zxxCaw74ptk",
+        "title": "Lisa from Temecula",
+        "scene_type": "Sketch",
+        "cast": [
+            "Pedro Pascal",
+            "Punkie Johnson",
+            "Molly Kearney",
+            "Michael Longfellow",
+            "Ego Nwodim",
+            "Devon Walker",
+            "Bowen Yang"
+        ],
+        "sentiment": {
+            "mean": 0.7890940677966102,
+            "standard_deviation": 0.5059570581685482
+        }
+    },
+    {
+        "id": "6q2G9QePGoI",
+        "title": "The Big Hollywood Quiz",
+        "scene_type": "Game Show",
+        "cast": [
+            "Pedro Pascal",
+            "Chloe Fineman",
+            "Steve Higgins",
+            "Ego Nwodim",
+            "Bowen Yang"
+        ],
+        "sentiment": {
+            "mean": 0.8401770491803278,
+            "standard_deviation": 0.38502775645887094
+        }
+    },
+    {
+        "id": "D57YCrWoTxo",
+        "title": "Party in Palm Springs",
+        "scene_type": "Sketch",
+        "cast": [
+            "Michael B. Jordan",
+            "Chloe Fineman",
+            "Heidi Gardner",
+            "Punkie Johnson",
+            "Ego Nwodim",
+            "Sarah Sherman"
+        ],
+        "sentiment": {
+            "mean": 0.8655238095238098,
+            "standard_deviation": 0.3035949469507998
+        }
+    },
+    {
+        "id": "qu6v3ykmnW0",
+        "title": "King Brothers Toyota",
+        "scene_type": "Commercial",
+        "cast": [
+            "Michael B. Jordan",
+            "Andrew Dismukes",
+            "Marcello Hern\u00e1ndez",
+            "Steve Higgins",
+            "James Austin Johnson",
+            "Sarah Sherman"
+        ],
+        "sentiment": {
+            "mean": 0.5451775,
+            "standard_deviation": 0.7444283264651809
+        }
+    },
+    {
+        "id": "7_IK2zBWTFg",
+        "title": "Male Confidence Seminar",
+        "scene_type": "Sketch",
+        "cast": [
+            "Michael B. Jordan",
+            "Andrew Dismukes",
+            "Marcello Hern\u00e1ndez",
+            "James Austin Johnson",
+            "Michael Longfellow",
+            "Devon Walker",
+            "Bowen Yang"
+        ],
+        "sentiment": {
+            "mean": 0.607953125,
+            "standard_deviation": 0.6293231463169254
+        }
+    },
+    {
+        "id": "o5XX9Kw5P_4",
+        "title": "France",
+        "scene_type": "Commercial",
+        "cast": [
+            "Ana Gasteyer"
+        ],
+        "sentiment": {
+            "mean": 0.09655714285714286,
+            "standard_deviation": 0.8320367726371283
+        }
+    },
+    {
+        "id": "uLFD_cpq1Ec",
+        "title": "Morning Announcements",
+        "scene_type": "Sketch",
+        "cast": [
+            "Aubrey Plaza",
+            "Andrew Dismukes",
+            "Molly Kearney",
+            "Sarah Sherman"
+        ],
+        "sentiment": {
+            "mean": 0.7192695652173914,
+            "standard_deviation": 0.5377675733872092
+        }
+    },
+    {
+        "id": "ieGypZWRc3c",
+        "title": "The Phrase That Pays",
+        "scene_type": "Game Show",
+        "cast": [
+            "Austin Butler",
+            "Heidi Gardner",
+            "James Austin Johnson",
+            "Punkie Johnson"
+        ],
+        "sentiment": {
+            "mean": 0.8347235294117648,
+            "standard_deviation": 0.31044944369965555
+        }
+    },
+    {
+        "id": "YFxlJ1inle0",
+        "title": "Jennifer Coolidge Is Impressed By Christmas Stuff",
+        "scene_type": "Sketch",
+        "cast": [
+            "Chloe Fineman",
+            "Steve Higgins",
+            "Punkie Johnson",
+            "Michael Longfellow"
+        ],
+        "sentiment": {
+            "mean": 0.9825806451612901,
+            "standard_deviation": 0.017460987286036327
+        }
+    },
+    {
+        "id": "8koAEAa51LE",
+        "title": "A Christmas Epiphany",
+        "scene_type": "Film",
+        "cast": [
+            "Austin Butler",
+            "Mikey Day",
+            "Andrew Dismukes",
+            "Chloe Fineman",
+            "Heidi Gardner",
+            "Marcello Hern\u00e1ndez",
+            "Sarah Sherman"
+        ],
+        "sentiment": {
+            "mean": 0.968159375,
+            "standard_deviation": 0.11938456731131279
+        }
+    },
+    {
+        "id": "sQ0FbMNjnME",
+        "title": "A Visit With Santa",
+        "scene_type": "Cold Opening",
+        "cast": [
+            "Kate McKinnon",
+            "Kenan Thompson"
+        ],
+        "sentiment": {
+            "mean": 0.9813533333333333,
+            "standard_deviation": 0.013110599613374749
+        }
+    },
+    {
+        "id": "cVawQ71bvY0",
+        "title": "Forceington's Ridge",
+        "scene_type": "Show",
+        "cast": [
+            "Keke Palmer",
+            "Steve Higgins",
+            "Cecily Strong",
+            "Bowen Yang"
+        ],
+        "sentiment": {
+            "mean": 0.8080806451612902,
+            "standard_deviation": 0.5076078925003196
+        }
+    },
+    {
+        "id": "TybjwLS1VtA",
+        "title": "House of the Dragon",
+        "scene_type": "Show",
+        "cast": [
+            "Dave Chappelle",
+            "Dave Chappelle",
+            "Dave Chappelle",
+            "Donnell Rawlings",
+            "Ice-T",
+            "Mikey Day",
+            "Chloe Fineman",
+            "Heidi Gardner",
+            "James Austin Johnson",
+            "Punkie Johnson",
+            "Michael Longfellow",
+            "Ego Nwodim",
+            "Kenan Thompson"
+        ],
+        "sentiment": {
+            "mean": 0.6135953038674032,
+            "standard_deviation": 0.667028123111871
+        }
+    },
+    {
+        "id": "meKH5jn_5M8",
+        "title": "Big Dumb Hat",
+        "scene_type": "Commercial",
+        "cast": [
+            "Amy Schumer",
+            "Chloe Fineman",
+            "Heidi Gardner",
+            "Marcello Hern\u00e1ndez"
+        ],
+        "sentiment": {
+            "mean": -0.5725200000000001,
+            "standard_deviation": 0.6453836029318791
+        }
+    },
+    {
+        "id": "V-qyBxApn48",
+        "title": "Pinx Period Underwear",
+        "scene_type": "Commercial",
+        "cast": [
+            "Amy Schumer",
+            "Mikey Day",
+            "Chloe Fineman",
+            "Steve Higgins",
+            "Ego Nwodim",
+            "Cecily Strong",
+            "Devon Walker"
+        ],
+        "sentiment": {
+            "mean": 0.8224933333333334,
+            "standard_deviation": 0.4305491926468901
+        }
+    },
+    {
+        "id": "HninUfvS_18",
+        "title": "\"Girl\"",
+        "scene_type": "Musical Performance",
+        "cast": [
+            "Beck"
+        ],
+        "sentiment": {
+            "mean": 0.53370546875,
+            "standard_deviation": 0.6957691579410284
+        }
+    },
+    {
+        "id": "ZxJKLkcG114",
+        "title": "Send Something Normal",
+        "scene_type": "Game Show",
+        "cast": [
+            "Miles Teller",
+            "Mikey Day",
+            "Steve Higgins",
+            "James Austin Johnson",
+            "Kenan Thompson",
+            "Bowen Yang"
+        ],
+        "sentiment": {
+            "mean": 0.6230961538461539,
+            "standard_deviation": 0.6387772932484548
+        }
+    },
+    {
+        "id": "VhGTtWsW9F8",
+        "title": "Old Enough! Longterm Boyfriends!",
+        "scene_type": "Show",
+        "cast": [
+            "Selena Gomez",
+            "Mikey Day",
+            "Heidi Gardner",
+            "Tesha Kondrat",
+            "Cecily Strong",
+            "Kenan Thompson"
+        ],
+        "sentiment": {
+            "mean": 0.608321551724138,
+            "standard_deviation": 0.6902055268374069
+        }
+    },
+    {
+        "id": "EpGmv4FKrN4",
+        "title": "Guidance Counselors",
+        "scene_type": "Sketch",
+        "cast": [
+            "Selena Gomez",
+            "Aidy Bryant",
+            "Chloe Fineman",
+            "Kyle Mooney",
+            "Jake Nordwind",
+            "Ego Nwodim",
+            "Chris Redd",
+            "Melissa Villase\u00f1or",
+            "Bowen Yang"
+        ],
+        "sentiment": {
+            "mean": 0.6275999999999999,
+            "standard_deviation": 0.6486430788837446
+        }
+    },
+    {
+        "id": "fTxrVxUrJjU",
+        "title": "Mother's Day Gifts",
+        "scene_type": "Sketch",
+        "cast": [
+            "Benedict Cumberbatch",
+            "Aidy Bryant",
+            "Mikey Day",
+            "Andrew Dismukes",
+            "Chloe Fineman"
+        ],
+        "sentiment": {
+            "mean": 0.87665,
+            "standard_deviation": 0.38532814587050346
+        }
+    },
+    {
+        "id": "oPyx4JRCQ88",
+        "title": "Dream Home Cousins",
+        "scene_type": "Show",
+        "cast": [
+            "Jake Gyllenhaal",
+            "Mikey Day",
+            "Heidi Gardner",
+            "James Austin Johnson",
+            "Kate McKinnon"
+        ],
+        "sentiment": {
+            "mean": 0.7754367346938775,
+            "standard_deviation": 0.46427339135025647
+        }
+    },
+    {
+        "id": "JTl5jKJJido",
+        "title": "Scattering Remains",
+        "scene_type": "Sketch",
+        "cast": [
+            "Jerrod Carmichael",
+            "Andrew Dismukes",
+            "Heidi Gardner",
+            "James Austin Johnson",
+            "Kyle Mooney"
+        ],
+        "sentiment": {
+            "mean": 0.7585210526315791,
+            "standard_deviation": 0.5027833954245918
+        }
+    },
+    {
+        "id": "1mEnmBav6ek",
+        "title": "Good Morning Columbus",
+        "scene_type": "Show",
+        "cast": [
+            "Willem Dafoe",
+            "Mikey Day",
+            "Andrew Dismukes",
+            "Heidi Gardner",
+            "Ego Nwodim",
+            "Melissa Villase\u00f1or",
+            "Bowen Yang"
+        ],
+        "sentiment": {
+            "mean": 0.9265440000000001,
+            "standard_deviation": 0.17974676649108323
+        }
+    },
+    {
+        "id": "TqBMbyyxGng",
+        "title": "The Christmas Socks",
+        "scene_type": "Music Video",
+        "cast": [
+            "Paul Rudd",
+            "Charli XCX",
+            "Aidy Bryant",
+            "Heidi Gardner",
+            "Alex Moffat",
+            "Kyle Mooney",
+            "Kenan Thompson"
+        ],
+        "sentiment": {
+            "mean": 0.3954461538461539,
+            "standard_deviation": 0.7820960464973247
+        }
+    },
+    {
+        "id": "pMdo2thujgU",
+        "title": "Thanksgiving Baking Championship",
+        "scene_type": "Show",
+        "cast": [
+            "Simu Liu",
+            "Aidy Bryant",
+            "Pete Davidson",
+            "Heidi Gardner",
+            "Steve Higgins",
+            "Alex Moffat",
+            "Kyle Mooney",
+            "Ego Nwodim",
+            "Sarah Sherman"
+        ],
+        "sentiment": {
+            "mean": 0.732629090909091,
+            "standard_deviation": 0.5960989096306165
+        }
+    },
+    {
+        "id": "ecvrMvtk9tk",
+        "title": "Pastor Announcement",
+        "scene_type": "Sketch",
+        "cast": [
+            "Jonathan Majors",
+            "Aidy Bryant",
+            "Punkie Johnson",
+            "Kyle Mooney",
+            "Ego Nwodim",
+            "Chris Redd",
+            "Kenan Thompson",
+            "Melissa Villase\u00f1or"
+        ],
+        "sentiment": {
+            "mean": 0.33433,
+            "standard_deviation": 0.8226334202425769
+        }
+    },
+    {
+        "id": "DcYT5FkIa_I",
+        "title": "The Audacity In Advertising Awards",
+        "scene_type": "Award Show",
+        "cast": [
+            "Jonathan Majors",
+            "Andrew Dismukes",
+            "Heidi Gardner",
+            "Steve Higgins",
+            "Steve Higgins",
+            "James Austin Johnson",
+            "Alex Moffat",
+            "Kyle Mooney",
+            "Cecily Strong",
+            "Melissa Villase\u00f1or"
+        ],
+        "sentiment": {
+            "mean": 0.5678810810810809,
+            "standard_deviation": 0.7442914271715034
+        }
+    },
+    {
+        "id": "q3yNku05KZs",
+        "title": "Parent-Teacher Conference",
+        "scene_type": "Sketch",
+        "cast": [
+            "Sam Kinison",
+            "Dana Carvey",
+            "Nora Dunn",
+            "Jan Hooks",
+            "Kevin Nealon"
+        ],
+        "sentiment": {
+            "mean": 0.6859691489361702,
+            "standard_deviation": 0.6086829849567601
+        }
+    },
+    {
+        "id": "ZEII5so6XpY",
+        "title": "The People's Kourt",
+        "scene_type": "Commercial",
+        "cast": [
+            "Kim Kardashian West",
+            "Halsey",
+            "Khlo\u00e9 Kardashian",
+            "Kris Jenner",
+            "Pete Davidson",
+            "Mikey Day",
+            "Chloe Fineman",
+            "Heidi Gardner",
+            "Steve Higgins",
+            "Chris Redd",
+            "Cecily Strong",
+            "Kenan Thompson",
+            "Melissa Villase\u00f1or"
+        ],
+        "sentiment": {
+            "mean": 0.8404835294117647,
+            "standard_deviation": 0.3841110067329828
+        }
+    },
+    {
+        "id": "v1fY2xtyXsY",
+        "title": "Mail-In Testing Service",
+        "scene_type": "Sketch",
+        "cast": [
+            "Owen Wilson",
+            "Aristotle Athari",
+            "Andrew Dismukes",
+            "Chris Redd",
+            "Sarah Sherman"
+        ],
+        "sentiment": {
+            "mean": 0.8734851851851853,
+            "standard_deviation": 0.31826836766256766
+        }
+    },
+    {
+        "id": "0_dvlhCcuTQ",
+        "title": "High School Graduation",
+        "scene_type": "Sketch",
+        "cast": [
+            "Keegan-Michael Key",
+            "Beck Bennett",
+            "Aidy Bryant",
+            "Mikey Day",
+            "Andrew Dismukes",
+            "Heidi Gardner",
+            "Lauren Holt",
+            "Punkie Johnson",
+            "Alex Moffat",
+            "Ego Nwodim",
+            "Chris Redd",
+            "Gary Richardson",
+            "Kenan Thompson"
+        ],
+        "sentiment": {
+            "mean": 0.5914679245283019,
+            "standard_deviation": 0.6404768994916873
+        }
+    },
+    {
+        "id": "sz6go7xC3Zs",
+        "title": "The Last Dance: Extended Scene",
+        "scene_type": "Film",
+        "cast": [
+            "Keegan-Michael Key",
+            "Mikey Day",
+            "Heidi Gardner",
+            "Alex Moffat",
+            "Chris Redd",
+            "Kenan Thompson"
+        ],
+        "sentiment": {
+            "mean": 0.7287754545454544,
+            "standard_deviation": 0.5315551306712929
+        }
+    },
+    {
+        "id": "XgaLlP0xmqE",
+        "title": "Lesbian Period Drama",
+        "scene_type": "Commercial",
+        "cast": [
+            "Carey Mulligan",
+            "Beck Bennett",
+            "Heidi Gardner",
+            "Kate McKinnon",
+            "Alex Moffat"
+        ],
+        "sentiment": {
+            "mean": 0.6958308641975309,
+            "standard_deviation": 0.5272394217173384
+        }
+    },
+    {
+        "id": "UVo_6rGSiyI",
+        "title": "Viral Apology Video",
+        "scene_type": "Film",
+        "cast": [
+            "Daniel Kaluuya",
+            "Kyle Mooney"
+        ],
+        "sentiment": {
+            "mean": 0.565366129032258,
+            "standard_deviation": 0.69190138548774
+        }
+    },
+    {
+        "id": "2hekDuCBxCc",
+        "title": "Boomers Got The Vax",
+        "scene_type": "Music Video",
+        "cast": [
+            "Maya Rudolph",
+            "Aidy Bryant",
+            "Mikey Day",
+            "Andrew Dismukes",
+            "Kate McKinnon",
+            "Kyle Mooney",
+            "Ego Nwodim",
+            "Chris Redd",
+            "Kenan Thompson",
+            "Melissa Villase\u00f1or"
+        ],
+        "sentiment": {
+            "mean": 0.4122187234042553,
+            "standard_deviation": 0.8067376083683078
+        }
+    },
+    {
+        "id": "TEPK3Z6nME0",
+        "title": "Mr. Chicken Legs Pageant",
+        "scene_type": "Show",
+        "cast": [
+            "Reg\u00e9-Jean Page",
+            "Aidy Bryant",
+            "Pete Davidson",
+            "Mikey Day",
+            "Andrew Dismukes",
+            "Chloe Fineman",
+            "Steve Higgins",
+            "Cecily Strong"
+        ],
+        "sentiment": {
+            "mean": 0.6126804347826088,
+            "standard_deviation": 0.6454186840033999
+        }
+    },
+    {
+        "id": "SDGn9tHYPJo",
+        "title": "Lifting Our Voices",
+        "scene_type": "Show",
+        "cast": [
+            "Dan Levy",
+            "Aidy Bryant",
+            "Punkie Johnson",
+            "Kyle Mooney",
+            "Ego Nwodim",
+            "Chris Redd",
+            "Chris Redd",
+            "Kenan Thompson"
+        ],
+        "sentiment": {
+            "mean": 0.5521322580645162,
+            "standard_deviation": 0.7131778529421389
+        }
+    },
+    {
+        "id": "rSTu1I5t700",
+        "title": "Pandemic Game Night",
+        "scene_type": "Sketch",
+        "cast": [
+            "John Krasinski",
+            "Beck Bennett",
+            "Aidy Bryant",
+            "Mikey Day",
+            "Heidi Gardner",
+            "Punkie Johnson",
+            "Kyle Mooney",
+            "Cecily Strong",
+            "Bowen Yang"
+        ],
+        "sentiment": {
+            "mean": 0.28147794117647057,
+            "standard_deviation": 0.797569789836894
+        }
+    }
+]
