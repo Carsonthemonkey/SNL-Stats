@@ -28,6 +28,7 @@ async def fetch_video_comments(
         "key": API_KEY,
         "videoId": video_id,
         "part": "snippet,replies",
+        "maxResults": 100
     }
     try:
         async with semaphore:
