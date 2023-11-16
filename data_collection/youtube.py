@@ -20,7 +20,6 @@ def fetch_video_statistics(video_ids: list) -> list:
 
 async def fetch_video_comments(
     video_id: str,
-    comment_number: int,
     session: aiohttp.ClientSession,
     semaphore: asyncio.Semaphore,
 ) -> list:
@@ -28,7 +27,6 @@ async def fetch_video_comments(
     query_params = {
         "key": API_KEY,
         "videoId": video_id,
-        "maxResults": 5000,
         "part": "snippet,replies",
     }
     try:
@@ -48,12 +46,16 @@ async def fetch_video_comments(
                         comments_endpoint, params=query_params, timeout=15
                     ) as res:
                         comment_data = await res.json()
-                        comments = [
-                                comment["snippet"]["topLevelComment"]["snippet"][
-                                    "textOriginal"
+                        try:
+                            comments = [
+                                    comment["snippet"]["topLevelComment"]["snippet"][
+                                        "textOriginal"
+                                    ]
+                                    for comment in comment_data["items"]
                                 ]
-                                for comment in comment_data["items"]
-                            ]
+                        except KeyError:
+                            print(f"could not parse comment data: {comment_data}")
+                            return
                         yield comments
     except TimeoutError:
         print(f"Timeout Error for video ID: {video_id}")
@@ -168,7 +170,8 @@ async def main():
     session = aiohttp.ClientSession()
     semaphore = asyncio.Semaphore(15)
     comments = []
-    async for c in fetch_video_comments("P-MrIIEIPek", comment_number=200, semaphore=semaphore, session=session):
+    async for c in fetch_video_comments("P-MrIIEIPek", semaphore=semaphore, session=session):
+        print("got chunk")
         comments.extend(c)
     print(comments)
     print(len(comments))
