@@ -10,12 +10,13 @@ from data_collection.snl_archive_scraper import (
 )
 from data_collection.youtube import (
     fetch_all_channel_videos,
-    fetch_video_statistics
+    fetch_video_statistics,
 )
 from data_collection.fuzzy_search import get_matching_string
 from analysis.load_data import (
     load_scene_data,
     load_video_data,
+    load_video_stats,
 )
 import datetime
 import json
@@ -101,6 +102,7 @@ async def main():
         pass
     else:
         # load youtube data
+        video_stats = load_video_stats()
         pass
     
     # TODO: Collect or load comment sentiment
