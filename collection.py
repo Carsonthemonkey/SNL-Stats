@@ -90,13 +90,13 @@ async def main():
         # load titles and ids of all SNL videos
         channel_videos = load_video_data()
 
-    blocked_strings = ["behind the sketch"] # Use this to manually filter titles
+    blocked_strings = ["behind the sketch", "behind the scenes", "bloopers", "(live)"] # Use this to manually filter titles
     filtered_videos = [
         video
         for video in channel_videos["channel_videos"]
-        for blocked in blocked_strings
-        if video["title"] is not None and blocked not in video["title"].lower()
+        if video["title"] is not None and "- SNL" in video["title"] and not any(blocked in video["title"].lower() for blocked in blocked_strings)
     ]
+
     scene_titles = [
         scene["title"] for scene in scenes["scene_data"] if scene["title"] is not None
     ]
@@ -119,7 +119,8 @@ async def main():
     print(f'Utilizing {num_processes} CPU cores for title matching')
     with multiprocessing.Pool(processes=num_processes) as pool:
         for result in sync_tqdm(pool.imap_unordered(multi_core_wrapper, args),total=len(args) , desc="Indexing video titles"):
-            composite_data.append(result)
+            if result is not None:
+                composite_data.append(result)
 
     print(len(composite_data))
     print(composite_data[0])
@@ -143,6 +144,9 @@ def get_scene_by_title(title: str, scenes: list) -> dict:
     for scene in scenes:
         if scene['title'] == title:
             return scene
-        
 
-asyncio.run(main())
+
+if __name__ == '__main__':
+    # This block will be executed only if the script is run as the main program
+    multiprocessing.freeze_support()  # This is necessary for Windows support
+    asyncio.run(main())
