@@ -74,9 +74,9 @@ async def main():
     else:
         scenes = load_scene_data()
 
-    # Collect or load youtube stats
+    # Collect or load titles and ids of all SNL videos
     if args.get_stats or args.all:
-        # collect youtube data
+        # collect titles and ids of all SNL videos
         print("Getting videos from youtube...")
         channel_videos = fetch_all_channel_videos("SaturdayNightLive")
 
@@ -87,7 +87,7 @@ async def main():
             }
             json.dump(data, f, indent=4)
     else:
-        # load youtube data
+        # load titles and ids of all SNL videos
         channel_videos = load_video_data()
 
     blocked_strings = ["behind the sketch"] # Use this to manually filter titles
@@ -100,6 +100,14 @@ async def main():
     scene_titles = [
         scene["title"] for scene in scenes["scene_data"] if scene["title"] is not None
     ]
+
+    # TODO: Collect or load youtube stats
+    if args.get_stats or args.all:
+        # collect youtube data
+        pass
+    else:
+        # load youtube data
+        pass
 
     # match videos based on title
     composite_data = []
