@@ -166,13 +166,13 @@ def _combine_archive_with_filtered_videos(scenes: dict, filtered_videos: list) -
     print(composite_data[0])
     return composite_data
 
-def _fetch_youtube_stats(video_data: dict) -> dict:
-    id_list = _get_ids(video_data)
+def _fetch_youtube_stats(sketch_data: dict) -> dict:
+    id_list = _get_ids(sketch_data)
     video_stats = fetch_video_statistics(id_list)
     return video_stats
 
-def _get_ids(video_data: dict) -> list:
-    ids = []
+def _get_ids(sketch_data: dict) -> list:
+    ids = [id for _ in sketch_data]
     return ids
 
 
