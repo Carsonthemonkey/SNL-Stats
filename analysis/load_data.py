@@ -2,6 +2,7 @@ import json
 
 _cached_scenes = None
 _cached_videos = None
+_cached_stats = None
 
 def load_scene_data():
     global _cached_scenes
@@ -23,6 +24,16 @@ def load_video_data():
     with open("data/channel_videos.json", "r", encoding="utf-8") as f:
         _cached_videos = json.load(f)
     return _cached_videos
+
+def load_video_stats():
+    global _cached_stats
+
+    if _cached_stats is not None:
+        return _cached_stats
+    
+    with open("data/video_stats.json", "r", encoding="utf-8") as f:
+        _cached_stats = json.load(f)
+    return _cached_stats
 
 
 if __name__ == '__main__':
