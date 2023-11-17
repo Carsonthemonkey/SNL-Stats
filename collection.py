@@ -94,7 +94,7 @@ async def main():
     filtered_videos = [
         video
         for video in channel_videos["channel_videos"]
-        if video["title"] is not None and not any(blocked in video["title"].lower() for blocked in blocked_strings) and "- SNL" in video["title"] 
+        if video["title"] is not None and "- SNL" in video["title"] and not any(blocked in video["title"].lower() for blocked in blocked_strings)
     ]
 
     scene_titles = [
