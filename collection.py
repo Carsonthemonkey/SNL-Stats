@@ -130,8 +130,6 @@ def _filter_videos(channel_videos: list) -> list:
     ]
     return filtered_videos
 
-def _multi_core_wrapper(args: tuple):
-    return _get_combined_data_from_video_info(*args)
 
 def _get_combined_data_from_video_info(video_info: dict, scene_titles, scene_data: list) -> dict:
     matching_scene_title = get_matching_string(video_info['title'], scene_titles, 0.9)
@@ -147,7 +145,8 @@ def _get_scene_by_title(title: str, scenes: list) -> dict:
     for scene in scenes:
         if scene['title'] == title:
             return scene
-        
+
+
 def _combine_archive_with_filtered_videos(scenes: dict, filtered_videos: list) -> dict:
     composite_data = []
     scene_titles = [
@@ -165,6 +164,10 @@ def _combine_archive_with_filtered_videos(scenes: dict, filtered_videos: list) -
     print(len(composite_data))
     print(composite_data[0])
     return composite_data
+
+def _multi_core_wrapper(args: tuple):
+    return _get_combined_data_from_video_info(*args)
+
 
 def _fetch_youtube_stats(sketch_data: dict) -> dict:
     id_list = _get_ids(sketch_data)
