@@ -8,7 +8,10 @@ from data_collection.snl_archive_scraper import (
     get_all_episode_urls,
     get_scenes_from_episode_url,
 )
-from data_collection.youtube import fetch_all_channel_videos
+from data_collection.youtube import (
+    fetch_all_channel_videos,
+    fetch_video_statistics
+)
 from data_collection.fuzzy_search import get_matching_string
 from analysis.load_data import (
     load_scene_data,
