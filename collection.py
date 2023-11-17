@@ -26,6 +26,11 @@ async def main():
         action="store_true",
     )
     parser.add_argument(
+        "--get-videos",
+        help="get ids and titles of all channel's videos from the youtube api",
+        action="store_true",
+    )
+    parser.add_argument(
         "--get-stats",
         help="get all video statistics from the youtube api",
         action="store_true",
@@ -75,31 +80,17 @@ async def main():
         scenes = load_scene_data()
 
     # Collect or load titles and ids of all SNL videos
-    if args.get_stats or args.all:
+    if args.get_videos or args.all:
         # collect titles and ids of all SNL videos
-        print("Getting videos from youtube...")
-        channel_videos = fetch_all_channel_videos("SaturdayNightLive")
-
-        with open("data/channel_videos.json", "w", encoding="utf-8") as f:
-            data = {
-                "last_collected": datetime.datetime.now().isoformat(),
-                "channel_videos": channel_videos,
-            }
-            json.dump(data, f, indent=4)
+        channel_videos = _fetch_identification_for_all_videos("SaturdayNightLive")
     else:
         # load titles and ids of all SNL videos
         channel_videos = load_video_data()
 
-    blocked_strings = ["behind the sketch", "behind the scenes", "bloopers", "(live)"] # Use this to manually filter titles
-    filtered_videos = [
-        video
-        for video in channel_videos["channel_videos"]
-        if video["title"] is not None and "- SNL" in video["title"] and not any(blocked in video["title"].lower() for blocked in blocked_strings)
-    ]
-
-    scene_titles = [
-        scene["title"] for scene in scenes["scene_data"] if scene["title"] is not None
-    ]
+    filtered_videos = _filter_videos(channel_videos)
+    
+    # match videos based on title (get video id, title, scene type, and cast)
+    sketch_data = _combine_archive_with_filtered_videos(scenes, filtered_videos)
 
     # TODO: Collect or load youtube stats
     if args.get_stats or args.all:
@@ -108,42 +99,66 @@ async def main():
     else:
         # load youtube data
         pass
-
-    # match videos based on title
-    composite_data = []
     
-    # load function args into list of tuples for multiprocessing
-    args = [(vid, scene_titles, scenes['scene_data']) for vid in filtered_videos if vid['title'] is not None]
-    
-    num_processes = multiprocessing.cpu_count()
-    print(f'Utilizing {num_processes} CPU cores for title matching')
-    with multiprocessing.Pool(processes=num_processes) as pool:
-        for result in sync_tqdm(pool.imap_unordered(multi_core_wrapper, args),total=len(args) , desc="Indexing video titles"):
-            if result is not None:
-                composite_data.append(result)
+    # TODO: Collect or load comment sentiment
 
-    print(len(composite_data))
-    print(composite_data[0])
-    
-    # Collect or load comment sentiment
 
-def multi_core_wrapper(args: tuple):
-    return get_combined_data_from_video_info(*args)
+def _fetch_identification_for_all_videos(username: str) -> list:
+    # collect titles and ids of all SNL videos
+    print("Getting videos from youtube...")
+    channel_videos = fetch_all_channel_videos(username)
+    with open("data/channel_videos.json", "w", encoding="utf-8") as f:
+        data = {
+            "last_collected": datetime.datetime.now().isoformat(),
+            "channel_videos": channel_videos,
+        }
+        json.dump(data, f, indent=4)
+    return channel_videos
 
-def get_combined_data_from_video_info(video_info: dict, scene_titles, scene_data: list) -> dict:
+def _filter_videos(channel_videos: list) -> list:
+    blocked_strings = ["behind the sketch", "behind the scenes", "bloopers", "(live)"] # Use this to manually filter titles
+    filtered_videos = [
+        video
+        for video in channel_videos["channel_videos"]
+        if video["title"] is not None and "- SNL" in video["title"] and not any(blocked in video["title"].lower() for blocked in blocked_strings)
+    ]
+    return filtered_videos
+
+def _multi_core_wrapper(args: tuple):
+    return _get_combined_data_from_video_info(*args)
+
+def _get_combined_data_from_video_info(video_info: dict, scene_titles, scene_data: list) -> dict:
     matching_scene_title = get_matching_string(video_info['title'], scene_titles, 0.9)
     if matching_scene_title is not None:
-        matching_scene = get_scene_by_title(matching_scene_title, scene_data)
+        matching_scene = _get_scene_by_title(matching_scene_title, scene_data)
         matched_video = {
             'id': video_info['id'],
             **matching_scene
         }
         return matched_video
 
-def get_scene_by_title(title: str, scenes: list) -> dict:
+def _get_scene_by_title(title: str, scenes: list) -> dict:
     for scene in scenes:
         if scene['title'] == title:
             return scene
+        
+def _combine_archive_with_filtered_videos(scenes: dict, filtered_videos: list) -> dict:
+    composite_data = []
+    scene_titles = [
+        scene["title"] for scene in scenes["scene_data"] if scene["title"] is not None
+    ]
+    # load function args into list of tuples for multiprocessing
+    args = [(vid, scene_titles, scenes['scene_data']) for vid in filtered_videos if vid['title'] is not None]
+    num_processes = multiprocessing.cpu_count()
+    print(f'Utilizing {num_processes} CPU cores for title matching')
+    with multiprocessing.Pool(processes=num_processes) as pool:
+        for result in sync_tqdm(pool.imap_unordered(_multi_core_wrapper, args),total=len(args) , desc="Indexing video titles"):
+            if result is not None:
+                composite_data.append(result)
+
+    print(len(composite_data))
+    print(composite_data[0])
+    return composite_data
 
 
 if __name__ == '__main__':
