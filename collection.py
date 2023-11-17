@@ -175,7 +175,7 @@ def _fetch_youtube_stats(sketch_data: dict) -> dict:
     return video_stats
 
 def _get_ids(sketch_data: dict) -> list:
-    ids = [id for _ in sketch_data]
+    ids = [sketch["id"] for sketch in sketch_data]
     return ids
 
 
