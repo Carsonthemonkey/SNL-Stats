@@ -101,14 +101,6 @@ async def main():
         scene["title"] for scene in scenes["scene_data"] if scene["title"] is not None
     ]
 
-    # TODO: Collect or load youtube stats
-    if args.get_stats or args.all:
-        # collect youtube data
-        pass
-    else:
-        # load youtube data
-        pass
-
     # match videos based on title
     composite_data = []
     
@@ -124,6 +116,14 @@ async def main():
 
     print(len(composite_data))
     print(composite_data[0])
+
+    # TODO: Collect or load youtube stats
+    if args.get_stats or args.all:
+        # collect youtube data
+        pass
+    else:
+        # load youtube data
+        pass
     
     # Collect or load comment sentiment
 
