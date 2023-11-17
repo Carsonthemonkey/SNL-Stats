@@ -99,6 +99,7 @@ async def main():
     # TODO: Collect or load youtube stats
     if args.get_stats or args.all:
         # collect youtube data
+        video_stats = _fetch_youtube_stats(sketch_data)
         pass
     else:
         # load youtube data
@@ -164,6 +165,15 @@ def _combine_archive_with_filtered_videos(scenes: dict, filtered_videos: list) -
     print(len(composite_data))
     print(composite_data[0])
     return composite_data
+
+def _fetch_youtube_stats(video_data: dict) -> dict:
+    id_list = _get_ids(video_data)
+    video_stats = fetch_video_statistics(id_list)
+    return video_stats
+
+def _get_ids(video_data: dict) -> list:
+    ids = []
+    return ids
 
 
 if __name__ == '__main__':
