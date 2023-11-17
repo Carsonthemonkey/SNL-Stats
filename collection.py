@@ -88,6 +88,9 @@ async def main():
         channel_videos = load_video_data()
 
     filtered_videos = _filter_videos(channel_videos)
+    
+    # match videos based on title (get video id, title, scene type, and cast)
+    sketch_data = _combine_archive_with_filtered_videos(scenes, filtered_videos)
 
     # TODO: Collect or load youtube stats
     if args.get_stats or args.all:
@@ -99,9 +102,6 @@ async def main():
     
     # TODO: Collect or load comment sentiment
 
-    # match videos based on title
-    composite_data = _get_composite_data(scenes, filtered_videos)
-    
 
 def _fetch_identification_for_all_videos(username: str) -> list:
     # collect titles and ids of all SNL videos
@@ -142,7 +142,7 @@ def _get_scene_by_title(title: str, scenes: list) -> dict:
         if scene['title'] == title:
             return scene
         
-def _get_composite_data(scenes: dict, filtered_videos: list) -> dict:
+def _combine_archive_with_filtered_videos(scenes: dict, filtered_videos: list) -> dict:
     composite_data = []
     scene_titles = [
         scene["title"] for scene in scenes["scene_data"] if scene["title"] is not None
