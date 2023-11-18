@@ -121,6 +121,7 @@ def _fetch_identification_for_all_videos(username: str) -> list:
         json.dump(data, f, indent=4)
     return channel_videos
 
+
 def _filter_videos(channel_videos: list) -> list:
     blocked_strings = ["behind the sketch", "behind the scenes", "bloopers", "(live)"] # Use this to manually filter titles
     filtered_videos = [
@@ -129,22 +130,6 @@ def _filter_videos(channel_videos: list) -> list:
         if video["title"] is not None and "- SNL" in video["title"] and not any(blocked in video["title"].lower() for blocked in blocked_strings)
     ]
     return filtered_videos
-
-
-def _get_combined_data_from_video_info(video_info: dict, scene_titles, scene_data: list) -> dict:
-    matching_scene_title = get_matching_string(video_info['title'], scene_titles, 0.9)
-    if matching_scene_title is not None:
-        matching_scene = _get_scene_by_title(matching_scene_title, scene_data)
-        matched_video = {
-            'id': video_info['id'],
-            **matching_scene
-        }
-        return matched_video
-
-def _get_scene_by_title(title: str, scenes: list) -> dict:
-    for scene in scenes:
-        if scene['title'] == title:
-            return scene
 
 
 def _combine_archive_with_filtered_videos(scenes: dict, filtered_videos: list) -> dict:
@@ -164,15 +149,30 @@ def _combine_archive_with_filtered_videos(scenes: dict, filtered_videos: list) -
     print(len(composite_data))
     print(composite_data[0])
     return composite_data
-
+     
 def _multi_core_wrapper(args: tuple):
     return _get_combined_data_from_video_info(*args)
+
+def _get_combined_data_from_video_info(video_info: dict, scene_titles, scene_data: list) -> dict:
+    matching_scene_title = get_matching_string(video_info['title'], scene_titles, 0.9)
+    if matching_scene_title is not None:
+        matching_scene = _get_scene_by_title(matching_scene_title, scene_data)
+        matched_video = {
+            'id': video_info['id'],
+            **matching_scene
+        }
+        return matched_video
+
+def _get_scene_by_title(title: str, scenes: list) -> dict:
+    for scene in scenes:
+        if scene['title'] == title:
+            return scene
 
 
 def _fetch_youtube_stats(sketch_data: dict) -> dict:
     id_list = _get_ids(sketch_data)
     video_stats = fetch_video_statistics(id_list)
-    return video_stats
+    return video_stats # TODO: might want to return updated sketch_data instead?
 
 def _get_ids(sketch_data: dict) -> list:
     ids = [sketch["id"] for sketch in sketch_data]
