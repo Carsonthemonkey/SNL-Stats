@@ -100,11 +100,24 @@ async def main():
     if args.get_stats or args.all:
         # collect youtube data
         video_stats = _fetch_youtube_stats(sketch_data)
-        pass
+        print(video_stats[0])
     else:
         # load youtube data
         video_stats = load_video_stats()
-        pass
+    
+    for video in video_stats:
+        for sketch in sketch_data:
+            if video['video_id'] == sketch['id']:
+                sketch.update(video)
+                sketch.pop('video_id')
+                break
+    
+    with open("data/sketch_data.json", "w", encoding="utf-8") as f:
+        data = {
+            "last_collected": datetime.datetime.now().isoformat(),
+            "sketch_data": sketch_data,
+        }
+        json.dump(data, f, indent=4)
     
     # TODO: Collect or load comment sentiment
 
@@ -169,12 +182,12 @@ def _get_scene_by_title(title: str, scenes: list) -> dict:
             return scene
 
 
-def _fetch_youtube_stats(sketch_data: dict) -> dict:
+def _fetch_youtube_stats(sketch_data: list) -> list:
     id_list = _get_ids(sketch_data)
     video_stats = fetch_video_statistics(id_list)
     return video_stats # TODO: might want to return updated sketch_data instead?
 
-def _get_ids(sketch_data: dict) -> list:
+def _get_ids(sketch_data: list) -> list:
     ids = [sketch["id"] for sketch in sketch_data]
     return ids
 
