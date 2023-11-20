@@ -59,7 +59,7 @@ async def main():
             print(f"found {len(urls)} episodes")
             pbar = tqdm(total=len(urls), desc="Collecting scene data")
 
-            def on_complete():
+            def on_complete(_):
                 pbar.update(1)
 
             semaphore = asyncio.Semaphore(15)
@@ -95,6 +95,12 @@ async def main():
     if args.get_videos or args.all:
         # collect titles and ids of all SNL videos
         channel_videos = _fetch_identification_for_all_videos("SaturdayNightLive")
+        with open("data/channel_videos.json", "w", encoding="utf-8") as f:
+            data = {
+                "last_collected": datetime.datetime.now().isoformat(),
+                "channel_videos": channel_videos,
+            }
+            json.dump(data, f, indent=4)
     else:
         # load titles and ids of all SNL videos
         channel_videos = load_video_data()
@@ -137,12 +143,6 @@ def _fetch_identification_for_all_videos(username: str) -> list:
     # collect titles and ids of all SNL videos
     print("Getting videos from youtube...")
     channel_videos = fetch_all_channel_videos(username)
-    with open("data/channel_videos.json", "w", encoding="utf-8") as f:
-        data = {
-            "last_collected": datetime.datetime.now().isoformat(),
-            "channel_videos": channel_videos,
-        }
-        json.dump(data, f, indent=4)
     return channel_videos
 
 
@@ -150,7 +150,7 @@ def _filter_videos(channel_videos: list) -> list:
     blocked_strings = ["behind the sketch", "behind the scenes", "bloopers", "(live)"] # Use this to manually filter titles
     filtered_videos = [
         video
-        for video in channel_videos["channel_videos"]
+        for video in channel_videos
         if video["title"] is not None and "- SNL" in video["title"] and not any(blocked in video["title"].lower() for blocked in blocked_strings)
     ]
     return filtered_videos
@@ -170,8 +170,6 @@ def _combine_archive_with_filtered_videos(scenes: dict, filtered_videos: list) -
             if result is not None:
                 composite_data.append(result)
 
-    print(len(composite_data))
-    print(composite_data[0])
     return composite_data
      
 def _multi_core_wrapper(args: tuple):
