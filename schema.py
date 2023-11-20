@@ -20,6 +20,7 @@ class Sketch(BaseModel):
     title: str
     scene_type: str
     cast: List[str]
+    upload_date: Optional[str] = None
     duration: Optional[str] = None
     view_count: Optional[int] = None
     like_count: Optional[int] = None

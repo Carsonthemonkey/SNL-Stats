@@ -100,28 +100,19 @@ async def main():
 
 
     
-    # TODO: Collect or load youtube stats
-    # if args.get_stats or args.all:
-    #     # collect youtube data
-    #     video_stats = _fetch_youtube_stats(sketch_data)
-    #     print(video_stats[0])
-    # else:
-    #     # load youtube data
-    #     video_stats = load_video_stats()
+    if args.get_stats or args.all:
+        # collect youtube data
+        video_stats = _fetch_youtube_stats(sketch_data)
+        print(video_stats[0])
     
-    # for video in video_stats:
-    #     for sketch in sketch_data:
-    #         if video['video_id'] == sketch['id']:
-    #             sketch.update(video)
-    #             sketch.pop('video_id')
-    #             break
+        for video in video_stats:
+            for sketch in full_data:
+                if video['video_id'] == sketch.id:
+                    sketch.view_count = video['view_count']
+                    sketch.like_count = video['like_count']
+                    sketch.comment_count = video['comment_count']
+                    break
     
-    # with open("data/sketch_data.json", "w", encoding="utf-8") as f:
-    #     data = {
-    #         "last_collected": datetime.datetime.now().isoformat(),
-    #         "sketch_data": sketch_data,
-    #     }
-    #     json.dump(data, f, indent=4)
     
     # TODO: Collect or load comment sentiment
 
