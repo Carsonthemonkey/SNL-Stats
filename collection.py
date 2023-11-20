@@ -112,7 +112,6 @@ async def main():
     # collect youtube data
     if args.get_stats or args.all:
         video_stats = _fetch_youtube_stats(full_data)
-        print(video_stats[0])
     
         for video in video_stats:
             for sketch in full_data:

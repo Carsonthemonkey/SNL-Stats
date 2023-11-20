@@ -15,9 +15,13 @@ if API_KEY is None:
 def fetch_video_statistics(video_ids: list) -> list:
     # max number of videos per request is 50, so we need to do it in batches
     video_data = []
+    pbar = tqdm(total=len(video_ids), desc="Fetching video statistics")
     while len(video_ids) > 0:
+        pbar.update(50)
         video_data.extend(_fetch_videos(video_ids[:50]))
         video_ids = video_ids[50:]
+    
+    pbar.close()
 
     video_data = [_extract_video_statistics(video) for video in video_data]
     return video_data
