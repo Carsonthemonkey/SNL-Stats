@@ -2,6 +2,7 @@ import argparse
 import multiprocessing
 import asyncio
 import aiohttp
+from typing import List
 from tqdm.asyncio import tqdm
 from tqdm import tqdm as sync_tqdm
 from schema import Sketch
@@ -17,7 +18,7 @@ from data_collection.fuzzy_search import get_matching_string
 from analysis.load_data import (
     load_scene_data,
     load_video_data,
-    load_video_stats,
+    load_full_data
 )
 import datetime
 import json
@@ -31,6 +32,11 @@ async def main():
         action="store_true",
     )
     parser.add_argument(
+        "--refilter",
+        help="re-filter stored videos based on title. This is done automatically if scenes or videos are re-scraped",
+        action="store_true",
+    )
+    parser.add_argument(
         "--get-videos",
         help="get ids and titles of all channel's videos from the youtube api",
         action="store_true",
@@ -40,6 +46,7 @@ async def main():
         help="get all video statistics from the youtube api",
         action="store_true",
     )
+
     parser.add_argument("--all", "-a", help="re-collect all data", action="store_true")
 
     args = parser.parse_args()
@@ -92,17 +99,19 @@ async def main():
         # load titles and ids of all SNL videos
         channel_videos = load_video_data()
 
-    filtered_videos = _filter_videos(channel_videos)
-    
-    # match videos based on title (get video id, title, scene type, and cast)
-    sketch_data = _combine_archive_with_filtered_videos(scenes, filtered_videos)
-    full_data = [Sketch(**sketch) for sketch in sketch_data]
+    if args.refilter or args.all or args.scrape_scenes or args.get_videos:
+        # match videos based on title (get video id, title, scene type, and cast)
+        filtered_videos = _filter_videos(channel_videos)
+        sketch_data = _combine_archive_with_filtered_videos(scenes, filtered_videos)
+        full_data = [Sketch(**sketch) for sketch in sketch_data]
+    else:
+        # load data from previous collection
+        full_data = load_full_data()
 
-
     
+    # collect youtube data
     if args.get_stats or args.all:
-        # collect youtube data
-        video_stats = _fetch_youtube_stats(sketch_data)
+        video_stats = _fetch_youtube_stats(full_data)
         print(video_stats[0])
     
         for video in video_stats:
@@ -185,13 +194,13 @@ def _get_scene_by_title(title: str, scenes: list) -> dict:
             return scene
 
 
-def _fetch_youtube_stats(sketch_data: list) -> list:
+def _fetch_youtube_stats(sketch_data: List[Sketch]) -> list:
     id_list = _get_ids(sketch_data)
     video_stats = fetch_video_statistics(id_list)
     return video_stats # TODO: might want to return updated sketch_data instead?
 
-def _get_ids(sketch_data: list) -> list:
-    ids = [sketch["id"] for sketch in sketch_data]
+def _get_ids(sketch_data: List[Sketch]) -> list:
+    ids = [sketch.id for sketch in sketch_data]
     return ids
 
 
