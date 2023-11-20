@@ -2,17 +2,23 @@ import argparse
 import multiprocessing
 import asyncio
 import aiohttp
+from typing import List
 from tqdm.asyncio import tqdm
 from tqdm import tqdm as sync_tqdm
+from schema import Sketch
 from data_collection.snl_archive_scraper import (
     get_all_episode_urls,
     get_scenes_from_episode_url,
 )
-from data_collection.youtube import fetch_all_channel_videos
+from data_collection.youtube import (
+    fetch_all_channel_videos,
+    fetch_video_statistics,
+)
 from data_collection.fuzzy_search import get_matching_string
 from analysis.load_data import (
     load_scene_data,
     load_video_data,
+    load_full_data
 )
 import datetime
 import json
@@ -26,6 +32,11 @@ async def main():
         action="store_true",
     )
     parser.add_argument(
+        "--refilter",
+        help="re-filter stored videos based on title. This is done automatically if scenes or videos are re-scraped",
+        action="store_true",
+    )
+    parser.add_argument(
         "--get-videos",
         help="get ids and titles of all channel's videos from the youtube api",
         action="store_true",
@@ -35,6 +46,7 @@ async def main():
         help="get all video statistics from the youtube api",
         action="store_true",
     )
+
     parser.add_argument("--all", "-a", help="re-collect all data", action="store_true")
 
     args = parser.parse_args()
@@ -47,7 +59,7 @@ async def main():
             print(f"found {len(urls)} episodes")
             pbar = tqdm(total=len(urls), desc="Collecting scene data")
 
-            def on_complete():
+            def on_complete(_):
                 pbar.update(1)
 
             semaphore = asyncio.Semaphore(15)
@@ -83,47 +95,83 @@ async def main():
     if args.get_videos or args.all:
         # collect titles and ids of all SNL videos
         channel_videos = _fetch_identification_for_all_videos("SaturdayNightLive")
+        with open("data/channel_videos.json", "w", encoding="utf-8") as f:
+            data = {
+                "last_collected": datetime.datetime.now().isoformat(),
+                "channel_videos": channel_videos,
+            }
+            json.dump(data, f, indent=4)
     else:
         # load titles and ids of all SNL videos
         channel_videos = load_video_data()
 
-    filtered_videos = _filter_videos(channel_videos)
-    
-    # match videos based on title (get video id, title, scene type, and cast)
-    sketch_data = _combine_archive_with_filtered_videos(scenes, filtered_videos)
-
-    # TODO: Collect or load youtube stats
-    if args.get_stats or args.all:
-        # collect youtube data
-        pass
+    if args.refilter or args.all or args.scrape_scenes or args.get_videos:
+        # match videos based on title (get video id, title, scene type, and cast)
+        filtered_videos = _filter_videos(channel_videos)
+        sketch_data = _combine_archive_with_filtered_videos(scenes, filtered_videos)
+        full_data = [Sketch(**sketch) for sketch in sketch_data]
     else:
-        # load youtube data
-        pass
+        # load data from previous collection
+        full_data = load_full_data()
+
+    
+    # collect youtube data
+    if args.get_stats or args.all:
+        video_stats = _fetch_youtube_stats(full_data)
+    
+        for video in video_stats:
+            for sketch in full_data:
+                if video['video_id'] == sketch.id:
+                    sketch.view_count = video['view_count']
+                    sketch.like_count = video['like_count']
+                    sketch.comment_count = video['comment_count']
+                    break
+    
     
     # TODO: Collect or load comment sentiment
+
+    # Save final composite data
+    with open("data/full_data.json", "w", encoding="utf-8") as f:
+        data = {
+            "last_collected": datetime.datetime.now().isoformat(),
+            "full_data": [sketch.model_dump() for sketch in full_data],
+        }
+        json.dump(data, f, indent=4)
 
 
 def _fetch_identification_for_all_videos(username: str) -> list:
     # collect titles and ids of all SNL videos
     print("Getting videos from youtube...")
     channel_videos = fetch_all_channel_videos(username)
-    with open("data/channel_videos.json", "w", encoding="utf-8") as f:
-        data = {
-            "last_collected": datetime.datetime.now().isoformat(),
-            "channel_videos": channel_videos,
-        }
-        json.dump(data, f, indent=4)
     return channel_videos
+
 
 def _filter_videos(channel_videos: list) -> list:
     blocked_strings = ["behind the sketch", "behind the scenes", "bloopers", "(live)"] # Use this to manually filter titles
     filtered_videos = [
         video
-        for video in channel_videos["channel_videos"]
+        for video in channel_videos
         if video["title"] is not None and "- SNL" in video["title"] and not any(blocked in video["title"].lower() for blocked in blocked_strings)
     ]
     return filtered_videos
 
+
+def _combine_archive_with_filtered_videos(scenes: dict, filtered_videos: list) -> dict:
+    composite_data = []
+    scene_titles = [
+        scene["title"] for scene in scenes["scene_data"] if scene["title"] is not None
+    ]
+    # load function args into list of tuples for multiprocessing
+    args = [(vid, scene_titles, scenes['scene_data']) for vid in filtered_videos if vid['title'] is not None]
+    num_processes = multiprocessing.cpu_count()
+    print(f'Utilizing {num_processes} CPU cores for title matching')
+    with multiprocessing.Pool(processes=num_processes) as pool:
+        for result in sync_tqdm(pool.imap_unordered(_multi_core_wrapper, args),total=len(args) , desc="Indexing video titles"):
+            if result is not None:
+                composite_data.append(result)
+
+    return composite_data
+     
 def _multi_core_wrapper(args: tuple):
     return _get_combined_data_from_video_info(*args)
 
@@ -141,24 +189,16 @@ def _get_scene_by_title(title: str, scenes: list) -> dict:
     for scene in scenes:
         if scene['title'] == title:
             return scene
-        
-def _combine_archive_with_filtered_videos(scenes: dict, filtered_videos: list) -> dict:
-    composite_data = []
-    scene_titles = [
-        scene["title"] for scene in scenes["scene_data"] if scene["title"] is not None
-    ]
-    # load function args into list of tuples for multiprocessing
-    args = [(vid, scene_titles, scenes['scene_data']) for vid in filtered_videos if vid['title'] is not None]
-    num_processes = multiprocessing.cpu_count()
-    print(f'Utilizing {num_processes} CPU cores for title matching')
-    with multiprocessing.Pool(processes=num_processes) as pool:
-        for result in sync_tqdm(pool.imap_unordered(_multi_core_wrapper, args),total=len(args) , desc="Indexing video titles"):
-            if result is not None:
-                composite_data.append(result)
 
-    print(len(composite_data))
-    print(composite_data[0])
-    return composite_data
+
+def _fetch_youtube_stats(sketch_data: List[Sketch]) -> list:
+    id_list = _get_ids(sketch_data)
+    video_stats = fetch_video_statistics(id_list)
+    return video_stats # TODO: might want to return updated sketch_data instead?
+
+def _get_ids(sketch_data: List[Sketch]) -> list:
+    ids = [sketch.id for sketch in sketch_data]
+    return ids
 
 
 if __name__ == '__main__':
