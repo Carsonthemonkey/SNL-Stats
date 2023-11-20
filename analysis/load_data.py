@@ -24,7 +24,7 @@ def load_video_data():
     
     with open("data/channel_videos.json", "r", encoding="utf-8") as f:
         _cached_videos = json.load(f)
-    return _cached_videos
+    return _cached_videos["channel_videos"]
 
 def load_full_data():
     global _cached_full_data
