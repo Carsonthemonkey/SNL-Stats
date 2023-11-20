@@ -4,6 +4,7 @@ import asyncio
 import aiohttp
 from tqdm.asyncio import tqdm
 from tqdm import tqdm as sync_tqdm
+from schema import Sketch
 from data_collection.snl_archive_scraper import (
     get_all_episode_urls,
     get_scenes_from_episode_url,
@@ -95,31 +96,42 @@ async def main():
     
     # match videos based on title (get video id, title, scene type, and cast)
     sketch_data = _combine_archive_with_filtered_videos(scenes, filtered_videos)
+    full_data = [Sketch(**sketch) for sketch in sketch_data]
 
+
+    
     # TODO: Collect or load youtube stats
-    if args.get_stats or args.all:
-        # collect youtube data
-        video_stats = _fetch_youtube_stats(sketch_data)
-        print(video_stats[0])
-    else:
-        # load youtube data
-        video_stats = load_video_stats()
+    # if args.get_stats or args.all:
+    #     # collect youtube data
+    #     video_stats = _fetch_youtube_stats(sketch_data)
+    #     print(video_stats[0])
+    # else:
+    #     # load youtube data
+    #     video_stats = load_video_stats()
     
-    for video in video_stats:
-        for sketch in sketch_data:
-            if video['video_id'] == sketch['id']:
-                sketch.update(video)
-                sketch.pop('video_id')
-                break
+    # for video in video_stats:
+    #     for sketch in sketch_data:
+    #         if video['video_id'] == sketch['id']:
+    #             sketch.update(video)
+    #             sketch.pop('video_id')
+    #             break
     
-    with open("data/sketch_data.json", "w", encoding="utf-8") as f:
-        data = {
-            "last_collected": datetime.datetime.now().isoformat(),
-            "sketch_data": sketch_data,
-        }
-        json.dump(data, f, indent=4)
+    # with open("data/sketch_data.json", "w", encoding="utf-8") as f:
+    #     data = {
+    #         "last_collected": datetime.datetime.now().isoformat(),
+    #         "sketch_data": sketch_data,
+    #     }
+    #     json.dump(data, f, indent=4)
     
     # TODO: Collect or load comment sentiment
+
+    # Save final composite data
+    with open("data/full_data.json", "w", encoding="utf-8") as f:
+        data = {
+            "last_collected": datetime.datetime.now().isoformat(),
+            "full_data": [sketch.model_dump() for sketch in full_data],
+        }
+        json.dump(data, f, indent=4)
 
 
 def _fetch_identification_for_all_videos(username: str) -> list:
