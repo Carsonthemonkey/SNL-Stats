@@ -13,7 +13,16 @@ if API_KEY is None:
 
 
 def fetch_video_statistics(video_ids: list) -> list:
-    video_data = _fetch_videos(video_ids)
+    # max number of videos per request is 50, so we need to do it in batches
+    video_data = []
+    pbar = tqdm(total=len(video_ids), desc="Fetching video statistics")
+    while len(video_ids) > 0:
+        pbar.update(50)
+        video_data.extend(_fetch_videos(video_ids[:50]))
+        video_ids = video_ids[50:]
+    
+    pbar.close()
+
     video_data = [_extract_video_statistics(video) for video in video_data]
     return video_data
 
@@ -115,17 +124,21 @@ def _fetch_channel_videos(playlist_id):
 
 def _fetch_videos(video_ids: list) -> dict:
     videos_endpoint = f"https://www.googleapis.com/youtube/v3/videos"
-
+    assert len(video_ids) <= 50, "Max number of videos per request is 50"
     # encode the url with the data we want
     query_params = {
         "key": API_KEY,
-        "id": video_ids,
+        "id": video_ids[:50],
         "part": "statistics,snippet,contentDetails",
     }
 
     # call the api with a timeout of 15 seconds
     response = requests.get(videos_endpoint, params=query_params, timeout=15).json()
-    video_stats = response["items"]
+    try:
+        video_stats = response["items"]
+    except KeyError:
+        print(response)
+        raise KeyError("No videos found for given ids")
     while response.get("nextPageToken"):
         response = requests.get(videos_endpoint, params=query_params, timeout=15).json()
         response = response.json()
@@ -150,9 +163,9 @@ def _extract_video_statistics(data: dict) -> dict:
         "video_id": data["id"],
         "title": data["snippet"]["title"],
         "duration": data["contentDetails"]["duration"],
-        "view_count": data["statistics"]["viewCount"],
-        "like_count": data["statistics"]["likeCount"],
-        "comment_count": data["statistics"]["commentCount"],
+        "view_count": int(data["statistics"]["viewCount"]),
+        "like_count": int(data["statistics"]["likeCount"]),
+        "comment_count": int(data["statistics"]["commentCount"]),
     }
     return v
 

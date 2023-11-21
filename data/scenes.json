@@ -1,5 +1,5 @@
 {
-    "last_collected": "2023-11-13T12:58:41.589976",
+    "last_collected": "2023-11-20T13:29:57.060295",
     "scene_data": [
         {
             "title": "Wolverines",
@@ -21076,6 +21076,14 @@
             ]
         },
         {
+            "title": null,
+            "scene_type": "Intro",
+            "cast": [
+                "Bernadette Peters",
+                "Eddie Murphy"
+            ]
+        },
+        {
             "title": "\"Miami 2017\"",
             "scene_type": "Musical Performance",
             "cast": [
@@ -22057,6 +22065,7 @@
             "title": "African Tour",
             "scene_type": "Sketch",
             "cast": [
+                "Mel Brandt",
                 "Tim Kazurinsky",
                 "Eddie Murphy",
                 "Joe Piscopo",
@@ -22110,6 +22119,18 @@
             ]
         },
         {
+            "title": "Lowembrau",
+            "scene_type": "Commercial",
+            "cast": [
+                "Barry W. Blaustein",
+                "Robin Duke",
+                "Christine Ebersole",
+                "Tim Kazurinsky",
+                "Joe Piscopo",
+                "Tony Rosato"
+            ]
+        },
+        {
             "title": null,
             "scene_type": "Guest Performance",
             "cast": [
@@ -22124,18 +22145,6 @@
                 "Robin Duke",
                 "Christine Ebersole",
                 "Mary Gross",
-                "Tony Rosato"
-            ]
-        },
-        {
-            "title": "Lowembrau",
-            "scene_type": "Commercial",
-            "cast": [
-                "Barry W. Blaustein",
-                "Robin Duke",
-                "Christine Ebersole",
-                "Tim Kazurinsky",
-                "Joe Piscopo",
                 "Tony Rosato"
             ]
         },
@@ -25244,8 +25253,7 @@
             "title": "\"Real Emotional Girl\"",
             "scene_type": "Musical Performance",
             "cast": [
-                "Randy Newman",
-                "Don Pardo"
+                "Randy Newman"
             ]
         },
         {
@@ -25533,8 +25541,7 @@
             "title": "\"Girls on Film\"",
             "scene_type": "Musical Performance",
             "cast": [
-                "Duran Duran",
-                "Don Pardo"
+                "Duran Duran"
             ]
         },
         {
@@ -25677,8 +25684,7 @@
             "title": "\"Never Gonna Give You Up\"",
             "scene_type": "Musical Performance",
             "cast": [
-                "Musical Youth",
-                "Don Pardo"
+                "Musical Youth"
             ]
         },
         {
@@ -33868,7 +33874,8 @@
             "cast": [
                 "Catherine Oxenberg",
                 "Tom Davis",
-                "Robert Downey Jr."
+                "Robert Downey Jr.",
+                "Anthony Michael Hall"
             ]
         },
         {
@@ -41568,6 +41575,7 @@
                 "Jon Lovitz",
                 "Kevin Nealon",
                 "Conan O'Brien",
+                "John Zonars",
                 "Andy Murphy"
             ]
         },
@@ -41670,6 +41678,13 @@
                 "Phil Hartman",
                 "Jon Lovitz",
                 "Don Pardo"
+            ]
+        },
+        {
+            "title": null,
+            "scene_type": "Intro",
+            "cast": [
+                "Paulina Porizkova"
             ]
         },
         {
@@ -42537,6 +42552,7 @@
             "title": "Video Will",
             "scene_type": "Sketch",
             "cast": [
+                "Jim Downey",
                 "Nora Dunn",
                 "Phil Hartman",
                 "Jan Hooks",
@@ -141197,6 +141213,7 @@
             "scene_type": "Music Video",
             "cast": [
                 "Maya Rudolph",
+                "Diane Genorris Davis",
                 "Aidy Bryant",
                 "Mikey Day",
                 "Andrew Dismukes",
@@ -148034,7 +148051,7 @@
         },
         {
             "title": "First Warm Day Of The Year Arrivals Show",
-            "scene_type": "Show",
+            "scene_type": "Cold Opening",
             "cast": [
                 "Mikey Day",
                 "Andrew Dismukes",
@@ -148262,6 +148279,7 @@
             "cast": [
                 "Pete Davidson",
                 "Cooper Carrell",
+                "Diane Genorris Davis",
                 "Eamon Patrick O'Connell",
                 "John Mulaney",
                 "Sam Duncan",
@@ -148816,6 +148834,167 @@
                 "Alec Baldwin",
                 "Andrew Dismukes",
                 "Punkie Johnson"
+            ]
+        },
+        {
+            "title": null,
+            "scene_type": "Goodnights",
+            "cast": []
+        },
+        {
+            "title": "Press Conference",
+            "scene_type": "Cold Opening",
+            "cast": [
+                "Mikey Day",
+                "Andrew Dismukes",
+                "Heidi Gardner",
+                "Marcello Hern\u00e1ndez",
+                "Steve Higgins",
+                "James Austin Johnson",
+                "Punkie Johnson",
+                "Molly Kearney",
+                "Michael Longfellow",
+                "Ego Nwodim",
+                "Bowen Yang"
+            ]
+        },
+        {
+            "title": null,
+            "scene_type": "Monologue",
+            "cast": [
+                "Jason Momoa"
+            ]
+        },
+        {
+            "title": "Masters of the Pen",
+            "scene_type": "Show",
+            "cast": [
+                "Jason Momoa",
+                "Mikey Day",
+                "Chloe Fineman",
+                "Heidi Gardner",
+                "Marcello Hern\u00e1ndez",
+                "Steve Higgins",
+                "Michael Longfellow",
+                "Kenan Thompson",
+                "Bowen Yang"
+            ]
+        },
+        {
+            "title": "Rome Song",
+            "scene_type": "Music Video",
+            "cast": [
+                "Jason Momoa",
+                "Mikey Day",
+                "Punkie Johnson",
+                "Ego Nwodim",
+                "Kenan Thompson",
+                "Chloe Troast"
+            ]
+        },
+        {
+            "title": "Nightclub Line",
+            "scene_type": "Sketch",
+            "cast": [
+                "Jason Momoa",
+                "Chloe Fineman",
+                "Marcello Hern\u00e1ndez",
+                "Michael Longfellow",
+                "Sarah Sherman",
+                "Kenan Thompson"
+            ]
+        },
+        {
+            "title": "The Hudson News Thanksgiving Week Airport Parade",
+            "scene_type": "Show",
+            "cast": [
+                "Jason Momoa",
+                "Mikey Day",
+                "Andrew Dismukes",
+                "Chloe Fineman",
+                "Heidi Gardner",
+                "Marcello Hern\u00e1ndez",
+                "Steve Higgins",
+                "James Austin Johnson",
+                "Punkie Johnson",
+                "Molly Kearney",
+                "Michael Longfellow",
+                "Ego Nwodim",
+                "Sarah Sherman",
+                "Kenan Thompson",
+                "Devon Walker",
+                "Bowen Yang"
+            ]
+        },
+        {
+            "title": "Please Don't Destroy",
+            "scene_type": "Film",
+            "cast": [
+                "Chloe Fineman",
+                "Martin Herlihy",
+                "John Higgins",
+                "Ben Marshall"
+            ]
+        },
+        {
+            "title": "\"greedy\"",
+            "scene_type": "Musical Performance",
+            "cast": [
+                "Tate McRae"
+            ]
+        },
+        {
+            "title": null,
+            "scene_type": "Weekend Update",
+            "cast": [
+                "Colin Jost",
+                "Michael Che",
+                "Bowen Yang",
+                "Devon Walker",
+                "James Austin Johnson",
+                "Andrew Dismukes"
+            ]
+        },
+        {
+            "title": "Castaway",
+            "scene_type": "Sketch",
+            "cast": [
+                "Jason Momoa",
+                "Andrew Dismukes",
+                "Chloe Fineman"
+            ]
+        },
+        {
+            "title": "\"grave\"",
+            "scene_type": "Musical Performance",
+            "cast": [
+                "Tate McRae"
+            ]
+        },
+        {
+            "title": "Untold",
+            "scene_type": "Show",
+            "cast": [
+                "Jason Momoa",
+                "Mikey Day",
+                "Andrew Dismukes",
+                "Chloe Fineman",
+                "Heidi Gardner",
+                "James Austin Johnson",
+                "Ego Nwodim",
+                "Sarah Sherman",
+                "Devon Walker"
+            ]
+        },
+        {
+            "title": "Cab Driver",
+            "scene_type": "Sketch",
+            "cast": [
+                "Jason Momoa",
+                "Mikey Day",
+                "Chloe Fineman",
+                "Ego Nwodim",
+                "Kenan Thompson"
             ]
         },
         {

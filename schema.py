@@ -15,3 +15,15 @@ class Scene(BaseModel):
     scene_type: str
     cast: List[str]
 
+class Sketch(BaseModel):
+    id: str
+    title: str
+    scene_type: str
+    cast: List[str]
+    upload_date: Optional[str] = None
+    duration: Optional[str] = None
+    view_count: Optional[int] = None
+    like_count: Optional[int] = None
+    comment_count: Optional[int] = None
+    mean_sentiment: Optional[float] = None
+    std_sentiment: Optional[float] = None
