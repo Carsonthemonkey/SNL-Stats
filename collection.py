@@ -138,7 +138,7 @@ async def main():
     
     # Collect or load comment sentiment
     if args.analyze_comments or args.all:
-        await add_video_sentiment_stats(full_data) #! This wont work right now I think
+        await update_video_sentiment_stats(full_data)
 
 
     # Save final composite data
@@ -149,8 +149,10 @@ async def main():
         }
         json.dump(data, f, indent=4)
 
-async def add_video_sentiment_stats(videos: list):
+async def update_video_sentiment_stats(sketches: List[Sketch]):
     """Adds the comment sentiment fields to the video data. It modifies the passed list, so there are no return values"""
+    # filter out sketches that already have their sentiment stats calculated
+    sketches = [sketch for sketch in sketches if sketch.mean_sentiment is None or sketch.std_sentiment is None]
     async with aiohttp.ClientSession(timeout=15) as session:
         semaphore = asyncio.Semaphore(15)
         with ProcessPoolExecutor(multiprocessing.cpu_count()) as executor:
@@ -158,7 +160,7 @@ async def add_video_sentiment_stats(videos: list):
                 asyncio.create_task(
                     fetch_and_analyze_comments(video, session, semaphore, executor)
                 )
-                for video in videos
+                for video in sketches
             ]
 
             pbar = tqdm(total=len(tasks), desc="Analyzing video comments", unit=" videos analyzed")
@@ -174,23 +176,21 @@ async def add_video_sentiment_stats(videos: list):
 
 
 async def fetch_and_analyze_comments(
-    video: dict,
+    sketch: Sketch,
     session: aiohttp.ClientSession(),
     semaphore: asyncio.Semaphore,
     executor: ProcessPoolExecutor,
 ):
     sentiment_analysis_tasks = []
-    async for comment_chunk in fetch_video_comments(video["id"], session, semaphore):
+    async for comment_chunk in fetch_video_comments(sketch.id, session, semaphore):
         task = asyncio.create_task(
             multi_core_sentiment_analysis(comment_chunk, executor)
         )
         sentiment_analysis_tasks.append(task)
 
     sentiment_results = np.array(await asyncio.gather(*sentiment_analysis_tasks))
-    video["sentiment"] = {
-        "mean": sentiment_results.mean(),
-        "standard_deviation": sentiment_results.std(),
-    }
+    sketch.mean_sentiment = sentiment_results.mean()
+    sketch.std_sentiment = sentiment_results.std()
 
 
 async def multi_core_sentiment_analysis(comment: str, executor: ProcessPoolExecutor):
