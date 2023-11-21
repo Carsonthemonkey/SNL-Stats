@@ -13,16 +13,23 @@ def draw_boxplot_for_scene_type(data):
     data = load_full_data()
 
     # find all scene types
-    scene_types = data["scene_type"].unique()
+    # scene_types = data["scene_type"].unique()
+    # print(data)
+    scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
 
     # box plot of views for different scence types
     fig, ax = plt.subplots()
-    ax.boxplot(
-        [data[data["scene_type"] == scene_type]["view_count"] for scene_type in scene_types]
-    )
+
+    boxplot_data = [
+        [sketch.view_count for sketch in data if sketch.scene_type == scene_type and sketch.view_count is not None] for scene_type in scene_types
+    ]
+    boxplot_data = list(boxplot_data)
+    fig, ax = plt.subplots()
+    ax.boxplot(boxplot_data)
     ax.set_xticklabels(scene_types)
-    ax.set_ylabel("Views")
-    ax.set_title("Views by Scene Type")
+    ax.set_title('Boxplot of View Counts by Scene Types')
+    ax.set_xlabel('Scene Types')
+    ax.set_ylabel('View Counts')
     plt.show()
 
 if __name__ == '__main__':
