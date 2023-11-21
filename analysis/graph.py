@@ -23,11 +23,11 @@ def draw_boxplot_for_scene_type(data):
     ]
     boxplot_data = list(boxplot_data)
     fig, ax = plt.subplots()
-    ax.boxplot(boxplot_data)
-    ax.set_xticklabels(scene_types)
+    ax.boxplot(boxplot_data, vert=False, labels=scene_types)
+    # ax.set_xticklabels(scene_types)
     ax.set_title('Boxplot of View Counts by Scene Types')
-    ax.set_xlabel('Scene Types')
-    ax.set_ylabel('View Counts (in 10,000,000s)')
+    ax.set_xlabel('View Counts (in 10,000,000s)')
+    ax.set_ylabel('Scene Types')
     plt.show()
 
 if __name__ == '__main__':
