@@ -27,7 +27,7 @@ def draw_boxplot_for_scene_type(data):
     ax.set_xticklabels(scene_types)
     ax.set_title('Boxplot of View Counts by Scene Types')
     ax.set_xlabel('Scene Types')
-    ax.set_ylabel('View Counts')
+    ax.set_ylabel('View Counts (in 10,000,000s)')
     plt.show()
 
 if __name__ == '__main__':
