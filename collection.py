@@ -148,10 +148,14 @@ def _fetch_identification_for_all_videos(username: str) -> list:
 
 def _filter_videos(channel_videos: list) -> list:
     blocked_strings = ["behind the sketch", "behind the scenes", "bloopers", "(live)"] # Use this to manually filter titles
+    required_strings = ["- SNL", "- Saturday Night Live"]
     filtered_videos = [
         video
         for video in channel_videos
-        if video["title"] is not None and "- SNL" in video["title"] and not any(blocked in video["title"].lower() for blocked in blocked_strings)
+        if (video["title"] is not None 
+            and any(r in video["title"] for r in required_strings) 
+            and not any(blocked in video["title"].lower() for blocked in blocked_strings))
+        
     ]
     return filtered_videos
 
