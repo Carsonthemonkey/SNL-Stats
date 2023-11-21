@@ -26,9 +26,11 @@ from analysis.sentiment import score_comment_sentiment
 import numpy as np
 import datetime
 import json
+import logging
 
 
 async def main():
+    logging.log(logging.INFO, "Starting data collection")
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--scrape-scenes",
@@ -61,7 +63,7 @@ async def main():
 
     # Load or collect scene data
     if args.scrape_scenes or args.all:
-        print("Scraping scenes...")
+        logging.log(logging.INFO, "Scraping scene data")
         async with aiohttp.ClientSession() as session:
             urls = await get_all_episode_urls(session)
             print(f"found {len(urls)} episodes")
@@ -96,11 +98,14 @@ async def main():
                 "scene_data": scenes,
             }
             json.dump(data, f, indent=4)
+        logging.log(logging.INFO, "Saved scene data to file")
     else:
         scenes = load_scene_data()
+        logging.log(logging.INFO, "Loaded scene data from file")
 
     # Collect or load titles and ids of all SNL videos
     if args.get_videos or args.all:
+        logging.log(logging.INFO, "Fetching channel videos from youtube")
         # collect titles and ids of all SNL videos
         channel_videos = _fetch_identification_for_all_videos("SaturdayNightLive")
         with open("data/channel_videos.json", "w", encoding="utf-8") as f:
@@ -112,6 +117,7 @@ async def main():
     else:
         # load titles and ids of all SNL videos
         channel_videos = load_video_data()
+        logging.log(logging.INFO, "Loaded channel videos from file")
 
     if args.refilter or args.all or args.scrape_scenes or args.get_videos:
         # match videos based on title (get video id, title, scene type, and cast)
@@ -191,6 +197,7 @@ async def fetch_and_analyze_comments(
     sentiment_results = np.array(await asyncio.gather(*sentiment_analysis_tasks))
     sketch.mean_sentiment = sentiment_results.mean()
     sketch.std_sentiment = sentiment_results.std()
+    logging.info("Analyzed comments for %s. Mean: %s, Std: %s from %s comments", sketch.title, sketch.mean_sentiment, sketch.std_sentiment, len(sentiment_results))
 
 
 async def multi_core_sentiment_analysis(comment: str, executor: ProcessPoolExecutor):
@@ -270,6 +277,6 @@ def _get_ids(sketch_data: List[Sketch]) -> list:
 
 
 if __name__ == '__main__':
-    # This block will be executed only if the script is run as the main program
-    multiprocessing.freeze_support()  # This is necessary for Windows support
+    logging.basicConfig(level=logging.INFO, filemode='w', filename='logs/collection.log')
+    multiprocessing.freeze_support()
     asyncio.run(main())
