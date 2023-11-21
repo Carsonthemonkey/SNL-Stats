@@ -18,8 +18,6 @@ def draw_boxplot_for_scene_type(data):
     scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
 
     # box plot of views for different scence types
-    fig, ax = plt.subplots()
-
     boxplot_data = [
         [sketch.view_count for sketch in data if sketch.scene_type == scene_type and sketch.view_count is not None] for scene_type in scene_types
     ]
