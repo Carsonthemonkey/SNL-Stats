@@ -22,7 +22,7 @@ def draw_boxplot_for_scene_type(data):
         [sketch.view_count for sketch in data if sketch.scene_type == scene_type and sketch.view_count is not None] for scene_type in scene_types
     ]
     boxplot_data = list(boxplot_data)
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(12, 5))
     ax.boxplot(boxplot_data, vert=False, labels=scene_types)
     # ax.set_xticklabels(scene_types)
     ax.set_title('Boxplot of View Counts by Scene Types')
