@@ -160,7 +160,7 @@ def _extract_video_statistics(data: dict) -> dict:
     v = {
         "video_id": data["id"],
         "title": data["snippet"]["title"],
-        "duration": data["contentDetails"]["duration"],
+        "duration": duration_into_seconds(data["contentDetails"]["duration"]),
         "view_count": int(data["statistics"]["viewCount"]),
         "like_count": int(data["statistics"]["likeCount"]),
         "comment_count": int(data["statistics"]["commentCount"]),
@@ -177,6 +177,28 @@ def _extract_video_info(videos):
         for video in videos
     ]
     return video_data
+
+def duration_into_seconds(duration: str) -> int:
+    # duration is in ISO 8601 format PT#H#M#S
+    # https://developers.google.com/youtube/v3/docs/videos#contentDetails.duration
+    total_seconds = 0
+    # remove PT
+    duration = duration[2:]
+    # get hours
+    if "H" in duration:
+        duration = duration.split("H")
+        total_seconds += int(duration[0]) * 3600
+        duration = duration[1]
+    # get minutes
+    if "M" in duration:
+        duration = duration.split("M")
+        total_seconds += int(duration[0]) * 60
+        duration = duration[1]
+    # get seconds
+    if "S" in duration:
+        duration = duration.split("S")
+        total_seconds += int(duration[0])
+    return total_seconds
 
 
 async def main():
