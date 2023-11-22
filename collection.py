@@ -26,7 +26,7 @@ import logging
 
 
 async def main():
-    logging.log(logging.INFO, "Starting data collection")
+    logging.info("Starting data collection")
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--scrape-scenes",
@@ -59,7 +59,7 @@ async def main():
 
     # Load or collect scene data
     if args.scrape_scenes or args.all:
-        logging.log(logging.INFO, "Scraping scene data")
+        logging.info("Scraping scene data")
         async with aiohttp.ClientSession() as session:
             urls = await get_all_episode_urls(session)
             print(f"found {len(urls)} episodes")
@@ -94,14 +94,14 @@ async def main():
                 "scene_data": scenes,
             }
             json.dump(data, f, indent=4)
-        logging.log(logging.INFO, "Saved scene data to file")
+        logging.info("Saved scene data to file")
     else:
         scenes = load_scene_data()
-        logging.log(logging.INFO, "Loaded scene data from file")
+        logging.info("Loaded scene data from file")
 
     # Collect or load titles and ids of all SNL videos
     if args.get_videos or args.all:
-        logging.log(logging.INFO, "Fetching channel videos from youtube")
+        logging.info("Fetching channel videos from youtube")
         # collect titles and ids of all SNL videos
         channel_videos = _fetch_identification_for_all_videos("SaturdayNightLive")
         with open("data/channel_videos.json", "w", encoding="utf-8") as f:
@@ -113,7 +113,7 @@ async def main():
     else:
         # load titles and ids of all SNL videos
         channel_videos = load_video_data()
-        logging.log(logging.INFO, "Loaded channel videos from file")
+        logging.info("Loaded channel videos from file")
 
     if args.refilter or args.all or args.scrape_scenes or args.get_videos:
         # match videos based on title (get video id, title, scene type, and cast)
@@ -180,7 +180,7 @@ async def update_video_sentiment_stats(sketches: List[Sketch]):
                 task.add_done_callback(on_complete)
 
             await asyncio.gather(*tasks)
-    await session.close()
+    
 
 
 async def fetch_and_analyze_comments(
