@@ -9,6 +9,9 @@ def draw_all_graphs():
     draw_boxplot_for_scene_type(data, "view_count")
 
 def draw_boxplot_for_scene_type(data, attribute):
+    # check attribute is valid
+    if not hasattr(data[0], attribute):
+        raise AttributeError("Attribute " + attribute + " does not exist in data")
     # find all scene types
     scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
     # box plot of views for different scence types
@@ -19,7 +22,7 @@ def draw_boxplot_for_scene_type(data, attribute):
     fig, ax = plt.subplots(figsize=(12, 5))
     ax.boxplot(boxplot_data, vert=False, labels=scene_types)
     ax.set_title('Boxplot of ' + attribute + ' by Scene Types')
-    ax.set_xlabel(attribute + ' (in 10,000,000s)')
+    ax.set_xlabel(attribute)
     ax.set_ylabel('Scene Types')
     plt.show()
 
