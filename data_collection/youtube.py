@@ -164,6 +164,7 @@ def _extract_video_statistics(data: dict) -> dict:
         "view_count": int(data["statistics"]["viewCount"]),
         "like_count": int(data["statistics"]["likeCount"]),
         "comment_count": int(data["statistics"]["commentCount"]),
+        "upload_date": data["snippet"]["publishedAt"]
     }
     return v
 
