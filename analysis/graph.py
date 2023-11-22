@@ -25,6 +25,8 @@ def draw_boxplot_for_scene_type(data, attribute):
     ax.set_xlabel(attribute)
     ax.set_ylabel('Scene Types')
     plt.show()
+    # save figure
+    fig.savefig('graphs/' + attribute + '_by_scene_type_boxplot.png', bbox_inches='tight')
 
 if __name__ == '__main__':
     draw_all_graphs()
