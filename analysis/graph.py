@@ -9,8 +9,6 @@ def draw_all_graphs():
     draw_boxplot_for_scene_type(data, "view_count")
 
 def draw_boxplot_for_scene_type(data, attribute):
-    # Load data
-    data = load_full_data()
     # find all scene types
     scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
     # box plot of views for different scence types
