@@ -14,12 +14,12 @@ def draw_boxplot_for_scene_type(data, attribute):
         raise AttributeError("Attribute " + attribute + " does not exist in data")
     # find all scene types
     scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
-    # box plot of views for different scence types
+    # box plot of views for different scene types
     boxplot_data = [
         [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and sketch.view_count is not None] for scene_type in scene_types
     ]
     boxplot_data = list(boxplot_data)
-    fig, ax = plt.subplots(figsize=(12, 5))
+    fig, ax = plt.subplots(figsize=(12, 5)) # set size so y labels aren't cut off
     ax.boxplot(boxplot_data, vert=False, labels=scene_types)
     ax.set_title('Boxplot of ' + attribute + ' by Scene Types')
     ax.set_xlabel(attribute)
