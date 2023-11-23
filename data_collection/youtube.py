@@ -4,7 +4,7 @@ import asyncio
 import aiohttp
 from tqdm import tqdm
 from dotenv import load_dotenv
-from schema import Video
+import logging
 
 load_dotenv()  # load .env file
 API_KEY = os.getenv("YOUTUBE_API_KEY")  # Get api key
@@ -128,7 +128,7 @@ def _fetch_videos(video_ids: list) -> dict:
     # encode the url with the data we want
     query_params = {
         "key": API_KEY,
-        "id": video_ids[:50],
+        "id": video_ids,
         "part": "statistics,snippet,contentDetails",
     }
 
@@ -136,14 +136,15 @@ def _fetch_videos(video_ids: list) -> dict:
     response = requests.get(videos_endpoint, params=query_params, timeout=15).json()
     try:
         video_stats = response["items"]
-    except KeyError:
+        logging.info("requested video statistics for %s video IDs", len(video_ids))
+    except KeyError as exc:
         print(response)
-        raise KeyError("No videos found for given ids")
+        logging.error("no videos found for given ids")
+        raise KeyError("No videos found for given ids") from exc
     while response.get("nextPageToken"):
-        response = requests.get(videos_endpoint, params=query_params, timeout=15).json()
-        response = response.json()
         query_params["pageId"] = response["nextPageToken"]
         response = requests.get(videos_endpoint, params=query_params, timeout=15)
+        response = response.json()
         video_stats.extend(response.json()["items"])
 
     return video_stats
