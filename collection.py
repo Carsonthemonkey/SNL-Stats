@@ -1,9 +1,13 @@
 import argparse
+from typing import List
 import multiprocessing
 from concurrent.futures import ProcessPoolExecutor
 import asyncio
+import datetime
+import json
+import logging
+import numpy as np
 import aiohttp
-from typing import List
 from tqdm.asyncio import tqdm
 from tqdm import tqdm as sync_tqdm
 from schema import Sketch
@@ -19,10 +23,6 @@ from data_collection.youtube import (
 from data_collection.fuzzy_search import get_matching_string
 from analysis.load_data import load_scene_data, load_video_data, load_full_data
 from analysis.sentiment import score_comment_sentiment
-import numpy as np
-import datetime
-import json
-import logging
 
 
 async def main():
