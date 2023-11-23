@@ -147,6 +147,7 @@ async def main():
             "full_data": [sketch.model_dump() for sketch in full_data],
         }
         json.dump(data, f, indent=4)
+    logging.info("Saved collected data to full_data.json")
 
 
 async def update_video_sentiment_stats(sketches: List[Sketch]):

@@ -82,12 +82,12 @@ def _fetch_uploads_playlist_id(username: str) -> str:
     url = f"https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername={username}&key={API_KEY}"
 
     # call the api with a timeout of 15 seconds
+    logging.info("requesting uploads playlist id for channel \"%s\"", username)
     response = requests.get(url, timeout=15)
-
     # convert the json response to a python dictionary
     data = response.json()
     assert isinstance(data, dict)
-
+    logging.info("uploads playlist id for channel is \"%s\"", data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"])
     return data["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
 
 def _fetch_channel_videos(playlist_id):
@@ -101,6 +101,7 @@ def _fetch_channel_videos(playlist_id):
     }
 
     # call the api with a timeout of 15 seconds
+    logging.info("requested channel videos for playlist id \"%s\"", playlist_id)
     response = requests.get(url, params=query_params, timeout=15)
 
     # convert the json response to a python dictionary
@@ -114,6 +115,7 @@ def _fetch_channel_videos(playlist_id):
         while data_res.get("nextPageToken"):
             query_params["pageToken"] = data_res["nextPageToken"]
             response = requests.get(url, params=query_params, timeout=15)
+            logging.info("requested next page of channel videos")
             data_res = response.json()
             data.extend(data_res["items"])
             pbar.update(len(data) - last_len)
@@ -139,9 +141,10 @@ def _fetch_videos(video_ids: list) -> dict:
         logging.info("requested video statistics for %s video IDs", len(video_ids))
     except KeyError as exc:
         print(response)
-        logging.error("no videos found for given ids")
+        logging.error("no videos found for given ids. Response received: %s", response)
         raise KeyError("No videos found for given ids") from exc
     while response.get("nextPageToken"):
+        logging.info("requesting next page of video statistics")
         query_params["pageId"] = response["nextPageToken"]
         response = requests.get(videos_endpoint, params=query_params, timeout=15)
         response = response.json()
