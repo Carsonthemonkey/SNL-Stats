@@ -1,5 +1,5 @@
 {
-    "last_collected": "2023-11-20T13:56:25.982368",
+    "last_collected": "2023-11-20T16:41:50.424457",
     "full_data": [
         {
             "id": "gDxYe2-8sI0",
@@ -14,11 +14,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1089587,
+            "like_count": 28582,
+            "comment_count": 1294,
+            "mean_sentiment": 0.9995818181818183,
+            "std_sentiment": 0.00030989200998290625
         },
         {
             "id": "JYqfVE-fykk",
@@ -33,11 +33,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4881496,
+            "like_count": 84310,
+            "comment_count": 4116,
+            "mean_sentiment": 0.998609677419355,
+            "std_sentiment": 0.006084690192166841
         },
         {
             "id": "qiTDb52mkbY",
@@ -52,11 +52,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1081629,
+            "like_count": 16706,
+            "comment_count": 452,
+            "mean_sentiment": 0.956975,
+            "std_sentiment": 0.07365549453367345
         },
         {
             "id": "eAES_fDO8Yc",
@@ -73,11 +73,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1173146,
+            "like_count": 20727,
+            "comment_count": 360,
+            "mean_sentiment": 0.9988,
+            "std_sentiment": 0.0004082482904638634
         },
         {
             "id": "vLhWHZ8LWp0",
@@ -91,11 +91,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2626405,
+            "like_count": 56330,
+            "comment_count": 2684,
+            "mean_sentiment": 0.9983869565217394,
+            "std_sentiment": 0.0028006682972378425
         },
         {
             "id": "pTYogejydKo",
@@ -108,11 +108,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2078553,
+            "like_count": 24358,
+            "comment_count": 691,
+            "mean_sentiment": 0.99624,
+            "std_sentiment": 0.005873533859611239
         },
         {
             "id": "AA0PwmQMVG8",
@@ -128,11 +128,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5041795,
+            "like_count": 98011,
+            "comment_count": 2593,
+            "mean_sentiment": 0.9998444444444444,
+            "std_sentiment": 0.00018324913891634533
         },
         {
             "id": "P_egAXAmVjA",
@@ -148,11 +148,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2156418,
+            "like_count": 24009,
+            "comment_count": 697,
+            "mean_sentiment": 0.9930666666666667,
+            "std_sentiment": 0.013505143053255274
         },
         {
             "id": "zxxCaw74ptk",
@@ -169,11 +169,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5807909,
+            "like_count": 113350,
+            "comment_count": 6211,
+            "mean_sentiment": 0.9938229166666667,
+            "std_sentiment": 0.022968939530586138
         },
         {
             "id": "6q2G9QePGoI",
@@ -188,11 +188,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2427316,
+            "like_count": 43619,
+            "comment_count": 1729,
+            "mean_sentiment": 0.9697615384615386,
+            "std_sentiment": 0.09985360467636561
         },
         {
             "id": "D57YCrWoTxo",
@@ -208,11 +208,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1326232,
+            "like_count": 24522,
+            "comment_count": 1080,
+            "mean_sentiment": 0.9976555555555555,
+            "std_sentiment": 0.002281866249421066
         },
         {
             "id": "qu6v3ykmnW0",
@@ -228,11 +228,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1248407,
+            "like_count": 21968,
+            "comment_count": 1140,
+            "mean_sentiment": 0.994375,
+            "std_sentiment": 0.010188320519104212
         },
         {
             "id": "7_IK2zBWTFg",
@@ -249,11 +249,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1836960,
+            "like_count": 30929,
+            "comment_count": 947,
+            "mean_sentiment": 0.9972714285714286,
+            "std_sentiment": 0.0022075935739522086
         },
         {
             "id": "uLFD_cpq1Ec",
@@ -267,11 +267,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1352963,
+            "like_count": 19546,
+            "comment_count": 648,
+            "mean_sentiment": 0.9857399999999998,
+            "std_sentiment": 0.026331243798954882
         },
         {
             "id": "ieGypZWRc3c",
@@ -285,11 +285,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1154296,
+            "like_count": 20819,
+            "comment_count": 466,
+            "mean_sentiment": 0.98895,
+            "std_sentiment": 0.017189895287639173
         },
         {
             "id": "YFxlJ1inle0",
@@ -303,11 +303,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1327468,
+            "like_count": 19819,
+            "comment_count": 843,
+            "mean_sentiment": 0.9947714285714288,
+            "std_sentiment": 0.012073313462309524
         },
         {
             "id": "8koAEAa51LE",
@@ -324,11 +324,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1001119,
+            "like_count": 25989,
+            "comment_count": 785,
+            "mean_sentiment": 0.9943285714285715,
+            "std_sentiment": 0.012955055746223373
         },
         {
             "id": "sQ0FbMNjnME",
@@ -340,11 +340,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 877666,
+            "like_count": 12713,
+            "comment_count": 417,
+            "mean_sentiment": 0.9996,
+            "std_sentiment": 0.00014142135623734626
         },
         {
             "id": "cVawQ71bvY0",
@@ -358,11 +358,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 730065,
+            "like_count": 18283,
+            "comment_count": 821,
+            "mean_sentiment": 0.7561142857142858,
+            "std_sentiment": 0.5960891961744638
         },
         {
             "id": "TybjwLS1VtA",
@@ -385,11 +385,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 9010060,
+            "like_count": 178432,
+            "comment_count": 8627,
+            "mean_sentiment": 0.9669273972602738,
+            "std_sentiment": 0.2287649881370297
         },
         {
             "id": "V-qyBxApn48",
@@ -406,11 +406,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 780783,
+            "like_count": 11115,
+            "comment_count": 501,
+            "mean_sentiment": 0.9983666666666666,
+            "std_sentiment": 0.0006599663291074202
         },
         {
             "id": "ZxJKLkcG114",
@@ -426,11 +426,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1578011,
+            "like_count": 26436,
+            "comment_count": 798,
+            "mean_sentiment": 0.9724166666666667,
+            "std_sentiment": 0.056142954935493816
         },
         {
             "id": "VhGTtWsW9F8",
@@ -446,11 +446,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5640030,
+            "like_count": 109328,
+            "comment_count": 3447,
+            "mean_sentiment": 0.9385708333333334,
+            "std_sentiment": 0.28179975674103336
         },
         {
             "id": "EpGmv4FKrN4",
@@ -469,11 +469,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2531139,
+            "like_count": 37531,
+            "comment_count": 962,
+            "mean_sentiment": 0.9794375,
+            "std_sentiment": 0.04983906443493898
         },
         {
             "id": "fTxrVxUrJjU",
@@ -488,11 +488,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1817477,
+            "like_count": 32155,
+            "comment_count": 655,
+            "mean_sentiment": 0.9994000000000002,
+            "std_sentiment": 0.0005176871642218201
         },
         {
             "id": "oPyx4JRCQ88",
@@ -507,11 +507,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2671904,
+            "like_count": 44689,
+            "comment_count": 1357,
+            "mean_sentiment": 0.9981099999999999,
+            "std_sentiment": 0.0013743725841270388
         },
         {
             "id": "JTl5jKJJido",
@@ -526,11 +526,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 772313,
+            "like_count": 14514,
+            "comment_count": 473,
+            "mean_sentiment": 0.997825,
+            "std_sentiment": 0.001600585830250909
         },
         {
             "id": "1mEnmBav6ek",
@@ -547,11 +547,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1042836,
+            "like_count": 19065,
+            "comment_count": 619,
+            "mean_sentiment": 0.9994400000000001,
+            "std_sentiment": 0.00012000000000003859
         },
         {
             "id": "TqBMbyyxGng",
@@ -568,11 +568,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1419138,
+            "like_count": 20303,
+            "comment_count": 1390,
+            "mean_sentiment": 0.6136181818181817,
+            "std_sentiment": 0.7599001535108313
         },
         {
             "id": "pMdo2thujgU",
@@ -591,11 +591,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2115244,
+            "like_count": 40000,
+            "comment_count": 1346,
+            "mean_sentiment": 0.9986000000000002,
+            "std_sentiment": 0.0012968493288806587
         },
         {
             "id": "ecvrMvtk9tk",
@@ -613,11 +613,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 736273,
+            "like_count": 13856,
+            "comment_count": 563,
+            "mean_sentiment": 0.9297500000000001,
+            "std_sentiment": 0.11454864687110013
         },
         {
             "id": "DcYT5FkIa_I",
@@ -637,11 +637,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1710656,
+            "like_count": 27962,
+            "comment_count": 1057,
+            "mean_sentiment": 0.9950749999999999,
+            "std_sentiment": 0.006152590917654102
         },
         {
             "id": "q3yNku05KZs",
@@ -656,11 +656,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4449648,
+            "like_count": 70640,
+            "comment_count": 2978,
+            "mean_sentiment": 0.985821052631579,
+            "std_sentiment": 0.053611100372054424
         },
         {
             "id": "ZEII5so6XpY",
@@ -683,11 +683,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 7029921,
+            "like_count": 149220,
+            "comment_count": 4321,
+            "mean_sentiment": 0.9989294117647056,
+            "std_sentiment": 0.0007816006998328834
         },
         {
             "id": "v1fY2xtyXsY",
@@ -702,11 +702,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1105732,
+            "like_count": 17115,
+            "comment_count": 780,
+            "mean_sentiment": 0.9938333333333333,
+            "std_sentiment": 0.012805684501640524
         },
         {
             "id": "0_dvlhCcuTQ",
@@ -729,11 +729,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2504832,
+            "like_count": 45704,
+            "comment_count": 1887,
+            "mean_sentiment": 0.9922636363636363,
+            "std_sentiment": 0.00929499109758221
         },
         {
             "id": "sz6go7xC3Zs",
@@ -749,11 +749,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4836167,
+            "like_count": 80287,
+            "comment_count": 2967,
+            "mean_sentiment": 0.9979318181818183,
+            "std_sentiment": 0.002767569718861711
         },
         {
             "id": "XgaLlP0xmqE",
@@ -768,11 +768,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3820236,
+            "like_count": 86134,
+            "comment_count": 2808,
+            "mean_sentiment": 0.9940058823529412,
+            "std_sentiment": 0.009975291273249068
         },
         {
             "id": "UVo_6rGSiyI",
@@ -784,11 +784,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2900182,
+            "like_count": 93892,
+            "comment_count": 3359,
+            "mean_sentiment": 0.989176,
+            "std_sentiment": 0.01802884976918938
         },
         {
             "id": "2hekDuCBxCc",
@@ -809,11 +809,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 7384383,
+            "like_count": 133243,
+            "comment_count": 8311,
+            "mean_sentiment": 0.8253893617021275,
+            "std_sentiment": 0.5357616587562137
         },
         {
             "id": "TEPK3Z6nME0",
@@ -831,11 +831,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1177429,
+            "like_count": 22836,
+            "comment_count": 1196,
+            "mean_sentiment": 0.8950400000000001,
+            "std_sentiment": 0.29841947054439993
         },
         {
             "id": "SDGn9tHYPJo",
@@ -853,11 +853,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1389380,
+            "like_count": 22243,
+            "comment_count": 966,
+            "mean_sentiment": 0.8533571428571429,
+            "std_sentiment": 0.3484072242040211
         },
         {
             "id": "rSTu1I5t700",
@@ -876,11 +876,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3691410,
+            "like_count": 57496,
+            "comment_count": 2224,
+            "mean_sentiment": 0.2844142857142857,
+            "std_sentiment": 0.9301039948438506
         },
         {
             "id": "40fjM6ux2Ko",
@@ -897,11 +897,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2373276,
+            "like_count": 33863,
+            "comment_count": 1768,
+            "mean_sentiment": 0.4702727272727273,
+            "std_sentiment": 0.845314284846346
         },
         {
             "id": "5ytnReUSyrU",
@@ -919,11 +919,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4409069,
+            "like_count": 75638,
+            "comment_count": 1992,
+            "mean_sentiment": 0.9319533333333332,
+            "std_sentiment": 0.24907805702006125
         },
         {
             "id": "3AdArivRqXI",
@@ -943,11 +943,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1235245,
+            "like_count": 19287,
+            "comment_count": 1278,
+            "mean_sentiment": 0.9982500000000001,
+            "std_sentiment": 0.001191637528781307
         },
         {
             "id": "IqdswCPF2xw",
@@ -965,11 +965,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1999177,
+            "like_count": 30217,
+            "comment_count": 1524,
+            "mean_sentiment": 0.9996272727272729,
+            "std_sentiment": 0.0002956991994052947
         },
         {
             "id": "3VubWlYr9Ek",
@@ -987,11 +987,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6017124,
+            "like_count": 177853,
+            "comment_count": 6354,
+            "mean_sentiment": 0.9985901960784312,
+            "std_sentiment": 0.0029068718380970762
         },
         {
             "id": "_p2vIpl-nOg",
@@ -1017,11 +1017,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 457737,
+            "like_count": 9607,
+            "comment_count": 507,
+            "mean_sentiment": 0.9999,
+            "std_sentiment": 0.0
         },
         {
             "id": "Kbmm4Nll7oQ",
@@ -1039,11 +1039,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1227923,
+            "like_count": 15471,
+            "comment_count": 743,
+            "mean_sentiment": 0.9883500000000001,
+            "std_sentiment": 0.01960856530532849
         },
         {
             "id": "FZwmI0u8Qk8",
@@ -1059,11 +1059,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3370282,
+            "like_count": 65284,
+            "comment_count": 3923,
+            "mean_sentiment": 0.9584571428571429,
+            "std_sentiment": 0.18459942235742202
         },
         {
             "id": "VN2p8D6Mawc",
@@ -1077,11 +1077,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1665301,
+            "like_count": 22164,
+            "comment_count": 1051,
+            "mean_sentiment": 0.9946999999999999,
+            "std_sentiment": 0.012701181047445949
         },
         {
             "id": "qwjRnJ9hNDw",
@@ -1097,11 +1097,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2750756,
+            "like_count": 44367,
+            "comment_count": 2251,
+            "mean_sentiment": 0.9927533333333334,
+            "std_sentiment": 0.018139307839299956
         },
         {
             "id": "v3sg2-PqSIM",
@@ -1120,11 +1120,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4663700,
+            "like_count": 54824,
+            "comment_count": 1566,
+            "mean_sentiment": 0.8448916666666667,
+            "std_sentiment": 0.5055190821626376
         },
         {
             "id": "Brbrdnh74yA",
@@ -1142,11 +1142,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 24524443,
+            "like_count": 623197,
+            "comment_count": 18378,
+            "mean_sentiment": 0.863360583941606,
+            "std_sentiment": 0.474024746860494
         },
         {
             "id": "tebBj42fC3k",
@@ -1166,11 +1166,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 8523509,
+            "like_count": 123864,
+            "comment_count": 4726,
+            "mean_sentiment": 0.6144162162162162,
+            "std_sentiment": 0.7196256262107378
         },
         {
             "id": "VxVXYp2KIeE",
@@ -1187,11 +1187,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 8880148,
+            "like_count": 167716,
+            "comment_count": 6446,
+            "mean_sentiment": 0.9989372093023255,
+            "std_sentiment": 0.0009238501982197561
         },
         {
             "id": "XSP3Z68N9fs",
@@ -1212,11 +1212,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2060947,
+            "like_count": 29299,
+            "comment_count": 728,
+            "mean_sentiment": 0.99916,
+            "std_sentiment": 0.0005276362383309361
         },
         {
             "id": "g4vktLutpiY",
@@ -1230,11 +1230,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 9364347,
+            "like_count": 140608,
+            "comment_count": 3562,
+            "mean_sentiment": 0.993,
+            "std_sentiment": 0.0266738823570923
         },
         {
             "id": "0B96ZM3C-h4",
@@ -1249,11 +1249,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3898733,
+            "like_count": 38986,
+            "comment_count": 1250,
+            "mean_sentiment": 0.9982571428571428,
+            "std_sentiment": 0.001189065831239141
         },
         {
             "id": "Y3nfRuvyIRE",
@@ -1269,11 +1269,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3165074,
+            "like_count": 54810,
+            "comment_count": 1614,
+            "mean_sentiment": 0.9218692307692309,
+            "std_sentiment": 0.2661215233818952
         },
         {
             "id": "SDUDlAEv5pU",
@@ -1288,11 +1288,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 8231013,
+            "like_count": 134540,
+            "comment_count": 8489,
+            "mean_sentiment": 0.7722688888888889,
+            "std_sentiment": 0.6163768716629362
         },
         {
             "id": "93-EXp5PbOA",
@@ -1308,11 +1308,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2221686,
+            "like_count": 66136,
+            "comment_count": 1323,
+            "mean_sentiment": 0.9980333333333333,
+            "std_sentiment": 0.00196242480393801
         },
         {
             "id": "qsEsgp3H7CU",
@@ -1329,11 +1329,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 9230652,
+            "like_count": 233478,
+            "comment_count": 4847,
+            "mean_sentiment": 0.9598060606060607,
+            "std_sentiment": 0.17375817214597844
         },
         {
             "id": "qkc8CyuoGjo",
@@ -1349,11 +1349,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1930698,
+            "like_count": 37642,
+            "comment_count": 1306,
+            "mean_sentiment": 0.9988600000000002,
+            "std_sentiment": 0.0009446692542895769
         },
         {
             "id": "rF9ZIdEnZU0",
@@ -1368,11 +1368,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4575298,
+            "like_count": 114981,
+            "comment_count": 2520,
+            "mean_sentiment": 0.6941555555555556,
+            "std_sentiment": 0.677932919675868
         },
         {
             "id": "fs79leD9Atc",
@@ -1390,11 +1390,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2221327,
+            "like_count": 38363,
+            "comment_count": 1237,
+            "mean_sentiment": 0.8874,
+            "std_sentiment": 0.3137464864787776
         },
         {
             "id": "LSYsmgZEKv0",
@@ -1407,11 +1407,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1572541,
+            "like_count": 34489,
+            "comment_count": 697,
+            "mean_sentiment": 0.99832,
+            "std_sentiment": 0.0014483093592185029
         },
         {
             "id": "xiKrWUoTq4s",
@@ -1425,11 +1425,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4655465,
+            "like_count": 44377,
+            "comment_count": 2809,
+            "mean_sentiment": 0.9988550000000002,
+            "std_sentiment": 0.0013200284087852023
         },
         {
             "id": "9MtlLBnCmwE",
@@ -1443,11 +1443,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1787208,
+            "like_count": 36039,
+            "comment_count": 1101,
+            "mean_sentiment": 0.997125,
+            "std_sentiment": 0.002342941527225993
         },
         {
             "id": "aBsW8kD5J6I",
@@ -1460,11 +1460,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 74507,
+            "like_count": 1139,
+            "comment_count": 55,
+            "mean_sentiment": -0.9661,
+            "std_sentiment": 0.0
         },
         {
             "id": "jGJvfBSxsvw",
@@ -1481,11 +1481,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 335027,
+            "like_count": 5161,
+            "comment_count": 257,
+            "mean_sentiment": 0.9977,
+            "std_sentiment": 9.999999999998899e-05
         },
         {
             "id": "wgKrdvHg0ms",
@@ -1496,11 +1496,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 647227,
+            "like_count": 6615,
+            "comment_count": 280,
+            "mean_sentiment": 0.9985999999999999,
+            "std_sentiment": 0.0005000000000000004
         },
         {
             "id": "9iDOCLOqFyw",
@@ -1515,11 +1515,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3484722,
+            "like_count": 53305,
+            "comment_count": 2919,
+            "mean_sentiment": 0.9986428571428573,
+            "std_sentiment": 0.0011615143762599403
         },
         {
             "id": "vRSb5L-0K8M",
@@ -1543,11 +1543,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 144015,
+            "like_count": 1670,
+            "comment_count": 181,
+            "mean_sentiment": 0.9986,
+            "std_sentiment": 0.0
         },
         {
             "id": "GSdnWlUKJ1g",
@@ -1562,11 +1562,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 213049,
+            "like_count": 2217,
+            "comment_count": 219,
+            "mean_sentiment": 0.02009999999999995,
+            "std_sentiment": 0.9460999999999999
         },
         {
             "id": "g4Gh_IcK8UM",
@@ -1577,11 +1577,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 355019,
+            "like_count": 4192,
+            "comment_count": 318,
+            "mean_sentiment": 0.9983,
+            "std_sentiment": 0.0012000000000000344
         },
         {
             "id": "tRyCQcu0ygE",
@@ -1601,11 +1601,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3625091,
+            "like_count": 36219,
+            "comment_count": 2007,
+            "mean_sentiment": 0.9988214285714285,
+            "std_sentiment": 0.0006212643461161188
         },
         {
             "id": "jphfMd4_LCs",
@@ -1618,11 +1618,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 675709,
+            "like_count": 6190,
+            "comment_count": 671,
+            "mean_sentiment": 0.7997200000000001,
+            "std_sentiment": 0.39986000750262585
         },
         {
             "id": "DU_Gd623HJo",
@@ -1634,11 +1634,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 654639,
+            "like_count": 6437,
+            "comment_count": 569,
+            "mean_sentiment": -0.0020499999999999963,
+            "std_sentiment": 0.9907621750450508
         },
         {
             "id": "G3k9_XbLxNY",
@@ -1662,11 +1662,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 240461,
+            "like_count": 3617,
+            "comment_count": 282,
+            "mean_sentiment": 0.99975,
+            "std_sentiment": 0.00014999999999998348
         },
         {
             "id": "qrUOFs-hZ-M",
@@ -1681,11 +1681,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 489928,
+            "like_count": 6187,
+            "comment_count": 442,
+            "mean_sentiment": 0.9987333333333334,
+            "std_sentiment": 0.0006548960901463016
         },
         {
             "id": "-ARFzXso3Ns",
@@ -1700,11 +1700,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6083024,
+            "like_count": 77355,
+            "comment_count": 2608,
+            "mean_sentiment": 0.9985619047619049,
+            "std_sentiment": 0.0013311206129302442
         },
         {
             "id": "fXsOqt2aRNw",
@@ -1719,11 +1719,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 11182931,
+            "like_count": 185529,
+            "comment_count": 3222,
+            "mean_sentiment": 0.642136,
+            "std_sentiment": 0.7077218571614134
         },
         {
             "id": "lrEkNj8NKco",
@@ -1736,11 +1736,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 9382059,
+            "like_count": 139210,
+            "comment_count": 3170,
+            "mean_sentiment": 0.999155,
+            "std_sentiment": 0.0011715267815974187
         },
         {
             "id": "Z4WHIJTCFs0",
@@ -1765,11 +1765,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 7905061,
+            "like_count": 115265,
+            "comment_count": 5777,
+            "mean_sentiment": 0.9979666666666667,
+            "std_sentiment": 0.004227949332188777
         },
         {
             "id": "mq7DbWsjX6A",
@@ -1783,11 +1783,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1137287,
+            "like_count": 16154,
+            "comment_count": 938,
+            "mean_sentiment": 0.9984142857142856,
+            "std_sentiment": 0.0009448031865020757
         },
         {
             "id": "bhMEhlKT9Ds",
@@ -1802,11 +1802,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 791202,
+            "like_count": 7126,
+            "comment_count": 193,
+            "mean_sentiment": 0.9716,
+            "std_sentiment": 0.0007000000000000339
         },
         {
             "id": "IV6IuCTg6MU",
@@ -1823,11 +1823,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2657118,
+            "like_count": 39977,
+            "comment_count": 1648,
+            "mean_sentiment": 0.8738499999999999,
+            "std_sentiment": 0.44611595505781104
         },
         {
             "id": "Qu697hc37Xc",
@@ -1842,11 +1842,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2819231,
+            "like_count": 45679,
+            "comment_count": 1722,
+            "mean_sentiment": 0.9621933333333333,
+            "std_sentiment": 0.1097987581391014
         },
         {
             "id": "9HMX-EkYUA0",
@@ -1864,11 +1864,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 8144423,
+            "like_count": 173665,
+            "comment_count": 8946,
+            "mean_sentiment": 0.8996508196721312,
+            "std_sentiment": 0.37992059162665964
         },
         {
             "id": "DCc4RCkH1fc",
@@ -1884,11 +1884,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4313971,
+            "like_count": 65036,
+            "comment_count": 4609,
+            "mean_sentiment": 0.18348108108108105,
+            "std_sentiment": 0.8756420371416862
         },
         {
             "id": "_9BjJkqybz8",
@@ -1902,11 +1902,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5633750,
+            "like_count": 108366,
+            "comment_count": 2277,
+            "mean_sentiment": -0.09442499999999998,
+            "std_sentiment": 0.9647199402546834
         },
         {
             "id": "xeSwrFKFNFw",
@@ -1922,11 +1922,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2495736,
+            "like_count": 30867,
+            "comment_count": 1720,
+            "mean_sentiment": 0.998675,
+            "std_sentiment": 0.0015237699957670896
         },
         {
             "id": "CniGk7Dyp1c",
@@ -1946,11 +1946,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 12057530,
+            "like_count": 154492,
+            "comment_count": 4165,
+            "mean_sentiment": 0.8551735294117647,
+            "std_sentiment": 0.46046390502266266
         },
         {
             "id": "l1vFZ6Wal3g",
@@ -1967,11 +1967,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3244468,
+            "like_count": 42730,
+            "comment_count": 1774,
+            "mean_sentiment": 0.9982833333333332,
+            "std_sentiment": 0.0014316850988336273
         },
         {
             "id": "UGRcJQ9tMbY",
@@ -1988,11 +1988,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 13635765,
+            "like_count": 206836,
+            "comment_count": 8444,
+            "mean_sentiment": 0.9985019607843137,
+            "std_sentiment": 0.0024762788493298987
         },
         {
             "id": "0ggNnSGOJYQ",
@@ -2008,11 +2008,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1274801,
+            "like_count": 17048,
+            "comment_count": 358,
+            "mean_sentiment": 0.9984999999999999,
+            "std_sentiment": 0.0017682382946499937
         },
         {
             "id": "73Bz5ZNPIMQ",
@@ -2031,11 +2031,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1427076,
+            "like_count": 16391,
+            "comment_count": 474,
+            "mean_sentiment": 0.997025,
+            "std_sentiment": 0.0032298413273719666
         },
         {
             "id": "rrjaJem_uko",
@@ -2062,11 +2062,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6493350,
+            "like_count": 75405,
+            "comment_count": 3012,
+            "mean_sentiment": 0.9983260869565216,
+            "std_sentiment": 0.002778053336468676
         },
         {
             "id": "4WvwX18oMR4",
@@ -2081,11 +2081,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 16834448,
+            "like_count": 121574,
+            "comment_count": 3656,
+            "mean_sentiment": 0.9574874999999999,
+            "std_sentiment": 0.19965046604941847
         },
         {
             "id": "Bm7zFVk6Qhk",
@@ -2107,11 +2107,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4294270,
+            "like_count": 44937,
+            "comment_count": 2239,
+            "mean_sentiment": 0.7559823529411765,
+            "std_sentiment": 0.6379117007265782
         },
         {
             "id": "QZIR5jDMY0Y",
@@ -2129,11 +2129,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2475790,
+            "like_count": 50984,
+            "comment_count": 1465,
+            "mean_sentiment": 0.9979818181818184,
+            "std_sentiment": 0.0022143409369661236
         },
         {
             "id": "5B3ibFZtw0U",
@@ -2148,11 +2148,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2131913,
+            "like_count": 29440,
+            "comment_count": 1398,
+            "mean_sentiment": 0.9978899999999999,
+            "std_sentiment": 0.0025947832279402576
         },
         {
             "id": "IZ5ljKctOSk",
@@ -2169,11 +2169,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1661534,
+            "like_count": 14740,
+            "comment_count": 909,
+            "mean_sentiment": -0.10115714285714285,
+            "std_sentiment": 0.9430112964891367
         },
         {
             "id": "yVXkR4Z4GSg",
@@ -2189,11 +2189,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 8194583,
+            "like_count": 92539,
+            "comment_count": 2710,
+            "mean_sentiment": 0.7695111111111111,
+            "std_sentiment": 0.6201305847148368
         },
         {
             "id": "2H8lMol8Gpk",
@@ -2214,11 +2214,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 181578,
+            "like_count": 2400,
+            "comment_count": 172,
+            "mean_sentiment": 0.9513,
+            "std_sentiment": 0.04509999999999997
         },
         {
             "id": "cFyHCdE_2Ag",
@@ -2237,11 +2237,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1888761,
+            "like_count": 21623,
+            "comment_count": 651,
+            "mean_sentiment": 0.7098800000000001,
+            "std_sentiment": 0.5765401890588374
         },
         {
             "id": "tuN0CzNVPi8",
@@ -2258,11 +2258,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1041282,
+            "like_count": 10722,
+            "comment_count": 1634,
+            "mean_sentiment": 0.9924299999999999,
+            "std_sentiment": 0.00948494069565014
         },
         {
             "id": "VvMcmd4fYKw",
@@ -2278,11 +2278,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1626720,
+            "like_count": 32039,
+            "comment_count": 887,
+            "mean_sentiment": 0.6686166666666667,
+            "std_sentiment": 0.7386257316049103
         },
         {
             "id": "7IcpLx1tlrk",
@@ -2298,11 +2298,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 238324,
+            "like_count": 2906,
+            "comment_count": 228,
+            "mean_sentiment": 0.9977,
+            "std_sentiment": 0.0019000000000000128
         },
         {
             "id": "yAH9_HUACQ8",
@@ -2320,11 +2320,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6949651,
+            "like_count": 79024,
+            "comment_count": 3441,
+            "mean_sentiment": 0.8906956521739131,
+            "std_sentiment": 0.3908439191180172
         },
         {
             "id": "RaLLZ_x34zI",
@@ -2337,11 +2337,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 405514,
+            "like_count": 3139,
+            "comment_count": 166,
+            "mean_sentiment": 0.6845,
+            "std_sentiment": 0.2928
         },
         {
             "id": "cRiGtHTJb0A",
@@ -2355,11 +2355,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 9574774,
+            "like_count": 147299,
+            "comment_count": 4197,
+            "mean_sentiment": 0.9977359999999998,
+            "std_sentiment": 0.004700117445341132
         },
         {
             "id": "RUCXD3_wW2w",
@@ -2375,11 +2375,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4685586,
+            "like_count": 49411,
+            "comment_count": 1772,
+            "mean_sentiment": 0.5261999999999999,
+            "std_sentiment": 0.814670533269602
         },
         {
             "id": "M5wxAa_z7h8",
@@ -2394,11 +2394,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1796577,
+            "like_count": 26487,
+            "comment_count": 701,
+            "mean_sentiment": 0.6033999999999999,
+            "std_sentiment": 0.7902003366235679
         },
         {
             "id": "IJ49fj6iXEo",
@@ -2413,11 +2413,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1529067,
+            "like_count": 19249,
+            "comment_count": 523,
+            "mean_sentiment": 0.5019750000000001,
+            "std_sentiment": 0.8404167935465117
         },
         {
             "id": "Rl5dZuX7QuU",
@@ -2440,11 +2440,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2829501,
+            "like_count": 49295,
+            "comment_count": 1063,
+            "mean_sentiment": 0.9852875,
+            "std_sentiment": 0.0299480148549115
         },
         {
             "id": "Imi0HZ_1sgk",
@@ -2461,11 +2461,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2589893,
+            "like_count": 32146,
+            "comment_count": 921,
+            "mean_sentiment": 0.9639428571428572,
+            "std_sentiment": 0.08246855430392601
         },
         {
             "id": "1TWo74L8EiY",
@@ -2480,11 +2480,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5059879,
+            "like_count": 89135,
+            "comment_count": 2470,
+            "mean_sentiment": 0.3527333333333334,
+            "std_sentiment": 0.9113452266963503
         },
         {
             "id": "2EVI7wIV7tk",
@@ -2502,11 +2502,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5232387,
+            "like_count": 79034,
+            "comment_count": 2766,
+            "mean_sentiment": 0.5962900000000001,
+            "std_sentiment": 0.7207589374402512
         },
         {
             "id": "EL1wN_ihL_E",
@@ -2536,11 +2536,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 15033128,
+            "like_count": 181190,
+            "comment_count": 6869,
+            "mean_sentiment": 0.9984313725490198,
+            "std_sentiment": 0.00141400421499753
         },
         {
             "id": "KUzGrzsYqH4",
@@ -2555,11 +2555,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6556342,
+            "like_count": 122931,
+            "comment_count": 3244,
+            "mean_sentiment": 0.9504692307692307,
+            "std_sentiment": 0.23617873083622132
         },
         {
             "id": "-68iTvhWNB0",
@@ -2576,11 +2576,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 543095,
+            "like_count": 7926,
+            "comment_count": 493,
+            "mean_sentiment": 0.9991666666666666,
+            "std_sentiment": 0.0008993825042154746
         },
         {
             "id": "ZJkc_C5-Cd8",
@@ -2595,11 +2595,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4712471,
+            "like_count": 56042,
+            "comment_count": 6837,
+            "mean_sentiment": -0.2370264705882354,
+            "std_sentiment": 0.9423757316449876
         },
         {
             "id": "gTnqJRFL7Gc",
@@ -2613,11 +2613,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3978629,
+            "like_count": 49595,
+            "comment_count": 1105,
+            "mean_sentiment": 0.9991571428571427,
+            "std_sentiment": 0.0006842245722758823
         },
         {
             "id": "_tO9dA2syYM",
@@ -2637,11 +2637,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3892210,
+            "like_count": 38814,
+            "comment_count": 1315,
+            "mean_sentiment": -0.05271999999999999,
+            "std_sentiment": 0.8690545515673915
         },
         {
             "id": "9lnkgrJtiyU",
@@ -2655,11 +2655,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 446138,
+            "like_count": 8576,
+            "comment_count": 298,
+            "mean_sentiment": 0.9940666666666665,
+            "std_sentiment": 0.002049932248202919
         },
         {
             "id": "RwchOLbk6fY",
@@ -2673,11 +2673,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3185833,
+            "like_count": 39066,
+            "comment_count": 1002,
+            "mean_sentiment": 0.9900875,
+            "std_sentiment": 0.00843036735557829
         },
         {
             "id": "iAAJYpg9xWE",
@@ -2695,11 +2695,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 15069550,
+            "like_count": 171225,
+            "comment_count": 6003,
+            "mean_sentiment": 0.5073351351351352,
+            "std_sentiment": 0.8261203083695845
         },
         {
             "id": "51lPhwBp55A",
@@ -2714,11 +2714,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 274273,
+            "like_count": 2056,
+            "comment_count": 178,
+            "mean_sentiment": 0.9261,
+            "std_sentiment": 0.0
         },
         {
             "id": "jwikGyPJdYA",
@@ -2739,11 +2739,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 190445,
+            "like_count": 1615,
+            "comment_count": 94,
+            "mean_sentiment": 0.998,
+            "std_sentiment": 0.0
         },
         {
             "id": "UIFSFre05eA",
@@ -2757,11 +2757,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3618466,
+            "like_count": 37700,
+            "comment_count": 1825,
+            "mean_sentiment": 0.6037714285714287,
+            "std_sentiment": 0.7379414798987126
         },
         {
             "id": "-zq5kWvp528",
@@ -2775,11 +2775,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3278672,
+            "like_count": 41106,
+            "comment_count": 1692,
+            "mean_sentiment": 0.5233384615384615,
+            "std_sentiment": 0.7999062604104227
         },
         {
             "id": "RGsz09GBUto",
@@ -2795,11 +2795,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3324026,
+            "like_count": 37526,
+            "comment_count": 663,
+            "mean_sentiment": 0.9877666666666666,
+            "std_sentiment": 0.02125093461996958
         },
         {
             "id": "rDiz5-vfUZ8",
@@ -2819,11 +2819,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6867324,
+            "like_count": 80108,
+            "comment_count": 2803,
+            "mean_sentiment": 0.535786956521739,
+            "std_sentiment": 0.7894074091721933
         },
         {
             "id": "vID0oH_2x9Q",
@@ -2840,11 +2840,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 836781,
+            "like_count": 14342,
+            "comment_count": 336,
+            "mean_sentiment": 0.9932333333333334,
+            "std_sentiment": 0.004677843757782267
         },
         {
             "id": "P8YRuxu8dQU",
@@ -2862,11 +2862,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6010668,
+            "like_count": 51629,
+            "comment_count": 1236,
+            "mean_sentiment": 0.22100999999999998,
+            "std_sentiment": 0.9476061655033698
         },
         {
             "id": "AQ2aaFiR4jk",
@@ -2882,11 +2882,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2149087,
+            "like_count": 29413,
+            "comment_count": 649,
+            "mean_sentiment": 0.6069,
+            "std_sentiment": 0.7835501949460545
         },
         {
             "id": "809RIs-kao0",
@@ -2901,11 +2901,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1126043,
+            "like_count": 18417,
+            "comment_count": 648,
+            "mean_sentiment": 0.7406333333333334,
+            "std_sentiment": 0.5785305196981592
         },
         {
             "id": "kwCQDbzBerI",
@@ -2924,11 +2924,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 11745728,
+            "like_count": 147171,
+            "comment_count": 3807,
+            "mean_sentiment": 0.993274074074074,
+            "std_sentiment": 0.017420137189420086
         },
         {
             "id": "kELDEdMbkyg",
@@ -2943,11 +2943,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 18494122,
+            "like_count": 200295,
+            "comment_count": 5739,
+            "mean_sentiment": 0.9056181818181819,
+            "std_sentiment": 0.40465574160621526
         },
         {
             "id": "4ydHjbKaL5A",
@@ -2966,11 +2966,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4316788,
+            "like_count": 42847,
+            "comment_count": 2386,
+            "mean_sentiment": -0.262525,
+            "std_sentiment": 0.8941126533468812
         },
         {
             "id": "NgWWube0M1c",
@@ -2989,11 +2989,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4166998,
+            "like_count": 33950,
+            "comment_count": 1656,
+            "mean_sentiment": 0.6659416666666668,
+            "std_sentiment": 0.7423058898440872
         },
         {
             "id": "eIdXxDARU_0",
@@ -3011,11 +3011,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5511789,
+            "like_count": 83839,
+            "comment_count": 2594,
+            "mean_sentiment": 0.79127,
+            "std_sentiment": 0.5393649776357379
         },
         {
             "id": "42_fVUFsN8M",
@@ -3036,11 +3036,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4414970,
+            "like_count": 71455,
+            "comment_count": 2729,
+            "mean_sentiment": 0.994975,
+            "std_sentiment": 0.007301498133944851
         },
         {
             "id": "UPx_X3DjXy8",
@@ -3056,11 +3056,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 7680979,
+            "like_count": 86059,
+            "comment_count": 2100,
+            "mean_sentiment": 0.9879142857142857,
+            "std_sentiment": 0.024114099525347554
         },
         {
             "id": "XCPSoKpLXZQ",
@@ -3075,11 +3075,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5350971,
+            "like_count": 64690,
+            "comment_count": 2052,
+            "mean_sentiment": 0.99945625,
+            "std_sentiment": 0.0003622305032710738
         },
         {
             "id": "By4ZWRrlPHM",
@@ -3093,11 +3093,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5005313,
+            "like_count": 63963,
+            "comment_count": 1493,
+            "mean_sentiment": 0.98325,
+            "std_sentiment": 0.03514396818801201
         },
         {
             "id": "i0dvv4fTiqA",
@@ -3115,11 +3115,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 7934563,
+            "like_count": 95458,
+            "comment_count": 3547,
+            "mean_sentiment": 0.925013043478261,
+            "std_sentiment": 0.3055098166847298
         },
         {
             "id": "rJ6WuWeBoY8",
@@ -3138,11 +3138,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3912863,
+            "like_count": 52061,
+            "comment_count": 2827,
+            "mean_sentiment": 0.13236874999999998,
+            "std_sentiment": 0.9607626838342741
         },
         {
             "id": "1d-EyX5r_lk",
@@ -3157,11 +3157,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 14676280,
+            "like_count": 112273,
+            "comment_count": 3204,
+            "mean_sentiment": 0.837795652173913,
+            "std_sentiment": 0.5091532454697709
         },
         {
             "id": "VY0dCkbTA8A",
@@ -3178,11 +3178,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1166550,
+            "like_count": 13760,
+            "comment_count": 407,
+            "mean_sentiment": -0.225775,
+            "std_sentiment": 0.7293035526274364
         },
         {
             "id": "0o8LVdTvw8c",
@@ -3203,11 +3203,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 923644,
+            "like_count": 15688,
+            "comment_count": 554,
+            "mean_sentiment": 0.9907500000000001,
+            "std_sentiment": 0.008528041979258778
         },
         {
             "id": "siSV55595c8",
@@ -3221,11 +3221,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1421928,
+            "like_count": 16138,
+            "comment_count": 404,
+            "mean_sentiment": 0.2536333333333334,
+            "std_sentiment": 0.8859824766263094
         },
         {
             "id": "QPKZg0wnL7U",
@@ -3240,11 +3240,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 12973551,
+            "like_count": 180141,
+            "comment_count": 5167,
+            "mean_sentiment": 0.99865,
+            "std_sentiment": 0.0058296416890081994
         },
         {
             "id": "C6F6kVaGn8s",
@@ -3259,11 +3259,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5609692,
+            "like_count": 70810,
+            "comment_count": 1372,
+            "mean_sentiment": 0.9530799999999999,
+            "std_sentiment": 0.09119667537799829
         },
         {
             "id": "YBQ5YILNGXE",
@@ -3275,11 +3275,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 12508669,
+            "like_count": 171020,
+            "comment_count": 4992,
+            "mean_sentiment": 0.9448628571428569,
+            "std_sentiment": 0.3061151772834292
         },
         {
             "id": "Fid_gQEShSg",
@@ -3292,11 +3292,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 777595,
+            "like_count": 13820,
+            "comment_count": 518,
+            "mean_sentiment": 0.749425,
+            "std_sentiment": 0.43268081986032153
         },
         {
             "id": "HJC9pozdU50",
@@ -3318,11 +3318,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5030229,
+            "like_count": 71914,
+            "comment_count": 3175,
+            "mean_sentiment": 0.997255,
+            "std_sentiment": 0.0036809611516559104
         },
         {
             "id": "Yrrj0076E9U",
@@ -3339,11 +3339,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 20453034,
+            "like_count": 251427,
+            "comment_count": 7153,
+            "mean_sentiment": 0.9506145833333334,
+            "std_sentiment": 0.23782224015496614
         },
         {
             "id": "52aOJHv9oSg",
@@ -3357,11 +3357,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2393219,
+            "like_count": 31068,
+            "comment_count": 874,
+            "mean_sentiment": 0.9988999999999999,
+            "std_sentiment": 0.0005196152422706451
         },
         {
             "id": "EG0wQRsXLi4",
@@ -3378,11 +3378,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 25209686,
+            "like_count": 340900,
+            "comment_count": 14090,
+            "mean_sentiment": 0.9577186274509804,
+            "std_sentiment": 0.27068070030159735
         },
         {
             "id": "TVueoznrt9Y",
@@ -3397,11 +3397,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 10533886,
+            "like_count": 129369,
+            "comment_count": 2530,
+            "mean_sentiment": 0.9978588235294117,
+            "std_sentiment": 0.0029138732709996814
         },
         {
             "id": "Ie6LpKOJVf0",
@@ -3418,11 +3418,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 7374425,
+            "like_count": 131166,
+            "comment_count": 4961,
+            "mean_sentiment": 0.7991605263157895,
+            "std_sentiment": 0.5630538711907422
         },
         {
             "id": "sK-iyzpZGPk",
@@ -3438,11 +3438,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 13449040,
+            "like_count": 126766,
+            "comment_count": 2974,
+            "mean_sentiment": 0.7219818181818183,
+            "std_sentiment": 0.6454535788084952
         },
         {
             "id": "8nAz-vVYeNA",
@@ -3457,11 +3457,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 13428472,
+            "like_count": 131272,
+            "comment_count": 3431,
+            "mean_sentiment": 0.998203846153846,
+            "std_sentiment": 0.001969279596750425
         },
         {
             "id": "mPJstvZKlso",
@@ -3480,11 +3480,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5792223,
+            "like_count": 61771,
+            "comment_count": 1124,
+            "mean_sentiment": 0.912311111111111,
+            "std_sentiment": 0.2072092578607671
         },
         {
             "id": "YfiLAcERNQ4",
@@ -3502,11 +3502,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 10734549,
+            "like_count": 203660,
+            "comment_count": 7263,
+            "mean_sentiment": 0.8240558823529412,
+            "std_sentiment": 0.5418332178768756
         },
         {
             "id": "ociMBfkDG1w",
@@ -3529,11 +3529,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 25337469,
+            "like_count": 416632,
+            "comment_count": 20886,
+            "mean_sentiment": 0.5491207547169812,
+            "std_sentiment": 0.8013784246966233
         },
         {
             "id": "nn4tP7ogWIA",
@@ -3553,11 +3553,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 10195722,
+            "like_count": 135321,
+            "comment_count": 7965,
+            "mean_sentiment": 0.9535695652173912,
+            "std_sentiment": 0.2907608743112555
         },
         {
             "id": "ospx7tXWYbI",
@@ -3580,11 +3580,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 8712440,
+            "like_count": 89860,
+            "comment_count": 2841,
+            "mean_sentiment": 0.9988705882352941,
+            "std_sentiment": 0.0009915909414449568
         },
         {
             "id": "AH4yRRTgcE8",
@@ -3599,11 +3599,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6910748,
+            "like_count": 110716,
+            "comment_count": 3334,
+            "mean_sentiment": 0.9984999999999999,
+            "std_sentiment": 0.001451236354465297
         },
         {
             "id": "MJEAGd1bQuc",
@@ -3623,11 +3623,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 36500585,
+            "like_count": 418457,
+            "comment_count": 13741,
+            "mean_sentiment": 0.8797882352941176,
+            "std_sentiment": 0.4560877999611
         },
         {
             "id": "e2zyjbH9zzA",
@@ -3644,11 +3644,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 24369101,
+            "like_count": 193558,
+            "comment_count": 5775,
+            "mean_sentiment": 0.9617804878048779,
+            "std_sentiment": 0.23220442656597917
         },
         {
             "id": "-T_pjMr7-n0",
@@ -3675,11 +3675,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 25938662,
+            "like_count": 239000,
+            "comment_count": 6344,
+            "mean_sentiment": 0.8121854166666665,
+            "std_sentiment": 0.5403568731980064
         },
         {
             "id": "3twGmSu1MI0",
@@ -3695,11 +3695,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 9508237,
+            "like_count": 104393,
+            "comment_count": 3637,
+            "mean_sentiment": 0.9772304347826086,
+            "std_sentiment": 0.08712668155588962
         },
         {
             "id": "4gHjmy95uNw",
@@ -3722,11 +3722,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2263960,
+            "like_count": 18707,
+            "comment_count": 775,
+            "mean_sentiment": 0.3212166666666667,
+            "std_sentiment": 0.8313165510535415
         },
         {
             "id": "RB21rKsC3sk",
@@ -3740,11 +3740,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6205063,
+            "like_count": 84350,
+            "comment_count": 2014,
+            "mean_sentiment": 0.5568466666666666,
+            "std_sentiment": 0.7621382917963263
         },
         {
             "id": "wAsBta25OGQ",
@@ -3758,11 +3758,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6045412,
+            "like_count": 54311,
+            "comment_count": 2079,
+            "mean_sentiment": 0.9968636363636364,
+            "std_sentiment": 0.002753270031756527
         },
         {
             "id": "_QAzZetGx78",
@@ -3784,11 +3784,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1261560,
+            "like_count": 9078,
+            "comment_count": 658,
+            "mean_sentiment": -0.46177500000000005,
+            "std_sentiment": 0.8294017463660178
         },
         {
             "id": "AetO5HdMCUE",
@@ -3802,11 +3802,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 444099,
+            "like_count": 5403,
+            "comment_count": 230,
+            "mean_sentiment": 0.9973,
+            "std_sentiment": 0.0009000000000000119
         },
         {
             "id": "ZiuYmM0lG6o",
@@ -3827,11 +3827,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4208569,
+            "like_count": 39509,
+            "comment_count": 1742,
+            "mean_sentiment": 0.9793454545454545,
+            "std_sentiment": 0.060930174098737654
         },
         {
             "id": "4TH2CWQ3Uwc",
@@ -3849,11 +3849,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 900187,
+            "like_count": 8636,
+            "comment_count": 183,
+            "mean_sentiment": 0.91845,
+            "std_sentiment": 0.08035000000000003
         },
         {
             "id": "T5ei9nEWfyU",
@@ -3872,11 +3872,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6253804,
+            "like_count": 69086,
+            "comment_count": 2676,
+            "mean_sentiment": 0.8938249999999999,
+            "std_sentiment": 0.3963108525829188
         },
         {
             "id": "ECx3wKaujOw",
@@ -3897,11 +3897,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 28393899,
+            "like_count": 432928,
+            "comment_count": 13568,
+            "mean_sentiment": 0.913679,
+            "std_sentiment": 0.3821987096511447
         },
         {
             "id": "iv8Mxw3XBcI",
@@ -3919,11 +3919,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 180822,
+            "like_count": 1274,
+            "comment_count": 70,
+            "mean_sentiment": 0.9955,
+            "std_sentiment": 0.0
         },
         {
             "id": "shzISX8EoEs",
@@ -3942,11 +3942,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3734150,
+            "like_count": 36227,
+            "comment_count": 802,
+            "mean_sentiment": 0.9978200000000002,
+            "std_sentiment": 0.0012056533498481467
         },
         {
             "id": "xSlQ-_bnU94",
@@ -3967,11 +3967,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4035359,
+            "like_count": 19301,
+            "comment_count": 933,
+            "mean_sentiment": 0.7294428571428571,
+            "std_sentiment": 0.6470577979420007
         },
         {
             "id": "zMfXiDO8JjQ",
@@ -3991,11 +3991,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 635933,
+            "like_count": 6161,
+            "comment_count": 235,
+            "mean_sentiment": 0.9922,
+            "std_sentiment": 0.004400000000000015
         },
         {
             "id": "2zdcNWdCGEs",
@@ -4012,11 +4012,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 7258739,
+            "like_count": 56480,
+            "comment_count": 2343,
+            "mean_sentiment": 0.9932125,
+            "std_sentiment": 0.010743130072283393
         },
         {
             "id": "s1ZYTQToX9A",
@@ -4032,11 +4032,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 16438192,
+            "like_count": 136049,
+            "comment_count": 5031,
+            "mean_sentiment": 0.8309407407407406,
+            "std_sentiment": 0.5040487522417731
         },
         {
             "id": "6-QG-rFf4po",
@@ -4057,11 +4057,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 12670845,
+            "like_count": 125706,
+            "comment_count": 3746,
+            "mean_sentiment": 0.9989880000000001,
+            "std_sentiment": 0.001186699625010469
         },
         {
             "id": "O5FgQ9nX4UU",
@@ -4085,11 +4085,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3645415,
+            "like_count": 43985,
+            "comment_count": 1219,
+            "mean_sentiment": 0.99839,
+            "std_sentiment": 0.0013322537295875731
         },
         {
             "id": "moEH8P-Z4D8",
@@ -4117,11 +4117,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 816574,
+            "like_count": 9675,
+            "comment_count": 427,
+            "mean_sentiment": 0.4868,
+            "std_sentiment": 0.8540985335428225
         },
         {
             "id": "Z42J1F1p-Gc",
@@ -4132,11 +4132,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 114119,
+            "like_count": 563,
+            "comment_count": 24,
+            "mean_sentiment": 0.5391,
+            "std_sentiment": 0.0
         },
         {
             "id": "Qv7YB4Bs1mU",
@@ -4150,11 +4150,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 836634,
+            "like_count": 11188,
+            "comment_count": 266,
+            "mean_sentiment": 0.9982500000000001,
+            "std_sentiment": 0.00045000000000000595
         },
         {
             "id": "tFO4e75-CNw",
@@ -4166,11 +4166,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3228269,
+            "like_count": 29955,
+            "comment_count": 746,
+            "mean_sentiment": 0.8275666666666667,
+            "std_sentiment": 0.3702559955250181
         },
         {
             "id": "VbAdvL_Xing",
@@ -4186,11 +4186,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1306200,
+            "like_count": 11163,
+            "comment_count": 469,
+            "mean_sentiment": 0.995725,
+            "std_sentiment": 0.0019227259295073731
         },
         {
             "id": "b7mTdTz7HHI",
@@ -4207,11 +4207,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4980956,
+            "like_count": 66586,
+            "comment_count": 1463,
+            "mean_sentiment": 0.9970909090909091,
+            "std_sentiment": 0.002572743334353977
         },
         {
             "id": "EUUXbdEgjVo",
@@ -4223,11 +4223,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 111375,
+            "like_count": 1311,
+            "comment_count": 107,
+            "mean_sentiment": -0.9984,
+            "std_sentiment": 0.0
         },
         {
             "id": "eMFWTAIDCtQ",
@@ -4246,11 +4246,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5347747,
+            "like_count": 76979,
+            "comment_count": 2882,
+            "mean_sentiment": 0.7329375,
+            "std_sentiment": 0.6561886608238137
         },
         {
             "id": "-LeAgvFY_jw",
@@ -4266,11 +4266,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 188604,
+            "like_count": 1707,
+            "comment_count": 113,
+            "mean_sentiment": 0.4929,
+            "std_sentiment": 0.0
         },
         {
             "id": "xFlanhgeMwc",
@@ -4283,11 +4283,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 45764,
+            "like_count": 485,
+            "comment_count": 22,
+            "mean_sentiment": 0.9547,
+            "std_sentiment": 0.0
         },
         {
             "id": "r-WY_hMoW08",
@@ -4303,11 +4303,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 109606,
+            "like_count": 1019,
+            "comment_count": 46,
+            "mean_sentiment": 0.9869,
+            "std_sentiment": 0.0
         },
         {
             "id": "JJfPVdGbszM",
@@ -4323,11 +4323,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 672411,
+            "like_count": 5511,
+            "comment_count": 515,
+            "mean_sentiment": 0.9971333333333333,
+            "std_sentiment": 0.0020072092289766296
         },
         {
             "id": "ePU8ssCqHws",
@@ -4351,11 +4351,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 667420,
+            "like_count": 8655,
+            "comment_count": 865,
+            "mean_sentiment": 0.9993,
+            "std_sentiment": 0.000458257569495578
         },
         {
             "id": "dBGmsA9yqwo",
@@ -4371,11 +4371,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 341527,
+            "like_count": 4340,
+            "comment_count": 180,
+            "mean_sentiment": 0.8973,
+            "std_sentiment": 0.09670000000000001
         },
         {
             "id": "niiNPH64Xv4",
@@ -4390,11 +4390,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4632893,
+            "like_count": 53275,
+            "comment_count": 4141,
+            "mean_sentiment": 0.9991346153846155,
+            "std_sentiment": 0.0022622219009182337
         },
         {
             "id": "cLC70ax28-0",
@@ -4415,11 +4415,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5885563,
+            "like_count": 74410,
+            "comment_count": 1837,
+            "mean_sentiment": 0.9975066666666665,
+            "std_sentiment": 0.0033020128541374426
         },
         {
             "id": "zcns3A-IHMQ",
@@ -4431,11 +4431,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 653887,
+            "like_count": 5002,
+            "comment_count": 472,
+            "mean_sentiment": 0.9971,
+            "std_sentiment": 0.0031947874212013873
         },
         {
             "id": "9dVovtXz2Qg",
@@ -4451,11 +4451,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 18894,
+            "like_count": 174,
+            "comment_count": 23,
+            "mean_sentiment": 0.9233,
+            "std_sentiment": 0.0
         },
         {
             "id": "q7l77LGgVOY",
@@ -4471,11 +4471,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2474751,
+            "like_count": 33358,
+            "comment_count": 1291,
+            "mean_sentiment": 0.9994000000000001,
+            "std_sentiment": 0.0004618802153517218
         },
         {
             "id": "hGZWUzD1res",
@@ -4494,11 +4494,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5152504,
+            "like_count": 55296,
+            "comment_count": 1527,
+            "mean_sentiment": 0.9581416666666668,
+            "std_sentiment": 0.13653751290599794
         },
         {
             "id": "P7otmQtsDyo",
@@ -4511,11 +4511,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1548692,
+            "like_count": 13950,
+            "comment_count": 401,
+            "mean_sentiment": 0.9960999999999999,
+            "std_sentiment": 0.00460506967012081
         },
         {
             "id": "gy_N3tapD6I",
@@ -4526,11 +4526,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 13296,
+            "like_count": 226,
+            "comment_count": 20,
+            "mean_sentiment": 0.8615,
+            "std_sentiment": 0.0
         },
         {
             "id": "X_mOHRWal3g",
@@ -4545,11 +4545,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1575881,
+            "like_count": 12888,
+            "comment_count": 334,
+            "mean_sentiment": 0.9982,
+            "std_sentiment": 0.00040000000000001146
         },
         {
             "id": "bH30TVO1Oxg",
@@ -4567,11 +4567,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4070168,
+            "like_count": 44383,
+            "comment_count": 1754,
+            "mean_sentiment": 0.9968153846153848,
+            "std_sentiment": 0.006065012670903897
         },
         {
             "id": "Bo0w_mA5CJc",
@@ -4584,11 +4584,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2280208,
+            "like_count": 21372,
+            "comment_count": 486,
+            "mean_sentiment": 0.998075,
+            "std_sentiment": 0.002876086751125583
         },
         {
             "id": "ZjbqEC0AunM",
@@ -4600,11 +4600,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 9877,
+            "like_count": 53,
+            "comment_count": 12,
+            "mean_sentiment": 0.6808,
+            "std_sentiment": 0.0
         },
         {
             "id": "o6PCcM39Pgg",
@@ -4627,11 +4627,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 373785,
+            "like_count": 4040,
+            "comment_count": 302,
+            "mean_sentiment": 0.9821500000000001,
+            "std_sentiment": 0.0026499999999999857
         },
         {
             "id": "-jggM516KOk",
@@ -4648,11 +4648,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 281924,
+            "like_count": 3007,
+            "comment_count": 182,
+            "mean_sentiment": 0.96505,
+            "std_sentiment": 0.034450000000000036
         },
         {
             "id": "7Mk1nykjnYA",
@@ -4665,11 +4665,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 898293,
+            "like_count": 6573,
+            "comment_count": 262,
+            "mean_sentiment": 0.9964,
+            "std_sentiment": 0.002899999999999958
         },
         {
             "id": "_Sk0YubNnwY",
@@ -4682,11 +4682,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 54167,
+            "like_count": 636,
+            "comment_count": 51,
+            "mean_sentiment": 0.6305,
+            "std_sentiment": 0.0
         },
         {
             "id": "fWGPsS0dh5k",
@@ -4701,11 +4701,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 270793,
+            "like_count": 4000,
+            "comment_count": 169,
+            "mean_sentiment": 0.9955,
+            "std_sentiment": 0.002799999999999969
         },
         {
             "id": "QOLF_D7JVZM",
@@ -4721,11 +4721,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 524964,
+            "like_count": 6631,
+            "comment_count": 917,
+            "mean_sentiment": 0.9989333333333335,
+            "std_sentiment": 0.0006724747000610757
         },
         {
             "id": "pMBukgVYdiA",
@@ -4742,11 +4742,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 20370,
+            "like_count": 170,
+            "comment_count": 16,
+            "mean_sentiment": 0.9531,
+            "std_sentiment": 0.0
         },
         {
             "id": "oXyW5w5RRFY",
@@ -4759,11 +4759,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2284039,
+            "like_count": 29326,
+            "comment_count": 1829,
+            "mean_sentiment": 0.9947307692307693,
+            "std_sentiment": 0.008946970661831236
         },
         {
             "id": "CxCUHjx7U7Y",
@@ -4777,11 +4777,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 760642,
+            "like_count": 4918,
+            "comment_count": 253,
+            "mean_sentiment": 0.9985999999999999,
+            "std_sentiment": 0.00030000000000002247
         },
         {
             "id": "uDQ4uiEGYVQ",
@@ -4799,11 +4799,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 51672,
+            "like_count": 606,
+            "comment_count": 33,
+            "mean_sentiment": -0.9028,
+            "std_sentiment": 0.0
         },
         {
             "id": "tOJ1VKXewoM",
@@ -4815,11 +4815,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 69744,
+            "like_count": 976,
+            "comment_count": 49,
+            "mean_sentiment": 0.9811,
+            "std_sentiment": 0.0
         },
         {
             "id": "KPCLjUzL-hA",
@@ -4830,11 +4830,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 137379,
+            "like_count": 1126,
+            "comment_count": 48,
+            "mean_sentiment": 0.9831,
+            "std_sentiment": 0.0
         },
         {
             "id": "uzagbF8gEoU",
@@ -4850,11 +4850,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 26054,
+            "like_count": 124,
+            "comment_count": 59,
+            "mean_sentiment": -0.9924,
+            "std_sentiment": 0.0
         },
         {
             "id": "b3NiAMJqeoM",
@@ -4863,11 +4863,11 @@
             "cast": [],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 683707,
+            "like_count": 6324,
+            "comment_count": 181,
+            "mean_sentiment": 0.03564999999999999,
+            "std_sentiment": 0.44894999999999996
         },
         {
             "id": "hOkc45IJC0g",
@@ -4879,11 +4879,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 540300,
+            "like_count": 4646,
+            "comment_count": 193,
+            "mean_sentiment": 0.976,
+            "std_sentiment": 0.020799999999999985
         },
         {
             "id": "sHJK9mF_Xt0",
@@ -4895,11 +4895,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 251725,
+            "like_count": 3181,
+            "comment_count": 92,
+            "mean_sentiment": -0.7166,
+            "std_sentiment": 0.0
         },
         {
             "id": "hLrxp9OOSbc",
@@ -4924,11 +4924,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2950273,
+            "like_count": 31073,
+            "comment_count": 979,
+            "mean_sentiment": 0.9989666666666667,
+            "std_sentiment": 0.000649786289653942
         },
         {
             "id": "41rYg-GQYVk",
@@ -4941,11 +4941,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5470407,
+            "like_count": 89143,
+            "comment_count": 1696,
+            "mean_sentiment": 0.9906916666666667,
+            "std_sentiment": 0.018686379100534414
         },
         {
             "id": "xO9GVcw6-hY",
@@ -4959,11 +4959,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 603788,
+            "like_count": 6888,
+            "comment_count": 173,
+            "mean_sentiment": 0.9798500000000001,
+            "std_sentiment": 0.01965
         },
         {
             "id": "cuyCJPTndus",
@@ -4976,11 +4976,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 21116,
+            "like_count": 155,
+            "comment_count": 13,
+            "mean_sentiment": 0.8171,
+            "std_sentiment": 0.0
         },
         {
             "id": "o6p0W4ZsLXw",
@@ -4996,11 +4996,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4149398,
+            "like_count": 55743,
+            "comment_count": 2147,
+            "mean_sentiment": 0.997,
+            "std_sentiment": 0.002088380552804813
         },
         {
             "id": "eQvVxY20yOY",
@@ -5028,11 +5028,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 9919473,
+            "like_count": 88229,
+            "comment_count": 5962,
+            "mean_sentiment": 0.9390769230769234,
+            "std_sentiment": 0.31183113564838794
         },
         {
             "id": "L-egyhk0G9c",
@@ -5047,11 +5047,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 23910,
+            "like_count": 437,
+            "comment_count": 46,
+            "mean_sentiment": 0.9953,
+            "std_sentiment": 0.0
         },
         {
             "id": "PbZdhl5NI6Y",
@@ -5071,11 +5071,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6136374,
+            "like_count": 98800,
+            "comment_count": 2785,
+            "mean_sentiment": 0.9954449999999999,
+            "std_sentiment": 0.008838409076298744
         },
         {
             "id": "SLoRJFAN3r0",
@@ -5090,11 +5090,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 7227258,
+            "like_count": 96283,
+            "comment_count": 3029,
+            "mean_sentiment": 0.998709090909091,
+            "std_sentiment": 0.0030430112315553365
         },
         {
             "id": "ME1ezSWjTFo",
@@ -5111,11 +5111,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 12772126,
+            "like_count": 116455,
+            "comment_count": 2967,
+            "mean_sentiment": 0.9828789473684211,
+            "std_sentiment": 0.02966831694705505
         },
         {
             "id": "y-EuEl9HrBg",
@@ -5129,11 +5129,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 27103,
+            "like_count": 169,
+            "comment_count": 11,
+            "mean_sentiment": 0.9927,
+            "std_sentiment": 0.0
         },
         {
             "id": "XPhckJEyU7U",
@@ -5152,11 +5152,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 233980,
+            "like_count": 2099,
+            "comment_count": 220,
+            "mean_sentiment": 0.05904999999999999,
+            "std_sentiment": 0.93815
         },
         {
             "id": "M4ilv14csd4",
@@ -5171,11 +5171,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6214619,
+            "like_count": 95035,
+            "comment_count": 1493,
+            "mean_sentiment": 0.9933500000000001,
+            "std_sentiment": 0.012729277277206272
         },
         {
             "id": "mlHVl8L7J1M",
@@ -5187,11 +5187,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1296985,
+            "like_count": 17450,
+            "comment_count": 620,
+            "mean_sentiment": 0.9811749999999999,
+            "std_sentiment": 0.030133318353609814
         },
         {
             "id": "PuWHYJF8Il8",
@@ -5210,11 +5210,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 7500140,
+            "like_count": 84852,
+            "comment_count": 3697,
+            "mean_sentiment": 0.9954821428571429,
+            "std_sentiment": 0.009453459441292549
         },
         {
             "id": "61sgaeTmf74",
@@ -5233,11 +5233,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1355099,
+            "like_count": 19143,
+            "comment_count": 498,
+            "mean_sentiment": 0.9959250000000001,
+            "std_sentiment": 0.0020339309231141647
         },
         {
             "id": "XGqSn5Cnw74",
@@ -5253,11 +5253,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3655628,
+            "like_count": 49320,
+            "comment_count": 2271,
+            "mean_sentiment": 0.87228125,
+            "std_sentiment": 0.47545424887515464
         },
         {
             "id": "78Af8E-40ho",
@@ -5273,11 +5273,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3668627,
+            "like_count": 29744,
+            "comment_count": 615,
+            "mean_sentiment": 0.9987400000000001,
+            "std_sentiment": 0.0008114185110040503
         },
         {
             "id": "u97SG_yimAE",
@@ -5291,11 +5291,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3116509,
+            "like_count": 48971,
+            "comment_count": 1165,
+            "mean_sentiment": 0.9773444444444443,
+            "std_sentiment": 0.03297184358108904
         },
         {
             "id": "-vwOZrnlwTM",
@@ -5308,11 +5308,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1701472,
+            "like_count": 23427,
+            "comment_count": 601,
+            "mean_sentiment": 0.54412,
+            "std_sentiment": 0.5928380669289043
         },
         {
             "id": "V_ROUcjQCzw",
@@ -5327,11 +5327,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 941843,
+            "like_count": 7716,
+            "comment_count": 320,
+            "mean_sentiment": 0.8389333333333333,
+            "std_sentiment": 0.21766306275730132
         },
         {
             "id": "l2zl_N29qDo",
@@ -5344,11 +5344,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 204976,
+            "like_count": 2736,
+            "comment_count": 105,
+            "mean_sentiment": 0.9642,
+            "std_sentiment": 0.0
         },
         {
             "id": "8e5jDgsKKvs",
@@ -5362,11 +5362,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 254542,
+            "like_count": 1955,
+            "comment_count": 59,
+            "mean_sentiment": 0.8217,
+            "std_sentiment": 0.0
         },
         {
             "id": "_br3uMudQSM",
@@ -5382,11 +5382,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 764287,
+            "like_count": 5606,
+            "comment_count": 374,
+            "mean_sentiment": 0.3385666666666666,
+            "std_sentiment": 0.9343473313257525
         },
         {
             "id": "nUkBhVnFxdM",
@@ -5409,11 +5409,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1870147,
+            "like_count": 20188,
+            "comment_count": 1397,
+            "mean_sentiment": 0.7948299999999999,
+            "std_sentiment": 0.5971955710652918
         },
         {
             "id": "5llm2WnLIaA",
@@ -5428,11 +5428,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3285172,
+            "like_count": 33823,
+            "comment_count": 2091,
+            "mean_sentiment": 0.8457230769230768,
+            "std_sentiment": 0.5287754433286929
         },
         {
             "id": "igDCnUaAxAQ",
@@ -5451,11 +5451,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 5966825,
+            "like_count": 88311,
+            "comment_count": 1835,
+            "mean_sentiment": 0.8834,
+            "std_sentiment": 0.34566755705446234
         },
         {
             "id": "JcviVDizlJ0",
@@ -5474,11 +5474,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 6179474,
+            "like_count": 76610,
+            "comment_count": 1876,
+            "mean_sentiment": 0.9977083333333335,
+            "std_sentiment": 0.0024239975018322097
         },
         {
             "id": "7wJ9oE8jljs",
@@ -5494,11 +5494,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1114084,
+            "like_count": 9856,
+            "comment_count": 403,
+            "mean_sentiment": 0.9981,
+            "std_sentiment": 0.0006976149845485583
         },
         {
             "id": "-srZ2YMU8n4",
@@ -5510,11 +5510,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 215013,
+            "like_count": 2575,
+            "comment_count": 138,
+            "mean_sentiment": 0.96095,
+            "std_sentiment": 0.037949999999999984
         },
         {
             "id": "OYm8s7fY-Fo",
@@ -5525,11 +5525,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 40273,
+            "like_count": 196,
+            "comment_count": 7,
+            "mean_sentiment": 0.745,
+            "std_sentiment": 0.0
         },
         {
             "id": "48_njDKfVzg",
@@ -5546,11 +5546,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 871736,
+            "like_count": 8680,
+            "comment_count": 200,
+            "mean_sentiment": 0.8884000000000001,
+            "std_sentiment": 0.11110000000000003
         },
         {
             "id": "X7uUfrOj6MU",
@@ -5562,11 +5562,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 251623,
+            "like_count": 2863,
+            "comment_count": 135,
+            "mean_sentiment": 0.9991,
+            "std_sentiment": 0.0
         },
         {
             "id": "_u7E4UYzN1Y",
@@ -5581,11 +5581,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2335383,
+            "like_count": 20430,
+            "comment_count": 344,
+            "mean_sentiment": 0.9916666666666666,
+            "std_sentiment": 0.005516238654091105
         },
         {
             "id": "MeSd7Q7oThc",
@@ -5601,11 +5601,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 7521941,
+            "like_count": 143717,
+            "comment_count": 3104,
+            "mean_sentiment": 0.8564833333333333,
+            "std_sentiment": 0.4176342445516438
         },
         {
             "id": "2xWW-ZZsC5Q",
@@ -5621,11 +5621,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3521894,
+            "like_count": 66214,
+            "comment_count": 1088,
+            "mean_sentiment": 0.9978428571428571,
+            "std_sentiment": 0.00261526133239771
         },
         {
             "id": "V7ySde4Qgsc",
@@ -5650,11 +5650,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 927438,
+            "like_count": 7787,
+            "comment_count": 406,
+            "mean_sentiment": 0.9946999999999999,
+            "std_sentiment": 0.004089824772122472
         },
         {
             "id": "Sk57tDOEiOw",
@@ -5668,11 +5668,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2959613,
+            "like_count": 25286,
+            "comment_count": 899,
+            "mean_sentiment": 0.21947999999999998,
+            "std_sentiment": 0.7370961793416108
         },
         {
             "id": "59m_r1GST8s",
@@ -5686,11 +5686,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1305045,
+            "like_count": 12825,
+            "comment_count": 449,
+            "mean_sentiment": 0.987675,
+            "std_sentiment": 0.02013670467082438
         },
         {
             "id": "X0lkMajVnVA",
@@ -5706,11 +5706,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2588302,
+            "like_count": 29099,
+            "comment_count": 562,
+            "mean_sentiment": 0.996075,
+            "std_sentiment": 0.00184306131205665
         },
         {
             "id": "ZZo03FKl3sw",
@@ -5727,11 +5727,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4160836,
+            "like_count": 54146,
+            "comment_count": 1684,
+            "mean_sentiment": 0.8484583333333333,
+            "std_sentiment": 0.47531597991640145
         },
         {
             "id": "W2ClME3oCTs",
@@ -5748,11 +5748,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 372119,
+            "like_count": 2840,
+            "comment_count": 227,
+            "mean_sentiment": 0.90785,
+            "std_sentiment": 0.09195000000000003
         },
         {
             "id": "Z_Ve4UP_ELM",
@@ -5771,11 +5771,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 770268,
+            "like_count": 7961,
+            "comment_count": 478,
+            "mean_sentiment": 0.996125,
+            "std_sentiment": 0.0046251351331610124
         },
         {
             "id": "nf26Q-E2YNY",
@@ -5796,11 +5796,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 8814930,
+            "like_count": 147041,
+            "comment_count": 3326,
+            "mean_sentiment": 0.9201076923076924,
+            "std_sentiment": 0.3806064229247815
         },
         {
             "id": "sgJo_N4u6Wo",
@@ -5813,11 +5813,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2524436,
+            "like_count": 19608,
+            "comment_count": 812,
+            "mean_sentiment": 0.9975,
+            "std_sentiment": 0.0016970562748477014
         },
         {
             "id": "p05RmuCKfFo",
@@ -5831,11 +5831,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 117775,
+            "like_count": 828,
+            "comment_count": 32,
+            "mean_sentiment": 0.9871,
+            "std_sentiment": 0.0
         },
         {
             "id": "2pxYfGaCkAE",
@@ -5849,11 +5849,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 4062829,
+            "like_count": 27282,
+            "comment_count": 834,
+            "mean_sentiment": 0.9894,
+            "std_sentiment": 0.016464912187234226
         },
         {
             "id": "HVv0_Fh0Tr4",
@@ -5869,11 +5869,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1444126,
+            "like_count": 15103,
+            "comment_count": 715,
+            "mean_sentiment": 0.998025,
+            "std_sentiment": 0.00079804448497562
         },
         {
             "id": "7Ypo_6MEIj0",
@@ -5887,11 +5887,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 9374697,
+            "like_count": 54890,
+            "comment_count": 2876,
+            "mean_sentiment": 0.41308421052631583,
+            "std_sentiment": 0.837240689321748
         },
         {
             "id": "O5HQNKjfP58",
@@ -5903,11 +5903,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 7580,
+            "like_count": 52,
+            "comment_count": 4,
+            "mean_sentiment": -0.4767,
+            "std_sentiment": 0.0
         },
         {
             "id": "K1_3K_o-51E",
@@ -5921,11 +5921,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 167931,
+            "like_count": 1028,
+            "comment_count": 73,
+            "mean_sentiment": 0.9897,
+            "std_sentiment": 0.0
         },
         {
             "id": "6I8N7JcFG-k",
@@ -5940,11 +5940,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 93697,
+            "like_count": 1350,
+            "comment_count": 109,
+            "mean_sentiment": 0.994,
+            "std_sentiment": 0.0
         },
         {
             "id": "edIi6hYpUoQ",
@@ -5962,11 +5962,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 593241,
+            "like_count": 6301,
+            "comment_count": 548,
+            "mean_sentiment": 0.991375,
+            "std_sentiment": 0.012152443169996708
         },
         {
             "id": "No_SbOz0060",
@@ -5985,11 +5985,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1559128,
+            "like_count": 11781,
+            "comment_count": 942,
+            "mean_sentiment": 0.9983833333333333,
+            "std_sentiment": 0.0011349253524155442
         },
         {
             "id": "Na89OF7Fq48",
@@ -6001,11 +6001,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1839907,
+            "like_count": 21112,
+            "comment_count": 736,
+            "mean_sentiment": 0.9984500000000001,
+            "std_sentiment": 0.001586137867063696
         },
         {
             "id": "wg5lIpQkoOg",
@@ -6033,11 +6033,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3040894,
+            "like_count": 30317,
+            "comment_count": 2592,
+            "mean_sentiment": 0.9824111111111112,
+            "std_sentiment": 0.04693416060929145
         },
         {
             "id": "P5dwsLWR7uY",
@@ -6050,11 +6050,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 117852,
+            "like_count": 1272,
+            "comment_count": 51,
+            "mean_sentiment": 0.9761,
+            "std_sentiment": 0.0
         },
         {
             "id": "nLStvtbZ18M",
@@ -6066,11 +6066,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 549511,
+            "like_count": 7377,
+            "comment_count": 158,
+            "mean_sentiment": 0.37475,
+            "std_sentiment": 0.62475
         },
         {
             "id": "mG1QDT46aOo",
@@ -6082,11 +6082,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 24212,
+            "like_count": 215,
+            "comment_count": 11,
+            "mean_sentiment": 0.847,
+            "std_sentiment": 0.0
         },
         {
             "id": "Gy_3n9zcNPw",
@@ -6098,11 +6098,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 24007,
+            "like_count": 305,
+            "comment_count": 13,
+            "mean_sentiment": 0.8972,
+            "std_sentiment": 0.0
         },
         {
             "id": "8wgCxHIWQFo",
@@ -6119,11 +6119,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 105969,
+            "like_count": 1423,
+            "comment_count": 138,
+            "mean_sentiment": 0.9995,
+            "std_sentiment": 0.0
         },
         {
             "id": "EZsr74mu8U0",
@@ -6136,11 +6136,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 16171,
+            "like_count": 147,
+            "comment_count": 52,
+            "mean_sentiment": 0.9999,
+            "std_sentiment": 0.0
         },
         {
             "id": "SUocxhuoDjc",
@@ -6159,11 +6159,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 142667,
+            "like_count": 1580,
+            "comment_count": 87,
+            "mean_sentiment": 0.999,
+            "std_sentiment": 0.0
         },
         {
             "id": "Xz_rVOucYeQ",
@@ -6176,11 +6176,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 12265,
+            "like_count": 182,
+            "comment_count": 17,
+            "mean_sentiment": 0.8781,
+            "std_sentiment": 0.0
         },
         {
             "id": "RltvPCnKKZk",
@@ -6202,11 +6202,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 970894,
+            "like_count": 9879,
+            "comment_count": 729,
+            "mean_sentiment": 0.9942,
+            "std_sentiment": 0.006154997969130442
         },
         {
             "id": "gbiLanj8EuI",
@@ -6221,11 +6221,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2971067,
+            "like_count": 38205,
+            "comment_count": 1892,
+            "mean_sentiment": 0.9953,
+            "std_sentiment": 0.015144305860619706
         },
         {
             "id": "gYZCDuWIDZw",
@@ -6242,11 +6242,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2190287,
+            "like_count": 29168,
+            "comment_count": 788,
+            "mean_sentiment": 0.9631666666666666,
+            "std_sentiment": 0.07227322387225363
         },
         {
             "id": "8f0ydqTUi0c",
@@ -6262,11 +6262,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2618243,
+            "like_count": 29004,
+            "comment_count": 1788,
+            "mean_sentiment": 0.9983444444444444,
+            "std_sentiment": 0.0013776881691290248
         },
         {
             "id": "Q0TCYu1FiQc",
@@ -6282,11 +6282,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 11488314,
+            "like_count": 151763,
+            "comment_count": 3038,
+            "mean_sentiment": 0.9097523809523809,
+            "std_sentiment": 0.3908602424921186
         },
         {
             "id": "sZSu0sgtA68",
@@ -6298,11 +6298,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 1295016,
+            "like_count": 12506,
+            "comment_count": 278,
+            "mean_sentiment": 0.99815,
+            "std_sentiment": 0.0011499999999999844
         },
         {
             "id": "L6c6nL7RjpY",
@@ -6320,11 +6320,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 2238354,
+            "like_count": 18511,
+            "comment_count": 221,
+            "mean_sentiment": 0.9981,
+            "std_sentiment": 0.0005999999999999894
         },
         {
             "id": "nVvxOwxuk_w",
@@ -6337,11 +6337,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3072685,
+            "like_count": 44311,
+            "comment_count": 2040,
+            "mean_sentiment": 0.9983666666666667,
+            "std_sentiment": 0.0025428767611157146
         },
         {
             "id": "ZjpUfdjYR6s",
@@ -6353,11 +6353,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 3044674,
+            "like_count": 44018,
+            "comment_count": 1102,
+            "mean_sentiment": 0.9972888888888889,
+            "std_sentiment": 0.001826012318593263
         },
         {
             "id": "bjru2rYZBic",
@@ -6376,11 +6376,11 @@
             ],
             "upload_date": null,
             "duration": null,
-            "view_count": null,
-            "like_count": null,
-            "comment_count": null,
-            "mean_sentiment": null,
-            "std_sentiment": null
+            "view_count": 331921,
+            "like_count": 2771,
+            "comment_count": 84,
+            "mean_sentiment": -0.6941,
+            "std_sentiment": 0.0
         }
     ]
 }
