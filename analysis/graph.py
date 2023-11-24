@@ -7,12 +7,15 @@ def draw_all_graphs_and_tables():
     # Load data
     data = load_full_data()
     draw_boxplot_for_scene_type(data, "view_count")
-    table_of_mean_and_std_of_views_by_scene_type(data)
+    table_of_mean_and_std_by_scene_type(data, "view_count")
 
 def draw_boxplot_for_scene_type(data, attribute):
     # check attribute is valid
     if not hasattr(data[0], attribute):
         raise AttributeError("Attribute " + attribute + " does not exist in data")
+    # check is attribute is numeric
+    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
+        raise TypeError("Attribute " + attribute + " is not numeric")
     # find all scene types
     scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
     # box plot of views for different scene types
@@ -30,14 +33,21 @@ def draw_boxplot_for_scene_type(data, attribute):
     fig.savefig('graphs/' + attribute + '_by_scene_type_boxplot.png', bbox_inches='tight')
 
 # make table of mean and std of views for each scene type
-def table_of_mean_and_std_of_views_by_scene_type(data):
+def table_of_mean_and_std_by_scene_type(data, attribute):
+    # check attribute is valid
+    if not hasattr(data[0], attribute):
+        raise AttributeError("Attribute " + attribute + " does not exist in data")
+    # check is attribute is numeric
+    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
+        raise TypeError("Attribute " + attribute + " is not numeric")
+    # calculate mean and std for each scene type
     means = []
     sds = []
     scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
     for scene_type in scene_types:
-        views = [sketch.view_count for sketch in data if sketch.scene_type == scene_type and sketch.view_count is not None]
-        means.append(np.mean(views))
-        sds.append(np.std(views))
+        values = [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None]
+        means.append(np.mean(values))
+        sds.append(np.std(values))
     # print table
     column_width = 20
     print(f"{'Scene Type':<{column_width}} {'Mean':<{column_width}} {'Standard Deviation':<{column_width}}")
