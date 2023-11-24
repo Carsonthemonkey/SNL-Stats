@@ -130,10 +130,12 @@ async def main():
 
         for video in video_stats:
             for sketch in full_data:
-                if video["video_id"] == sketch.id:
-                    sketch.view_count = video["view_count"]
-                    sketch.like_count = video["like_count"]
-                    sketch.comment_count = video["comment_count"]
+                if video['video_id'] == sketch.id:
+                    sketch.view_count = video['view_count']
+                    sketch.like_count = video['like_count']
+                    sketch.comment_count = video['comment_count']
+                    sketch.duration = video['duration']
+                    sketch.upload_date = video['upload_date']
                     break
 
     # Collect or load comment sentiment

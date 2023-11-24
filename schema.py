@@ -5,7 +5,7 @@ from typing import Optional
 class Video(BaseModel):
     video_id: str
     title: str
-    duration: str
+    duration: int
     view_count: int
     like_count: int
     comment_count: int
@@ -21,7 +21,7 @@ class Sketch(BaseModel):
     scene_type: str
     cast: List[str]
     upload_date: Optional[str] = None
-    duration: Optional[str] = None
+    duration: Optional[int] = None
     view_count: Optional[int] = None
     like_count: Optional[int] = None
     comment_count: Optional[int] = None
