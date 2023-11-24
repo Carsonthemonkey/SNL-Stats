@@ -125,6 +125,8 @@ async def main():
                     sketch.view_count = video['view_count']
                     sketch.like_count = video['like_count']
                     sketch.comment_count = video['comment_count']
+                    sketch.duration = video['duration']
+                    sketch.upload_date = video['upload_date']
                     break
     
     
