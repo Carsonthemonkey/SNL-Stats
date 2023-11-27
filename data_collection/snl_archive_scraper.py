@@ -51,6 +51,11 @@ def get_scene_title(card) -> str:
     # Monologues have no titles, so this must be handled like so
     if not tag:
         return None
+    
+    # If the sketch is a SNL-Digital film (or similar), the title is in a subtag and the usual title is "SNL Digital Short"
+    if(len(tag) > 1):
+        return str(tag[1].contents[0])
+        
     # Some titles are hyperlinks in which case the inner text of the <a> tag must be extracted
     return str(tag[0]) if isinstance(tag[0], bs4.NavigableString) else str(tag[0].contents[0])
 
