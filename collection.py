@@ -90,7 +90,7 @@ async def main():
 
         with open("data/scenes.json", "w", encoding="utf-8") as f:
             data = {
-                "last_collected": datetime.datetime.now().isoformat(),
+                "last_updated": datetime.datetime.now().isoformat(),
                 "scene_data": scenes,
             }
             json.dump(data, f, indent=4)
@@ -106,7 +106,7 @@ async def main():
         channel_videos = _fetch_identification_for_all_videos("SaturdayNightLive")
         with open("data/channel_videos.json", "w", encoding="utf-8") as f:
             data = {
-                "last_collected": datetime.datetime.now().isoformat(),
+                "last_updated": datetime.datetime.now().isoformat(),
                 "channel_videos": channel_videos,
             }
             json.dump(data, f, indent=4)
@@ -145,7 +145,7 @@ async def main():
     # Save final composite data
     with open("data/full_data.json", "w", encoding="utf-8") as f:
         data = {
-            "last_collected": datetime.datetime.now().isoformat(),
+            "last_updated": datetime.datetime.now().isoformat(),
             "full_data": [sketch.model_dump() for sketch in full_data],
         }
         json.dump(data, f, indent=4)
@@ -319,7 +319,7 @@ def clear_sentiment():
         sketch.std_sentiment = None
     with open("data/full_data.json", "w", encoding="utf-8") as f:
         data = {
-            "last_collected": datetime.datetime.now().isoformat(),
+            "last_updated": datetime.datetime.now().isoformat(),
             "full_data": [sketch.model_dump() for sketch in full_data],
         }
         json.dump(data, f, indent=4)
