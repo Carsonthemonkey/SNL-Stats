@@ -235,6 +235,12 @@ def _filter_videos(channel_videos: list) -> list:
             and not any(blocked in video["title"].lower() for blocked in blocked_strings))
         
     ]
+
+    # Remove "SNL" and "Saturday Night Live" from titles
+    for video in filtered_videos:
+        for r in required_strings:
+            video["title"] = video["title"].replace(r, "").strip()
+
     return filtered_videos
 
 
@@ -272,6 +278,8 @@ def _get_combined_data_from_video_info(
 ) -> dict:
     matching_scene_title = get_matching_string(video_info["title"], scene_titles, 0.9)
     if matching_scene_title is not None:
+        logging.info('matched video: "%s" with scene "%s"', video_info['title'], matching_scene_title)
+        print(f'matched video: "{video_info['title']}" with scene "{matching_scene_title}"')
         matching_scene = _get_scene_by_title(matching_scene_title, scene_data)
         matched_video = {"id": video_info["id"], **matching_scene}
         return matched_video
