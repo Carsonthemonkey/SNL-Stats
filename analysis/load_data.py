@@ -13,6 +13,7 @@ def load_scene_data():
     
     with open("data/scenes.json", "r", encoding="utf-8") as f:
         _cached_scenes = json.load(f)
+    _cached_scenes = _cached_scenes["scene_data"]
     return _cached_scenes
 
 

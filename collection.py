@@ -247,11 +247,11 @@ def _filter_videos(channel_videos: list) -> list:
 def _combine_archive_with_filtered_videos(scenes: dict, filtered_videos: list) -> dict:
     composite_data = []
     scene_titles = [
-        scene["title"] for scene in scenes["scene_data"] if scene["title"] is not None
+        scene["title"] for scene in scenes if scene["title"] is not None
     ]
     # load function args into list of tuples for multiprocessing
     args = [
-        (vid, scene_titles, scenes["scene_data"])
+        (vid, scene_titles, scenes)
         for vid in filtered_videos
         if vid["title"] is not None
     ]
