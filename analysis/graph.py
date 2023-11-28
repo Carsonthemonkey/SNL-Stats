@@ -6,10 +6,10 @@ from analysis.load_data import load_full_data
 def draw_all_graphs_and_tables(attribute):
     # Load data
     data = load_full_data()
-    # draw_boxplot_for_scene_type(data, attribute)
-    # table_of_mean_and_std_by_scene_type(data, attribute)
-    # bar_chart_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=25)
+    draw_boxplot_for_scene_type(data, attribute)
+    table_of_mean_and_std_by_scene_type(data, attribute)
+    bar_chart_of_mean_and_std_by_scene_type(data, attribute)
+    bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=False, n=15)
 
 def draw_boxplot_for_scene_type(data, attribute):
     # check attribute is valid
@@ -84,7 +84,7 @@ def bar_chart_of_mean_and_std_by_scene_type(data, attribute):
     # save figure
     fig.savefig('graphs/' + attribute + '_by_scene_type_bar_chart.png', bbox_inches='tight')
     
-# make a bar chart of the top/bottom ten actors by mean on an attribute
+# make a bar chart of the actors with highest/lowest mean of an attribute
 def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
     # check attribute is valid
     if not hasattr(data[0], attribute):
