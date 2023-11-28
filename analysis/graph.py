@@ -8,9 +8,9 @@ all_actors = None
 def draw_all_graphs_and_tables(attribute):
     # Load data
     data = load_full_data()
-    draw_boxplot_for_scene_type(data, attribute)
-    table_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_mean_and_std_by_scene_type(data, attribute)
+    # draw_boxplot_for_scene_type(data, attribute)
+    # table_of_mean_and_std_by_scene_type(data, attribute)
+    # bar_chart_of_mean_and_std_by_scene_type(data, attribute)
     bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=False, n=15)
 
 def draw_boxplot_for_scene_type(data, attribute):
@@ -82,21 +82,8 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
     # check is attribute is numeric
     if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
         raise TypeError("Attribute " + attribute + " is not numeric")
-    # calculate mean for each actor
-    means = []
-    actors = get_actors(data)
-    for actor in actors:
-        values = []
-        for sketch in data:
-            for a in sketch.cast:
-                if a == actor and getattr(sketch, attribute) is not None:
-                    values.append(getattr(sketch, attribute))
-        means.append(np.mean(values))
-    # sort actors by mean
-    actors = list(actors)
-    means = list(means)
-    actors, means = zip(*sorted(zip(actors, means), key=lambda x: x[1], reverse=True))
-    # take top ten actors
+    # find correct n actors and their means
+    actors, means = get_sorted_actors_and_means(data, attribute)
     if top:
         actors = actors[:n]
         means = means[:n]
@@ -108,7 +95,8 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
     plt.title('Bar Chart of Mean ' + attribute + ' by Actors')
     plt.xlabel(attribute)
     plt.ylabel('Actors')
-    plt.gca().invert_yaxis() # put in ascending order 
+    if top:  # put in ascending order
+        plt.gca().invert_yaxis() 
     plt.tight_layout()
     plt.show()
     # save figure
@@ -140,6 +128,14 @@ def get_mean_and_std_by_scene_type(data, attribute):
         means.append(np.mean(values))
         sds.append(np.std(values))
     return scene_types, means, sds
+
+def get_sorted_actors_and_means(data, attribute):
+    actors = get_actors(data)
+    means = []
+    for actor in actors:
+        values = [getattr(sketch, attribute) for sketch in data if actor in sketch.cast and getattr(sketch, attribute) is not None]
+        means.append(np.mean(values))
+    return zip(*sorted(zip(actors, means), key=lambda x: x[1], reverse=True))
 
 if __name__ == '__main__':
     draw_all_graphs_and_tables("view_count")
