@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 from analysis.load_data import load_full_data
 
 
-def draw_all_graphs_and_tables():
+def draw_all_graphs_and_tables(attribute):
     # Load data
     data = load_full_data()
-    draw_boxplot_for_scene_type(data, "mean_sentiment")
-    table_of_mean_and_std_by_scene_type(data, "mean_sentiment")
+    draw_boxplot_for_scene_type(data, attribute)
+    table_of_mean_and_std_by_scene_type(data, attribute)
 
 def draw_boxplot_for_scene_type(data, attribute):
     # check attribute is valid
@@ -58,4 +58,4 @@ def table_of_mean_and_std_by_scene_type(data, attribute):
     
 
 if __name__ == '__main__':
-    draw_all_graphs_and_tables()
+    draw_all_graphs_and_tables("mean_sentiment")
