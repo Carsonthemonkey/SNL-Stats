@@ -6,8 +6,8 @@ from analysis.load_data import load_full_data
 def draw_all_graphs_and_tables():
     # Load data
     data = load_full_data()
-    draw_boxplot_for_scene_type(data, "view_count")
-    table_of_mean_and_std_by_scene_type(data, "view_count")
+    draw_boxplot_for_scene_type(data, "mean_sentiment")
+    table_of_mean_and_std_by_scene_type(data, "mean_sentiment")
 
 def draw_boxplot_for_scene_type(data, attribute):
     # check attribute is valid
@@ -20,7 +20,7 @@ def draw_boxplot_for_scene_type(data, attribute):
     scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
     # box plot of views for different scene types
     boxplot_data = [
-        [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and sketch.view_count is not None] for scene_type in scene_types
+        [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None] for scene_type in scene_types
     ]
     boxplot_data = list(boxplot_data)
     fig, ax = plt.subplots(figsize=(12, 5)) # set size so y labels aren't cut off
