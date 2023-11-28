@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from analysis.load_data import load_full_data
 
+all_scene_types = None
 
 def draw_all_graphs_and_tables(attribute):
     # Load data
@@ -19,7 +20,7 @@ def draw_boxplot_for_scene_type(data, attribute):
     if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
         raise TypeError("Attribute " + attribute + " is not numeric")
     # find all scene types
-    scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
+    scene_types = get_scene_types(data)
     # box plot of views for different scene types
     boxplot_data = [
         [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None] for scene_type in scene_types
@@ -45,7 +46,7 @@ def table_of_mean_and_std_by_scene_type(data, attribute):
     # calculate mean and std for each scene type
     means = []
     sds = []
-    scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
+    scene_types = get_scene_types(data)
     for scene_type in scene_types:
         values = [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None]
         means.append(np.mean(values))
@@ -68,7 +69,7 @@ def bar_chart_of_mean_and_std_by_scene_type(data, attribute):
     # calculate mean and std for each scene type
     means = []
     sds = []
-    scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
+    scene_types = get_scene_types(data)
     for scene_type in scene_types:
         values = [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None]
         means.append(np.mean(values))
@@ -129,6 +130,14 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
     plt.show()
     # save figure
     plt.savefig('graphs/' + attribute + '_by_actor_bar_chart.png', bbox_inches='tight')
+
+
+def get_scene_types(data):
+    global all_scene_types
+    if all_scene_types is None:
+        all_scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
+    return all_scene_types
+
 
 if __name__ == '__main__':
     draw_all_graphs_and_tables("view_count")
