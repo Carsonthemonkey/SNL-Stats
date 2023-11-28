@@ -121,6 +121,7 @@ def bar_chart_of_top_ten_actors_by_mean(data, attribute):
     plt.xlabel(attribute)
     plt.ylabel('Actors')
     plt.gca().invert_yaxis() # put in ascending order 
+    plt.tight_layout()
     plt.show()
     # save figure
     plt.savefig('graphs/' + attribute + '_by_actor_bar_chart.png', bbox_inches='tight')
