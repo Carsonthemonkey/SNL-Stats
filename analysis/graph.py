@@ -8,6 +8,7 @@ def draw_all_graphs_and_tables(attribute):
     data = load_full_data()
     draw_boxplot_for_scene_type(data, attribute)
     table_of_mean_and_std_by_scene_type(data, attribute)
+    bar_chart_of_mean_and_std_by_scene_type(data, attribute)
 
 def draw_boxplot_for_scene_type(data, attribute):
     # check attribute is valid
@@ -32,7 +33,7 @@ def draw_boxplot_for_scene_type(data, attribute):
     # save figure
     fig.savefig('graphs/' + attribute + '_by_scene_type_boxplot.png', bbox_inches='tight')
 
-# make table of mean and std of views for each scene type
+# make table of mean and std of an attribute for each scene type
 def table_of_mean_and_std_by_scene_type(data, attribute):
     # check attribute is valid
     if not hasattr(data[0], attribute):
@@ -54,6 +55,33 @@ def table_of_mean_and_std_by_scene_type(data, attribute):
     print(f"{'-'*column_width} {'-'*column_width} {'-'*column_width}")
     for st, m, sd in zip(scene_types, means, sds):
         print(f"{st:<{column_width}} {m:<{column_width}} {sd:<{column_width}}")
+
+# make a bar chart of mean and std on an attribute for each scene type
+def bar_chart_of_mean_and_std_by_scene_type(data, attribute):
+    # check attribute is valid
+    if not hasattr(data[0], attribute):
+        raise AttributeError("Attribute " + attribute + " does not exist in data")
+    # check is attribute is numeric
+    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
+        raise TypeError("Attribute " + attribute + " is not numeric")
+    # calculate mean and std for each scene type
+    means = []
+    sds = []
+    scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
+    for scene_type in scene_types:
+        values = [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None]
+        means.append(np.mean(values))
+        sds.append(np.std(values))
+    # plot bar chart
+    fig, ax = plt.subplots(figsize=(13, 4))
+    ax.bar(list(scene_types), means, yerr=sds, align='center', ecolor='black', capsize=5)
+    ax.set_title('Bar Chart of Mean ' + attribute + ' by Scene Types')
+    ax.set_xlabel('Scene Types')
+    ax.set_ylabel(attribute)
+    ax.yaxis.grid(True)
+    plt.show()
+    # save figure
+    fig.savefig('graphs/' + attribute + '_by_scene_type_bar_chart.png', bbox_inches='tight')
     
     
 
