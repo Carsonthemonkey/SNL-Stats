@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from analysis.load_data import load_full_data
 
 all_scene_types = None
+all_actors = None
 
 def draw_all_graphs_and_tables(attribute):
     # Load data
@@ -44,13 +45,7 @@ def table_of_mean_and_std_by_scene_type(data, attribute):
     if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
         raise TypeError("Attribute " + attribute + " is not numeric")
     # calculate mean and std for each scene type
-    means = []
-    sds = []
-    scene_types = get_scene_types(data)
-    for scene_type in scene_types:
-        values = [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None]
-        means.append(np.mean(values))
-        sds.append(np.std(values))
+    scene_types, means, sds = get_mean_and_std_by_scene_type(data, attribute)
     # print table
     column_width = 20
     print(f"{'Scene Type':<{column_width}} {'Mean':<{column_width}} {'Standard Deviation':<{column_width}}")
@@ -67,13 +62,7 @@ def bar_chart_of_mean_and_std_by_scene_type(data, attribute):
     if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
         raise TypeError("Attribute " + attribute + " is not numeric")
     # calculate mean and std for each scene type
-    means = []
-    sds = []
-    scene_types = get_scene_types(data)
-    for scene_type in scene_types:
-        values = [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None]
-        means.append(np.mean(values))
-        sds.append(np.std(values))
+    scene_types, means, sds = get_mean_and_std_by_scene_type(data, attribute)
     # plot bar chart
     fig, ax = plt.subplots(figsize=(13, 4))
     ax.bar(list(scene_types), means, yerr=sds, align='center', ecolor='black', capsize=5)
@@ -95,12 +84,7 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
         raise TypeError("Attribute " + attribute + " is not numeric")
     # calculate mean for each actor
     means = []
-    # find all actors within the sketch.cast
-    actors = set()
-    for sketch in data:
-        for actor in sketch.cast:
-            if actor is not None:
-                actors.add(actor)
+    actors = get_actors(data)
     # calculate mean for each actor
     for actor in actors:
         values = []
@@ -138,6 +122,25 @@ def get_scene_types(data):
         all_scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
     return all_scene_types
 
+def get_actors(data):
+    global all_actors
+    if all_actors is None:
+        all_actors = set()
+        for sketch in data:
+            for actor in sketch.cast:
+                if actor is not None:
+                    all_actors.add(actor)
+    return all_actors
+
+def get_mean_and_std_by_scene_type(data, attribute):
+    means = []
+    sds = []
+    scene_types = get_scene_types(data)
+    for scene_type in scene_types:
+        values = [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None]
+        means.append(np.mean(values))
+        sds.append(np.std(values))
+    return scene_types, means, sds
 
 if __name__ == '__main__':
     draw_all_graphs_and_tables("view_count")
