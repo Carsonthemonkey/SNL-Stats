@@ -2,13 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 from analysis.load_data import load_full_data
 
+all_scene_types = None
+all_actors = None
 
 def draw_all_graphs_and_tables(attribute):
     # Load data
     data = load_full_data()
-    draw_boxplot_for_scene_type(data, attribute)
-    table_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_mean_and_std_by_scene_type(data, attribute)
+    # draw_boxplot_for_scene_type(data, attribute)
+    # table_of_mean_and_std_by_scene_type(data, attribute)
+    # bar_chart_of_mean_and_std_by_scene_type(data, attribute)
     bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=False, n=15)
 
 def draw_boxplot_for_scene_type(data, attribute):
@@ -19,7 +21,7 @@ def draw_boxplot_for_scene_type(data, attribute):
     if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
         raise TypeError("Attribute " + attribute + " is not numeric")
     # find all scene types
-    scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
+    scene_types = get_scene_types(data)
     # box plot of views for different scene types
     boxplot_data = [
         [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None] for scene_type in scene_types
@@ -43,13 +45,7 @@ def table_of_mean_and_std_by_scene_type(data, attribute):
     if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
         raise TypeError("Attribute " + attribute + " is not numeric")
     # calculate mean and std for each scene type
-    means = []
-    sds = []
-    scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
-    for scene_type in scene_types:
-        values = [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None]
-        means.append(np.mean(values))
-        sds.append(np.std(values))
+    scene_types, means, sds = get_mean_and_std_by_scene_type(data, attribute)
     # print table
     column_width = 20
     print(f"{'Scene Type':<{column_width}} {'Mean':<{column_width}} {'Standard Deviation':<{column_width}}")
@@ -66,13 +62,7 @@ def bar_chart_of_mean_and_std_by_scene_type(data, attribute):
     if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
         raise TypeError("Attribute " + attribute + " is not numeric")
     # calculate mean and std for each scene type
-    means = []
-    sds = []
-    scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
-    for scene_type in scene_types:
-        values = [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None]
-        means.append(np.mean(values))
-        sds.append(np.std(values))
+    scene_types, means, sds = get_mean_and_std_by_scene_type(data, attribute)
     # plot bar chart
     fig, ax = plt.subplots(figsize=(13, 4))
     ax.bar(list(scene_types), means, yerr=sds, align='center', ecolor='black', capsize=5)
@@ -92,27 +82,8 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
     # check is attribute is numeric
     if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
         raise TypeError("Attribute " + attribute + " is not numeric")
-    # calculate mean for each actor
-    means = []
-    # find all actors within the sketch.cast
-    actors = set()
-    for sketch in data:
-        for actor in sketch.cast:
-            if actor is not None:
-                actors.add(actor)
-    # calculate mean for each actor
-    for actor in actors:
-        values = []
-        for sketch in data:
-            for a in sketch.cast:
-                if a == actor and getattr(sketch, attribute) is not None:
-                    values.append(getattr(sketch, attribute))
-        means.append(np.mean(values))
-    # sort actors by mean
-    actors = list(actors)
-    means = list(means)
-    actors, means = zip(*sorted(zip(actors, means), key=lambda x: x[1], reverse=True))
-    # take top ten actors
+    # find correct n actors and their means
+    actors, means = get_sorted_actors_and_means(data, attribute)
     if top:
         actors = actors[:n]
         means = means[:n]
@@ -124,11 +95,47 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
     plt.title('Bar Chart of Mean ' + attribute + ' by Actors')
     plt.xlabel(attribute)
     plt.ylabel('Actors')
-    plt.gca().invert_yaxis() # put in ascending order 
+    if top:  # put in ascending order
+        plt.gca().invert_yaxis() 
     plt.tight_layout()
     plt.show()
     # save figure
     plt.savefig('graphs/' + attribute + '_by_actor_bar_chart.png', bbox_inches='tight')
+
+
+def get_scene_types(data):
+    global all_scene_types
+    if all_scene_types is None:
+        all_scene_types = set(sketch.scene_type for sketch in data if sketch.scene_type is not None)
+    return all_scene_types
+
+def get_actors(data):
+    global all_actors
+    if all_actors is None:
+        all_actors = set()
+        for sketch in data:
+            for actor in sketch.cast:
+                if actor is not None:
+                    all_actors.add(actor)
+    return all_actors
+
+def get_mean_and_std_by_scene_type(data, attribute):
+    means = []
+    sds = []
+    scene_types = get_scene_types(data)
+    for scene_type in scene_types:
+        values = [getattr(sketch, attribute) for sketch in data if sketch.scene_type == scene_type and getattr(sketch, attribute) is not None]
+        means.append(np.mean(values))
+        sds.append(np.std(values))
+    return scene_types, means, sds
+
+def get_sorted_actors_and_means(data, attribute):
+    actors = get_actors(data)
+    means = []
+    for actor in actors:
+        values = [getattr(sketch, attribute) for sketch in data if actor in sketch.cast and getattr(sketch, attribute) is not None]
+        means.append(np.mean(values))
+    return zip(*sorted(zip(actors, means), key=lambda x: x[1], reverse=True))
 
 if __name__ == '__main__':
     draw_all_graphs_and_tables("view_count")
