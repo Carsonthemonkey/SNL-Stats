@@ -9,7 +9,7 @@ def draw_all_graphs_and_tables(attribute):
     # draw_boxplot_for_scene_type(data, attribute)
     # table_of_mean_and_std_by_scene_type(data, attribute)
     # bar_chart_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_top_ten_actors_by_mean(data, attribute)
+    bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=25)
 
 def draw_boxplot_for_scene_type(data, attribute):
     # check attribute is valid
@@ -84,8 +84,8 @@ def bar_chart_of_mean_and_std_by_scene_type(data, attribute):
     # save figure
     fig.savefig('graphs/' + attribute + '_by_scene_type_bar_chart.png', bbox_inches='tight')
     
-# make a bar chart of the top ten actors by mean on an attribute
-def bar_chart_of_top_ten_actors_by_mean(data, attribute):
+# make a bar chart of the top/bottom ten actors by mean on an attribute
+def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
     # check attribute is valid
     if not hasattr(data[0], attribute):
         raise AttributeError("Attribute " + attribute + " does not exist in data")
@@ -113,8 +113,12 @@ def bar_chart_of_top_ten_actors_by_mean(data, attribute):
     means = list(means)
     actors, means = zip(*sorted(zip(actors, means), key=lambda x: x[1], reverse=True))
     # take top ten actors
-    actors = actors[:10]
-    means = means[:10]
+    if top:
+        actors = actors[:n]
+        means = means[:n]
+    else:
+        actors = actors[-n:]
+        means = means[-n:]
     # plot bar chart
     plt.barh(list(actors), means)
     plt.title('Bar Chart of Mean ' + attribute + ' by Actors')
