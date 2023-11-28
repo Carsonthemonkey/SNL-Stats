@@ -85,7 +85,6 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
     # calculate mean for each actor
     means = []
     actors = get_actors(data)
-    # calculate mean for each actor
     for actor in actors:
         values = []
         for sketch in data:
