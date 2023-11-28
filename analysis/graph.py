@@ -6,9 +6,10 @@ from analysis.load_data import load_full_data
 def draw_all_graphs_and_tables(attribute):
     # Load data
     data = load_full_data()
-    draw_boxplot_for_scene_type(data, attribute)
-    table_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_mean_and_std_by_scene_type(data, attribute)
+    # draw_boxplot_for_scene_type(data, attribute)
+    # table_of_mean_and_std_by_scene_type(data, attribute)
+    # bar_chart_of_mean_and_std_by_scene_type(data, attribute)
+    bar_chart_of_top_ten_actors_by_mean(data, attribute)
 
 def draw_boxplot_for_scene_type(data, attribute):
     # check attribute is valid
@@ -83,7 +84,46 @@ def bar_chart_of_mean_and_std_by_scene_type(data, attribute):
     # save figure
     fig.savefig('graphs/' + attribute + '_by_scene_type_bar_chart.png', bbox_inches='tight')
     
-    
+# make a bar chart of the top ten actors by mean on an attribute
+def bar_chart_of_top_ten_actors_by_mean(data, attribute):
+    # check attribute is valid
+    if not hasattr(data[0], attribute):
+        raise AttributeError("Attribute " + attribute + " does not exist in data")
+    # check is attribute is numeric
+    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
+        raise TypeError("Attribute " + attribute + " is not numeric")
+    # calculate mean for each actor
+    means = []
+    # find all actors within the sketch.cast
+    actors = set()
+    for sketch in data:
+        for actor in sketch.cast:
+            if actor is not None:
+                actors.add(actor)
+    # calculate mean for each actor
+    for actor in actors:
+        values = []
+        for sketch in data:
+            for a in sketch.cast:
+                if a == actor and getattr(sketch, attribute) is not None:
+                    values.append(getattr(sketch, attribute))
+        means.append(np.mean(values))
+    # sort actors by mean
+    actors = list(actors)
+    means = list(means)
+    actors, means = zip(*sorted(zip(actors, means), key=lambda x: x[1], reverse=True))
+    # take top ten actors
+    actors = actors[:10]
+    means = means[:10]
+    # plot bar chart
+    plt.barh(list(actors), means)
+    plt.title('Bar Chart of Mean ' + attribute + ' by Actors')
+    plt.xlabel(attribute)
+    plt.ylabel('Actors')
+    plt.gca().invert_yaxis() # put in ascending order 
+    plt.show()
+    # save figure
+    plt.savefig('graphs/' + attribute + '_by_actor_bar_chart.png', bbox_inches='tight')
 
 if __name__ == '__main__':
-    draw_all_graphs_and_tables("mean_sentiment")
+    draw_all_graphs_and_tables("view_count")
