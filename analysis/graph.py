@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from analysis.load_data import load_full_data
+from datetime import datetime
 
 all_scene_types = None
 all_actors = None
@@ -11,7 +12,8 @@ def draw_all_graphs_and_tables(attribute):
     # draw_boxplot_for_scene_type(data, attribute)
     # table_of_mean_and_std_by_scene_type(data, attribute)
     # bar_chart_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=False, n=15)
+    # bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=15)
+    time_series_of_attribute_over_time(data, attribute)
 
 def draw_boxplot_for_scene_type(data, attribute):
     # check attribute is valid
@@ -101,6 +103,26 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
     plt.show()
     # save figure
     plt.savefig('graphs/' + attribute + '_by_actor_bar_chart.png', bbox_inches='tight')
+
+# make a time series of an attribute over time (based on upload_date)
+def time_series_of_attribute_over_time(data, attribute):
+    # check attribute is valid
+    if not hasattr(data[0], attribute):
+        raise AttributeError("Attribute " + attribute + " does not exist in data")
+    # check is attribute is numeric
+    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
+        raise TypeError("Attribute " + attribute + " is not numeric")
+    # sort data by upload date
+    data = sorted(data, key=lambda x: x.upload_date)
+    data = data[:30]
+    # plot time series
+    plt.plot([sketch.upload_date for sketch in data], [getattr(sketch, attribute) for sketch in data])
+    plt.title('Time Series of ' + attribute + ' Over Time')
+    plt.xlabel('Upload Date')
+    plt.ylabel(attribute)
+    plt.show()
+    # save figure
+    plt.savefig('graphs/' + attribute + '_over_time.png', bbox_inches='tight')
 
 
 def get_scene_types(data):
