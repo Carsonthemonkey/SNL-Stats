@@ -175,6 +175,15 @@ def get_sorted_actors_and_means(data, attribute):
     return zip(*sorted(zip(actors, means), key=lambda x: x[1], reverse=True))
 
 if __name__ == '__main__':
+    # clear files with graph subfolders
+    # import os
+    # for attr in ["view_count", "like_count", "comment_count", "mean_sentiment", "std_sentiment", "duration"]:
+    #     folder = "graphs/" + attr
+    #     for filename in os.listdir(folder):
+    #         file_path = os.path.join(folder, filename)
+    #         if os.path.isfile(file_path):
+    #             os.unlink(file_path)
+
     attributes = ["view_count", "like_count", "comment_count", "mean_sentiment", "std_sentiment", "duration"]
     for attr in attributes:
         draw_all_graphs_and_tables(attr, show=False)
