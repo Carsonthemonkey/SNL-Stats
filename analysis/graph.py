@@ -7,16 +7,16 @@ import matplotlib.dates as mdates
 all_scene_types = None
 all_actors = None
 
-def draw_all_graphs_and_tables(attribute):
+def draw_all_graphs_and_tables(attribute, show=False):
     # Load data
     data = load_full_data()
-    draw_boxplot_for_scene_type(data, attribute)
+    draw_boxplot_for_scene_type(data, attribute, show)
     table_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=15)
-    time_series_of_attribute_over_time(data, attribute)
+    bar_chart_of_mean_and_std_by_scene_type(data, attribute, show)
+    bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=15)
+    time_series_of_attribute_over_time(data, attribute, show)
 
-def draw_boxplot_for_scene_type(data, attribute):
+def draw_boxplot_for_scene_type(data, attribute, show=True):
     # check attribute is valid
     if not hasattr(data[0], attribute):
         raise AttributeError("Attribute " + attribute + " does not exist in data")
@@ -37,7 +37,9 @@ def draw_boxplot_for_scene_type(data, attribute):
     ax.set_ylabel('Scene Types')
     # save figure
     fig.savefig('graphs/' + attribute + '/' + attribute + '_by_scene_type_boxplot.png', bbox_inches='tight')
-    plt.show()
+    if show is True:
+        plt.show()
+    plt.clf()
 
 # make table of mean and std of an attribute for each scene type
 def table_of_mean_and_std_by_scene_type(data, attribute):
@@ -57,7 +59,7 @@ def table_of_mean_and_std_by_scene_type(data, attribute):
         print(f"{st:<{column_width}} {m:<{column_width}} {sd:<{column_width}}")
 
 # make a bar chart of mean and std on an attribute for each scene type
-def bar_chart_of_mean_and_std_by_scene_type(data, attribute):
+def bar_chart_of_mean_and_std_by_scene_type(data, attribute, show=True):
     # check attribute is valid
     if not hasattr(data[0], attribute):
         raise AttributeError("Attribute " + attribute + " does not exist in data")
@@ -75,10 +77,12 @@ def bar_chart_of_mean_and_std_by_scene_type(data, attribute):
     ax.yaxis.grid(True)
     # save figure
     fig.savefig('graphs/' + attribute + '/' + attribute + '_by_scene_type_bar_chart.png', bbox_inches='tight')
-    plt.show()
+    if show is True:
+        plt.show()
+    plt.clf()
     
 # make a bar chart of the actors with highest/lowest mean of an attribute
-def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
+def bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=10):
     # check attribute is valid
     if not hasattr(data[0], attribute):
         raise AttributeError("Attribute " + attribute + " does not exist in data")
@@ -103,10 +107,12 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
     plt.tight_layout()
     # save figure
     plt.savefig('graphs/' + attribute + '/' + attribute + '_by_actor_bar_chart.png', bbox_inches='tight')
-    plt.show()
+    if show is True:
+        plt.show()
+    plt.clf()
 
 # make a time series of an attribute over time (based on upload_date)
-def time_series_of_attribute_over_time(data, attribute):
+def time_series_of_attribute_over_time(data, attribute, show=True):
     # check attribute is valid
     if not hasattr(data[0], attribute):
         raise AttributeError("Attribute " + attribute + " does not exist in data")
@@ -126,7 +132,9 @@ def time_series_of_attribute_over_time(data, attribute):
     plt.xlabel('Upload Date')
     plt.ylabel(attribute)
     plt.savefig('graphs/' + attribute + '/' + attribute + '_over_time.png', bbox_inches='tight')
-    plt.show()
+    if show is True:
+        plt.show()
+    plt.clf()
 
 
 def get_scene_types(data):
@@ -166,5 +174,5 @@ def get_sorted_actors_and_means(data, attribute):
 if __name__ == '__main__':
     attributes = ["view_count", "like_count", "comment_count", "mean_sentiment", "std_sentiment", "duration"]
     for attr in attributes:
-        draw_all_graphs_and_tables(attr)
+        draw_all_graphs_and_tables(attr, show=False)
     # draw_all_graphs_and_tables("view_count")
