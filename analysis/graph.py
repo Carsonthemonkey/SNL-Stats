@@ -106,7 +106,10 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=
         plt.gca().invert_yaxis() 
     plt.tight_layout()
     # save figure
-    plt.savefig('graphs/' + attribute + '/' + attribute + '_by_actor_bar_chart.png', bbox_inches='tight')
+    if top:
+        plt.savefig('graphs/' + attribute + '/' + attribute + '_by_actor_bar_chart_top_' + str(n) + '.png', bbox_inches='tight')
+    else:
+        plt.savefig('graphs/' + attribute + '/' + attribute + '_by_actor_bar_chart_bottom_' + str(n) + '.png', bbox_inches='tight')
     if show is True:
         plt.show()
     plt.clf()
