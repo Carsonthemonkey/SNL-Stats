@@ -1,7 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from analysis.load_data import load_full_data
-from datetime import datetime
+import pandas as pd
+import matplotlib.dates as mdates
 
 all_scene_types = None
 all_actors = None
@@ -114,15 +115,21 @@ def time_series_of_attribute_over_time(data, attribute):
         raise TypeError("Attribute " + attribute + " is not numeric")
     # sort data by upload date
     data = sorted(data, key=lambda x: x.upload_date)
-    data = data[:30]
+    # Convert the 'upload_date' column to datetime
+    data_dates = [pd.to_datetime(sketch.upload_date, format='%Y-%m-%dT%H:%M:%SZ') for sketch in data]
+    # Set the width of the figure
+    plt.figure(figsize=(16, 6))
     # plot time series
-    plt.plot([sketch.upload_date for sketch in data], [getattr(sketch, attribute) for sketch in data])
+    plt.plot(data_dates, [getattr(sketch, attribute) for sketch in data])
+    # Format x-axis ticks to show years
+    plt.gca().xaxis.set_major_locator(mdates.YearLocator())
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
     plt.title('Time Series of ' + attribute + ' Over Time')
     plt.xlabel('Upload Date')
     plt.ylabel(attribute)
-    plt.show()
     # save figure
     plt.savefig('graphs/' + attribute + '_over_time.png', bbox_inches='tight')
+    plt.show()
 
 
 def get_scene_types(data):
