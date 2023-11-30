@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from analysis.load_data import load_full_data
+import pandas as pd
+import matplotlib.dates as mdates
 
 all_scene_types = None
 all_actors = None
@@ -8,10 +10,11 @@ all_actors = None
 def draw_all_graphs_and_tables(attribute):
     # Load data
     data = load_full_data()
-    # draw_boxplot_for_scene_type(data, attribute)
-    # table_of_mean_and_std_by_scene_type(data, attribute)
-    # bar_chart_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=False, n=15)
+    draw_boxplot_for_scene_type(data, attribute)
+    table_of_mean_and_std_by_scene_type(data, attribute)
+    bar_chart_of_mean_and_std_by_scene_type(data, attribute)
+    bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=15)
+    time_series_of_attribute_over_time(data, attribute)
 
 def draw_boxplot_for_scene_type(data, attribute):
     # check attribute is valid
@@ -32,9 +35,9 @@ def draw_boxplot_for_scene_type(data, attribute):
     ax.set_title('Boxplot of ' + attribute + ' by Scene Types')
     ax.set_xlabel(attribute)
     ax.set_ylabel('Scene Types')
-    plt.show()
     # save figure
     fig.savefig('graphs/' + attribute + '_by_scene_type_boxplot.png', bbox_inches='tight')
+    plt.show()
 
 # make table of mean and std of an attribute for each scene type
 def table_of_mean_and_std_by_scene_type(data, attribute):
@@ -70,9 +73,9 @@ def bar_chart_of_mean_and_std_by_scene_type(data, attribute):
     ax.set_xlabel('Scene Types')
     ax.set_ylabel(attribute)
     ax.yaxis.grid(True)
-    plt.show()
     # save figure
     fig.savefig('graphs/' + attribute + '_by_scene_type_bar_chart.png', bbox_inches='tight')
+    plt.show()
     
 # make a bar chart of the actors with highest/lowest mean of an attribute
 def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
@@ -98,9 +101,32 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
     if top:  # put in ascending order
         plt.gca().invert_yaxis() 
     plt.tight_layout()
-    plt.show()
     # save figure
     plt.savefig('graphs/' + attribute + '_by_actor_bar_chart.png', bbox_inches='tight')
+    plt.show()
+
+# make a time series of an attribute over time (based on upload_date)
+def time_series_of_attribute_over_time(data, attribute):
+    # check attribute is valid
+    if not hasattr(data[0], attribute):
+        raise AttributeError("Attribute " + attribute + " does not exist in data")
+    # check is attribute is numeric
+    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
+        raise TypeError("Attribute " + attribute + " is not numeric")
+    # sort data by upload date
+    data = sorted(data, key=lambda x: x.upload_date)
+    # Convert the 'upload_date' column to datetime
+    data_dates = [pd.to_datetime(sketch.upload_date, format='%Y-%m-%dT%H:%M:%SZ') for sketch in data]
+    plt.figure(figsize=(16, 6))
+    plt.plot(data_dates, [getattr(sketch, attribute) for sketch in data])
+    # Format x-axis ticks to show years
+    plt.gca().xaxis.set_major_locator(mdates.YearLocator())
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
+    plt.title('Time Series of ' + attribute + ' Over Time')
+    plt.xlabel('Upload Date')
+    plt.ylabel(attribute)
+    plt.savefig('graphs/' + attribute + '_over_time.png', bbox_inches='tight')
+    plt.show()
 
 
 def get_scene_types(data):
