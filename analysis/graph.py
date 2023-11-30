@@ -97,9 +97,11 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=
     else:
         actors = actors[-n:]
         means = means[-n:]
+    # get string for title and filename
+    direction_str = 'Top' if top else 'Bottom'
     # plot bar chart
     plt.barh(list(actors), means)
-    plt.title('Bar Chart of Mean ' + attribute + ' by Actors')
+    plt.title('Bar Chart of Mean ' + attribute + ' by ' + direction_str + ' ' + str(n) + ' Actors')
     plt.xlabel(attribute)
     plt.ylabel('Actors')
     if top:  # put in ascending order
@@ -107,9 +109,9 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=
     plt.tight_layout()
     # save figure
     if top:
-        plt.savefig('graphs/' + attribute + '/' + attribute + '_by_actor_bar_chart_top_' + str(n) + '.png', bbox_inches='tight')
+        plt.savefig('graphs/' + attribute + '/' + attribute + '_by_actor_bar_chart_' + direction_str.lower() + '_' + str(n) + '.png', bbox_inches='tight')
     else:
-        plt.savefig('graphs/' + attribute + '/' + attribute + '_by_actor_bar_chart_bottom_' + str(n) + '.png', bbox_inches='tight')
+        plt.savefig('graphs/' + attribute + '/' + attribute + '_by_actor_bar_chart_' + direction_str.lower() + '_' + str(n) + '.png', bbox_inches='tight')
     if show is True:
         plt.show()
     plt.clf()
