@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from analysis.load_data import load_full_data
@@ -7,14 +8,20 @@ import matplotlib.dates as mdates
 all_scene_types = None
 all_actors = None
 
+def save_figure(directory: str, filename: str, fig: plt.Figure, **kwargs):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    fig.savefig(directory + ("" if directory[-1] != "/" else "/") + filename, **kwargs)
+
+
 def draw_all_graphs_and_tables(attribute, show=False):
     # Load data
     data = load_full_data()
     draw_boxplot_for_scene_type(data, attribute, show)
-    table_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_mean_and_std_by_scene_type(data, attribute, show)
-    bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=15)
-    time_series_of_attribute_over_time(data, attribute, show)
+    # table_of_mean_and_std_by_scene_type(data, attribute)
+    # bar_chart_of_mean_and_std_by_scene_type(data, attribute, show)
+    # bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=15)
+    # time_series_of_attribute_over_time(data, attribute, show)
 
 def draw_boxplot_for_scene_type(data, attribute, show=True):
     # check attribute is valid
@@ -36,7 +43,9 @@ def draw_boxplot_for_scene_type(data, attribute, show=True):
     ax.set_xlabel(attribute)
     ax.set_ylabel('Scene Types')
     # save figure
-    fig.savefig('graphs/' + attribute + '/' + attribute + '_by_scene_type_boxplot.png', bbox_inches='tight')
+    save_figure('graphs/' + attribute + '/', attribute + '_by_scene_type_boxplot.png', fig, bbox_inches='tight')
+
+    # fig.savefig('graphs/' + attribute + '/' + attribute + '_by_scene_type_boxplot.png', bbox_inches='tight')
     if show is True:
         plt.show()
     plt.clf()
