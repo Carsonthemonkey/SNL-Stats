@@ -43,12 +43,7 @@ def test_attribute_values_by_scene_type(data, attribute="view_count"):
 
 # get array of attribute values grouped by duration
 def get_attribute_values_by_duration(data, attribute):
-    # check attribute is valid
-    if not hasattr(data[0], attribute):
-        raise AttributeError("Attribute " + attribute + " does not exist in data")
-    # check is attribute is numeric
-    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
-        raise TypeError("Attribute " + attribute + " is not numeric")
+    check_attribute_is_valid(data, attribute)
     # get durations
     durations = get_durations(data)
     # get attribute values for each duration
@@ -85,12 +80,7 @@ def get_duration_attribute_values(data, attribute, duration):
     return attribute_values
 
 def get_attribute_values_by_scene_type(data, attribute):
-    # check attribute is valid
-    if not hasattr(data[0], attribute):
-        raise AttributeError("Attribute " + attribute + " does not exist in data")
-    # check is attribute is numeric
-    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
-        raise TypeError("Attribute " + attribute + " is not numeric")
+    check_attribute_is_valid(data, attribute)
     # get scene types
     scene_types = get_scene_types(data)
     # get attribute values for each scene type
@@ -111,6 +101,14 @@ def get_scene_types(data):
     for d in data:
         scene_types.add(d.scene_type)
     return scene_types
+
+def check_attribute_is_valid(data, attribute):
+    # check attribute is valid
+    if not hasattr(data[0], attribute):
+        raise AttributeError("Attribute " + attribute + " does not exist in data")
+    # check is attribute is numeric
+    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
+        raise TypeError("Attribute " + attribute + " is not numeric")
 
 if __name__ == "__main__":
     test()
