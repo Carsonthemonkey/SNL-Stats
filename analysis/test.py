@@ -5,8 +5,6 @@ from analysis.load_data import load_full_data
 stored_durations = None
 
 def test():
-    # print(stats.ttest_ind([1,2,3], [4,5,6])) # t-test example
-    # print(stats.f_oneway([1,2,3], [4,5,6])) # ANOVA example (one-way)
     data = load_full_data()
     attributes = ["view_count", "like_count", "comment_count", "mean_sentiment", "std_sentiment"]
     print("DURATION")
@@ -43,7 +41,6 @@ def test_attribute_values_by_scene_type(data, attribute="view_count"):
     print(stats.f_oneway(*vals_by_scene_type).pvalue)
 
 
-# get array of attribute values grouped by duration
 def _get_attribute_values_by_duration(data, attribute):
     _check_attribute_is_valid(data, attribute)
     # get durations
