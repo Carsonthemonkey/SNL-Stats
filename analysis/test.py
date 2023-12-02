@@ -53,6 +53,8 @@ def test_attribute_values_by_actor(data, attribute="view_count"):
     # print("Printing length of vals in vals_by_actor...")
     # for vals in vals_by_actor:
     #     print(len(vals))
+    # remove lists of vals from vals_by_actor that have less than 5 vals
+    vals_by_actor = [vals for vals in vals_by_actor if len(vals) > 5]
     print(stats.f_oneway(*vals_by_actor))
     print(stats.f_oneway(*vals_by_actor).pvalue)
 
