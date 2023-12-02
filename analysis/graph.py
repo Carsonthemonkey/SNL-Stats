@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from analysis.load_data import load_full_data
@@ -7,16 +8,22 @@ import matplotlib.dates as mdates
 all_scene_types = None
 all_actors = None
 
-def draw_all_graphs_and_tables(attribute):
+def save_figure(directory: str, filename: str, fig: plt.Figure, **kwargs):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    fig.savefig(directory + ("" if directory[-1] != "/" else "/") + filename, **kwargs)
+
+
+def draw_all_graphs_and_tables(attribute, show=False):
     # Load data
     data = load_full_data()
-    draw_boxplot_for_scene_type(data, attribute)
-    table_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=15)
-    time_series_of_attribute_over_time(data, attribute)
+    draw_boxplot_for_scene_type(data, attribute, show)
+    # table_of_mean_and_std_by_scene_type(data, attribute)
+    # bar_chart_of_mean_and_std_by_scene_type(data, attribute, show)
+    # bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=15)
+    # time_series_of_attribute_over_time(data, attribute, show)
 
-def draw_boxplot_for_scene_type(data, attribute):
+def draw_boxplot_for_scene_type(data, attribute, show=True):
     # check attribute is valid
     if not hasattr(data[0], attribute):
         raise AttributeError("Attribute " + attribute + " does not exist in data")
@@ -36,8 +43,12 @@ def draw_boxplot_for_scene_type(data, attribute):
     ax.set_xlabel(attribute)
     ax.set_ylabel('Scene Types')
     # save figure
-    fig.savefig('graphs/' + attribute + '_by_scene_type_boxplot.png', bbox_inches='tight')
-    plt.show()
+    save_figure('graphs/' + attribute + '/', attribute + '_by_scene_type_boxplot.png', fig, bbox_inches='tight')
+
+    # fig.savefig('graphs/' + attribute + '/' + attribute + '_by_scene_type_boxplot.png', bbox_inches='tight')
+    if show is True:
+        plt.show()
+    plt.clf()
 
 # make table of mean and std of an attribute for each scene type
 def table_of_mean_and_std_by_scene_type(data, attribute):
@@ -57,7 +68,7 @@ def table_of_mean_and_std_by_scene_type(data, attribute):
         print(f"{st:<{column_width}} {m:<{column_width}} {sd:<{column_width}}")
 
 # make a bar chart of mean and std on an attribute for each scene type
-def bar_chart_of_mean_and_std_by_scene_type(data, attribute):
+def bar_chart_of_mean_and_std_by_scene_type(data, attribute, show=True):
     # check attribute is valid
     if not hasattr(data[0], attribute):
         raise AttributeError("Attribute " + attribute + " does not exist in data")
@@ -74,11 +85,13 @@ def bar_chart_of_mean_and_std_by_scene_type(data, attribute):
     ax.set_ylabel(attribute)
     ax.yaxis.grid(True)
     # save figure
-    fig.savefig('graphs/' + attribute + '_by_scene_type_bar_chart.png', bbox_inches='tight')
-    plt.show()
+    fig.savefig('graphs/' + attribute + '/' + attribute + '_by_scene_type_bar_chart.png', bbox_inches='tight')
+    if show is True:
+        plt.show()
+    plt.clf()
     
 # make a bar chart of the actors with highest/lowest mean of an attribute
-def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
+def bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=10):
     # check attribute is valid
     if not hasattr(data[0], attribute):
         raise AttributeError("Attribute " + attribute + " does not exist in data")
@@ -93,20 +106,27 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, top=True, n=10):
     else:
         actors = actors[-n:]
         means = means[-n:]
+    # get string for title and filename
+    direction_str = 'Top' if top else 'Bottom'
     # plot bar chart
     plt.barh(list(actors), means)
-    plt.title('Bar Chart of Mean ' + attribute + ' by Actors')
+    plt.title('Bar Chart of Mean ' + attribute + ' by ' + direction_str + ' ' + str(n) + ' Actors')
     plt.xlabel(attribute)
     plt.ylabel('Actors')
     if top:  # put in ascending order
         plt.gca().invert_yaxis() 
     plt.tight_layout()
     # save figure
-    plt.savefig('graphs/' + attribute + '_by_actor_bar_chart.png', bbox_inches='tight')
-    plt.show()
+    if top:
+        plt.savefig('graphs/' + attribute + '/' + attribute + '_by_actor_bar_chart_' + direction_str.lower() + '_' + str(n) + '.png', bbox_inches='tight')
+    else:
+        plt.savefig('graphs/' + attribute + '/' + attribute + '_by_actor_bar_chart_' + direction_str.lower() + '_' + str(n) + '.png', bbox_inches='tight')
+    if show is True:
+        plt.show()
+    plt.clf()
 
 # make a time series of an attribute over time (based on upload_date)
-def time_series_of_attribute_over_time(data, attribute):
+def time_series_of_attribute_over_time(data, attribute, show=True):
     # check attribute is valid
     if not hasattr(data[0], attribute):
         raise AttributeError("Attribute " + attribute + " does not exist in data")
@@ -125,8 +145,10 @@ def time_series_of_attribute_over_time(data, attribute):
     plt.title('Time Series of ' + attribute + ' Over Time')
     plt.xlabel('Upload Date')
     plt.ylabel(attribute)
-    plt.savefig('graphs/' + attribute + '_over_time.png', bbox_inches='tight')
-    plt.show()
+    plt.savefig('graphs/' + attribute + '/' + attribute + '_over_time.png', bbox_inches='tight')
+    if show is True:
+        plt.show()
+    plt.clf()
 
 
 def get_scene_types(data):
@@ -164,4 +186,16 @@ def get_sorted_actors_and_means(data, attribute):
     return zip(*sorted(zip(actors, means), key=lambda x: x[1], reverse=True))
 
 if __name__ == '__main__':
-    draw_all_graphs_and_tables("view_count")
+    # clear files with graph subfolders (uncomment when needed)
+    # import os
+    # for attr in ["view_count", "like_count", "comment_count", "mean_sentiment", "std_sentiment", "duration"]:
+    #     folder = "graphs/" + attr
+    #     for filename in os.listdir(folder):
+    #         file_path = os.path.join(folder, filename)
+    #         if os.path.isfile(file_path):
+    #             os.unlink(file_path)
+
+    attributes = ["view_count", "like_count", "comment_count", "mean_sentiment", "std_sentiment", "duration"]
+    for attr in attributes:
+        draw_all_graphs_and_tables(attr, show=False)
+    # draw_all_graphs_and_tables("view_count", show=True)
