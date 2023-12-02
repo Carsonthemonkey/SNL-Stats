@@ -3,20 +3,27 @@ import numpy as np
 from analysis.load_data import load_full_data
 
 stored_durations = None
+stored_scene_types = None
+stored_actors = None
 
 def test():
     data = load_full_data()
     attributes = ["view_count", "like_count", "comment_count", "mean_sentiment", "std_sentiment"]
-    print("DURATION")
+    # print("DURATION")
+    # for attribute in attributes:
+    #     print("ANOVA for " + attribute + " by duration")
+    #     print("----------------------------------------")
+    #     test_attribute_values_by_duration(data, attribute)
+    # print("SCENE TYPE")
+    # for attribute in attributes:
+    #     print("ANOVA for " + attribute + " by scene type")
+    #     print("----------------------------------------")
+    #     test_attribute_values_by_scene_type(data, attribute)
+    print("ACTOR")
     for attribute in attributes:
-        print("ANOVA for " + attribute + " by duration")
+        print("ANOVA for " + attribute + " by actor")
         print("----------------------------------------")
-        test_attribute_values_by_duration(data, attribute)
-    print("SCENE TYPE")
-    for attribute in attributes:
-        print("ANOVA for " + attribute + " by scene type")
-        print("----------------------------------------")
-        test_attribute_values_by_scene_type(data, attribute)
+        test_attribute_values_by_actor(data, attribute)
     
 
 def test_attribute_values_by_duration(data, attribute="view_count"):
@@ -39,6 +46,15 @@ def test_attribute_values_by_scene_type(data, attribute="view_count"):
     #     print(len(vals))
     print(stats.f_oneway(*vals_by_scene_type))
     print(stats.f_oneway(*vals_by_scene_type).pvalue)
+
+
+def test_attribute_values_by_actor(data, attribute="view_count"):
+    vals_by_actor = _get_attribute_values_by_actor(data, attribute)
+    # print("Printing length of vals in vals_by_actor...")
+    # for vals in vals_by_actor:
+    #     print(len(vals))
+    print(stats.f_oneway(*vals_by_actor))
+    print(stats.f_oneway(*vals_by_actor).pvalue)
 
 
 def _get_attribute_values_by_duration(data, attribute):
@@ -90,6 +106,9 @@ def _get_attribute_values_by_scene_type(data, attribute):
     return attribute_values_by_scene_type
 
 def _get_scene_types(data):
+    global stored_scene_types
+    if stored_scene_types is not None:
+        return stored_scene_types
     scene_types = set()
     for d in data:
         scene_types.add(d.scene_type)
@@ -99,6 +118,35 @@ def _get_scene_type_attribute_values(data, attribute, scene_type):
     attribute_values = []
     for d in data:
         if d.scene_type == scene_type and getattr(d, attribute) is not None:
+            attribute_values.append(getattr(d, attribute))
+    return attribute_values
+
+
+def _get_attribute_values_by_actor(data, attribute):
+    _check_attribute_is_valid(data, attribute)
+    # get actors
+    actors = _get_actors(data)
+    # get attribute values for each actor
+    attribute_values_by_actor = []
+    for actor in actors:
+        attribute_values_by_actor.append(_get_actor_attribute_values(data, attribute, actor))
+    return attribute_values_by_actor
+
+def _get_actors(data):
+    global stored_actors
+    if stored_actors is not None:
+        return stored_actors
+    actors = set()
+    for d in data:
+        for actor in d.cast:
+            if actor is not None:
+                actors.add(actor)
+    return actors
+
+def _get_actor_attribute_values(data, attribute, actor):
+    attribute_values = []
+    for d in data:
+        if actor in d.cast and getattr(d, attribute) is not None:
             attribute_values.append(getattr(d, attribute))
     return attribute_values
 
