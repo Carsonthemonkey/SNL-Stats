@@ -9,19 +9,19 @@ stored_actors = None
 def test():
     data = load_full_data()
     attributes = ["view_count", "like_count", "comment_count", "mean_sentiment", "std_sentiment"]
-    # print("DURATION")
-    # for attribute in attributes:
-    #     print("ANOVA for " + attribute + " by duration")
-    #     print("----------------------------------------")
-    #     test_attribute_values_by_duration(data, attribute)
-    # print("SCENE TYPE")
-    # for attribute in attributes:
-    #     print("ANOVA for " + attribute + " by scene type")
-    #     print("----------------------------------------")
-    #     test_attribute_values_by_scene_type(data, attribute)
-    print("ACTOR")
+    print("\nDURATION")
     for attribute in attributes:
-        print("ANOVA for " + attribute + " by actor")
+        print("\nANOVA for " + attribute + " by duration")
+        print("----------------------------------------")
+        test_attribute_values_by_duration(data, attribute)
+    print("\nSCENE TYPE")
+    for attribute in attributes:
+        print("\nANOVA for " + attribute + " by scene type")
+        print("----------------------------------------")
+        test_attribute_values_by_scene_type(data, attribute)
+    print("\nACTOR")
+    for attribute in attributes:
+        print("\nANOVA for " + attribute + " by actor")
         print("----------------------------------------")
         test_attribute_values_by_actor(data, attribute)
     
