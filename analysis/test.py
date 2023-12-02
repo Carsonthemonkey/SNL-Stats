@@ -2,6 +2,8 @@ import scipy.stats as stats
 import numpy as np
 from analysis.load_data import load_full_data
 
+stored_durations = None
+
 def test():
     # print(stats.ttest_ind([1,2,3], [4,5,6])) # t-test example
     # print(stats.f_oneway([1,2,3], [4,5,6])) # ANOVA example (one-way)
@@ -44,6 +46,9 @@ def get_attribute_values_by_duration(data, attribute):
     return attribute_values_by_duration
 
 def get_durations(data):
+    global stored_durations
+    if stored_durations is not None:
+        return stored_durations
     durations = []
     for d in data:
         durations.append(d.duration)
