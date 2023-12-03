@@ -9,13 +9,11 @@ stored_actors = None
 def test():
     data = load_full_data()
     attributes = ["view_count", "like_count", "comment_count", "mean_sentiment", "std_sentiment"]
-    print("\nNORMALITY")
     for attribute in attributes:
-        print("\nShapiro for " + attribute)
-        print("----------------------------------------")
-        test_normality(data, _get_attribute_values_by_duration(data, attribute), attribute, group="DURATION")
-        test_normality(data, _get_attribute_values_by_scene_type(data, attribute), attribute, group="SCENE TYPE")
-        test_normality(data, _get_attribute_values_by_actor(data, attribute), attribute, group="ACTOR")
+        test_group(data, attribute, "DURATION")
+        test_group(data, attribute, "SCENE TYPE")
+        test_group(data, attribute, "ACTOR")
+
     # print("\nDURATION")
     # for attribute in attributes:
     #     print("\nANOVA for " + attribute + " by duration")
@@ -33,12 +31,37 @@ def test():
     #     test_attribute_values_by_actor(data, attribute)
     
 
-def test_normality(data, values, attribute="view_count", group=""):
+def test_group(data, attribute, group):
+    values = []
+    print("\nShapiro for " + attribute)
+    print("----------------------------------------")
+    if group == "DURATION":
+        values = _get_attribute_values_by_duration(data, attribute)
+    elif group == "SCENE TYPE":
+        values = _get_attribute_values_by_scene_type(data, attribute)
+    elif group == "ACTOR":
+        values = _get_attribute_values_by_actor(data, attribute)
+    values = test_normality(data, values, attribute, group)
+    if len(values) < 2:
+        print("Not enough groups to perform ANOVA\n")
+        return
+    print("\nANOVA for " + attribute + " by " + group)
+    print("----------------------------------------")
+    print(stats.f_oneway(*values))
+
+def test_normality(data, values, attribute="view_count", group="") -> list:
+    normal_values = []
     _check_attribute_is_valid(data, attribute)
     print("\n" + group + "\n")
     for vals in values:
         if len(vals) > 5:
-            print(stats.shapiro(vals).pvalue) if stats.shapiro(vals).pvalue > 0.05 else print("p-value < 0.05")
+            if stats.shapiro(vals).pvalue > 0.05:
+                # print(stats.shapiro(vals).pvalue)
+                normal_values.append(vals)
+            # else:
+            #     print("p-value < 0.05")
+    print("Final number of value groups: " + str(len(normal_values)) + "\n")
+    return normal_values
 
 def test_attribute_values_by_duration(data, attribute="view_count"):
     vals_by_duration = _get_attribute_values_by_duration(data, attribute)
