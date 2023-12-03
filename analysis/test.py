@@ -29,8 +29,14 @@ def test_group(data, attribute, group):
     if len(values) < 2:
         print("\tNot enough groups to perform ANOVA\n")
         return
-    print("\n\tANOVA result:")
-    print("\t" + str(stats.f_oneway(*values)) + "\n")
+    print("\n\tANOVA result:", end=" ")
+    result = stats.f_oneway(*values)
+    if result.pvalue < 0.05:
+        print("REJECT NULL (p-value < 0.05)")
+    else:
+        print("FAIL TO REJECT NULL (p-value > 0.05)")
+    print("\t" + str(result) + "\n")
+
 
 
 def test_normality(data, values, attribute="view_count", group="") -> list:
