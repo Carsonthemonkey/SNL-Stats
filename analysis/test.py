@@ -10,13 +10,14 @@ def test():
     data = load_full_data()
     attributes = ["view_count", "like_count", "comment_count", "mean_sentiment", "std_sentiment"]
     for attribute in attributes:
+        _check_attribute_is_valid(data, attribute)
         test_group(data, attribute, "DURATION")
         test_group(data, attribute, "SCENE TYPE")
         test_group(data, attribute, "ACTOR")
     
 
 def test_group(data, attribute, group):
-    values = []
+    values = {}
     print("\n" + attribute + " by " + group)
     print("----------------------------")
     if group == "DURATION":
@@ -25,12 +26,12 @@ def test_group(data, attribute, group):
         values = _get_attribute_values_by_scene_type(data, attribute)
     elif group == "ACTOR":
         values = _get_attribute_values_by_actor(data, attribute)
-    values = test_normality(data, values, attribute, group)
+    values = test_normality(values)
     if len(values) < 2:
         print("\tNot enough groups to perform ANOVA\n")
         return
     print("\n\tANOVA result:", end=" ")
-    result = stats.f_oneway(*values)
+    result = stats.f_oneway(*values.values())
     if result.pvalue < 0.05:
         print("REJECT NULL (p-value < 0.05)")
     else:
@@ -38,35 +39,30 @@ def test_group(data, attribute, group):
     print("\t\tstatistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
 
 
-
-def test_normality(data, values, attribute="view_count", group="") -> list:
-    normal_values = []
+def test_normality(values) -> dict:
+    normal_values = {}
     removed_count = 0
-    _check_attribute_is_valid(data, attribute)
-    for vals in values:
+    for key in values:
+        vals = values[key]
         if len(vals) > 5:
             if stats.shapiro(vals).pvalue > 0.05:
                 # print(\tstats.shapiro(vals).pvalue)
-                normal_values.append(vals)
+                normal_values[key] = vals
             else:
             #     print("\tp-value < 0.05")
                 removed_count += 1
     print("\tNumber of roughly normal value groups: " + str(len(normal_values)) + "\n")
     if removed_count > 0:
         print("\tNumber of groups removed due to non-normality: " + str(removed_count) + "\n")
-
     return normal_values
 
 
-def _get_attribute_values_by_duration(data, attribute):
-    _check_attribute_is_valid(data, attribute)
-    # get durations
+def _get_attribute_values_by_duration(data, attribute) -> dict:
     durations = _get_durations(data)
-    # get attribute values for each duration
-    attribute_values_by_duration = []
+    value_dict = {} # key is duration, value is list of attribute values
     for d in durations:
-        attribute_values_by_duration.append(_get_duration_attribute_values(data, attribute, d))
-    return attribute_values_by_duration
+        value_dict[d] = _get_duration_attribute_values(data, attribute, d)
+    return value_dict
 
 def _get_durations(data):
     global stored_durations
@@ -96,15 +92,12 @@ def _get_duration_attribute_values(data, attribute, duration):
     return attribute_values
 
 
-def _get_attribute_values_by_scene_type(data, attribute):
-    _check_attribute_is_valid(data, attribute)
-    # get scene types
+def _get_attribute_values_by_scene_type(data, attribute) -> dict:
     scene_types = _get_scene_types(data)
-    # get attribute values for each scene type
-    attribute_values_by_scene_type = []
+    value_dict = {} # key is scene type, value is list of attribute values
     for scene_type in scene_types:
-        attribute_values_by_scene_type.append(_get_scene_type_attribute_values(data, attribute, scene_type))
-    return attribute_values_by_scene_type
+        value_dict[scene_type] = _get_scene_type_attribute_values(data, attribute, scene_type)
+    return value_dict
 
 def _get_scene_types(data):
     global stored_scene_types
@@ -123,15 +116,12 @@ def _get_scene_type_attribute_values(data, attribute, scene_type):
     return attribute_values
 
 
-def _get_attribute_values_by_actor(data, attribute):
-    _check_attribute_is_valid(data, attribute)
-    # get actors
+def _get_attribute_values_by_actor(data, attribute) -> dict:
     actors = _get_actors(data)
-    # get attribute values for each actor
-    attribute_values_by_actor = []
+    value_dict = {} # key is actor, value is list of attribute values
     for actor in actors:
-        attribute_values_by_actor.append(_get_actor_attribute_values(data, attribute, actor))
-    return attribute_values_by_actor
+        value_dict[actor] = _get_actor_attribute_values(data, attribute, actor)
+    return value_dict
 
 def _get_actors(data):
     global stored_actors
