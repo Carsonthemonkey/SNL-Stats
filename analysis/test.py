@@ -35,7 +35,7 @@ def test_group(data, attribute, group):
         print("REJECT NULL (p-value < 0.05)")
     else:
         print("FAIL TO REJECT NULL (p-value > 0.05)")
-    print("\t" + str(result) + "\n")
+    print("\t\tstatistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
 
 
 
