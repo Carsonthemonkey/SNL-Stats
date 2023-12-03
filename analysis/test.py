@@ -37,7 +37,7 @@ def test_group(data, attribute, group):
     else:
         print("FAIL TO REJECT NULL (p-value > 0.05)")
     print("\t\tstatistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
-    print("Groups tested: " + str(list(values.keys())) + "\n")
+    print(group + "S tested: " + str(list(values.keys())) + "\n")
 
 
 def test_normality(values) -> dict:
