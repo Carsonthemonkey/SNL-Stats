@@ -9,29 +9,60 @@ stored_actors = None
 def test():
     data = load_full_data()
     attributes = ["view_count", "like_count", "comment_count", "mean_sentiment", "std_sentiment"]
-    print("\nDURATION")
+    print("\nNORMALITY")
     for attribute in attributes:
-        print("\nANOVA for " + attribute + " by duration")
+        print("\nShapiro for " + attribute)
         print("----------------------------------------")
-        test_attribute_values_by_duration(data, attribute)
-    print("\nSCENE TYPE")
-    for attribute in attributes:
-        print("\nANOVA for " + attribute + " by scene type")
-        print("----------------------------------------")
-        test_attribute_values_by_scene_type(data, attribute)
-    print("\nACTOR")
-    for attribute in attributes:
-        print("\nANOVA for " + attribute + " by actor")
-        print("----------------------------------------")
-        test_attribute_values_by_actor(data, attribute)
+        test_normality(data, _get_attribute_values_by_duration(data, attribute), attribute, group="DURATION")
+        test_normality(data, _get_attribute_values_by_scene_type(data, attribute), attribute, group="SCENE TYPE")
+        test_normality(data, _get_attribute_values_by_actor(data, attribute), attribute, group="ACTOR")
+    # print("\nDURATION")
+    # for attribute in attributes:
+    #     print("\nANOVA for " + attribute + " by duration")
+    #     print("----------------------------------------")
+    #     test_attribute_values_by_duration(data, attribute)
+    # print("\nSCENE TYPE")
+    # for attribute in attributes:
+    #     print("\nANOVA for " + attribute + " by scene type")
+    #     print("----------------------------------------")
+    #     test_attribute_values_by_scene_type(data, attribute)
+    # print("\nACTOR")
+    # for attribute in attributes:
+    #     print("\nANOVA for " + attribute + " by actor")
+    #     print("----------------------------------------")
+    #     test_attribute_values_by_actor(data, attribute)
     
+
+# def test_normality(data, attribute="view_count"):
+#     _check_attribute_is_valid(data, attribute)
+#     vals_by_duration = _get_attribute_values_by_duration(data, attribute)
+#     vals_by_scene_type = _get_attribute_values_by_scene_type(data, attribute)
+#     vals_by_actor = _get_attribute_values_by_actor(data, attribute)
+#     print("\nDURATION\n")
+#     for vals in vals_by_duration:
+#         if len(vals) > 2:
+#             print(stats.shapiro(vals).pvalue) if stats.shapiro(vals).pvalue > 0.05 else print("p-value < 0.05")
+#     print("\nSCENE TYPE\n")
+#     for vals in vals_by_scene_type:
+#         if len(vals) > 2:
+#             print(stats.shapiro(vals).pvalue) if stats.shapiro(vals).pvalue > 0.05 else print("p-value < 0.05")
+#     print("\nACTOR\n")
+#     for vals in vals_by_actor:
+#         if len(vals) > 2:
+#             print(stats.shapiro(vals).pvalue) if stats.shapiro(vals).pvalue > 0.05 else print("p-value < 0.05")
+
+def test_normality(data, values, attribute="view_count", group=""):
+    _check_attribute_is_valid(data, attribute)
+    print("\n" + group + "\n")
+    for vals in values:
+        if len(vals) > 5:
+            print(stats.shapiro(vals).pvalue) if stats.shapiro(vals).pvalue > 0.05 else print("p-value < 0.05")
 
 def test_attribute_values_by_duration(data, attribute="view_count"):
     vals_by_duration = _get_attribute_values_by_duration(data, attribute)
     # print("Printing length of vals in vals_by_duration...")
     # for vals in vals_by_duration:
     #     print(len(vals))
-    # remove first list of vals from vals_by_duration (because it only have one val)
     for i in range(3):
         print("ANOVA for all groups after duration group " + str(i+1))
         vals_by_duration = vals_by_duration[i:]
@@ -44,6 +75,8 @@ def test_attribute_values_by_scene_type(data, attribute="view_count"):
     # print("Printing length of vals in vals_by_scene_type...")
     # for vals in vals_by_scene_type:
     #     print(len(vals))
+    # remove lists of vals from vals_by_scene_type that have less than 10 vals
+    vals_by_scene_type = [vals for vals in vals_by_scene_type if len(vals) > 10]
     print(stats.f_oneway(*vals_by_scene_type))
     print(stats.f_oneway(*vals_by_scene_type).pvalue)
 
