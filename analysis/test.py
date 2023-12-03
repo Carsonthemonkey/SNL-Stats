@@ -33,24 +33,6 @@ def test():
     #     test_attribute_values_by_actor(data, attribute)
     
 
-# def test_normality(data, attribute="view_count"):
-#     _check_attribute_is_valid(data, attribute)
-#     vals_by_duration = _get_attribute_values_by_duration(data, attribute)
-#     vals_by_scene_type = _get_attribute_values_by_scene_type(data, attribute)
-#     vals_by_actor = _get_attribute_values_by_actor(data, attribute)
-#     print("\nDURATION\n")
-#     for vals in vals_by_duration:
-#         if len(vals) > 2:
-#             print(stats.shapiro(vals).pvalue) if stats.shapiro(vals).pvalue > 0.05 else print("p-value < 0.05")
-#     print("\nSCENE TYPE\n")
-#     for vals in vals_by_scene_type:
-#         if len(vals) > 2:
-#             print(stats.shapiro(vals).pvalue) if stats.shapiro(vals).pvalue > 0.05 else print("p-value < 0.05")
-#     print("\nACTOR\n")
-#     for vals in vals_by_actor:
-#         if len(vals) > 2:
-#             print(stats.shapiro(vals).pvalue) if stats.shapiro(vals).pvalue > 0.05 else print("p-value < 0.05")
-
 def test_normality(data, values, attribute="view_count", group=""):
     _check_attribute_is_valid(data, attribute)
     print("\n" + group + "\n")
