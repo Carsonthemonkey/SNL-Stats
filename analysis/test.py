@@ -41,15 +41,20 @@ def test_group(data, attribute, group):
 
 def test_normality(data, values, attribute="view_count", group="") -> list:
     normal_values = []
+    removed_count = 0
     _check_attribute_is_valid(data, attribute)
     for vals in values:
         if len(vals) > 5:
             if stats.shapiro(vals).pvalue > 0.05:
                 # print(\tstats.shapiro(vals).pvalue)
                 normal_values.append(vals)
-            # else:
+            else:
             #     print("\tp-value < 0.05")
+                removed_count += 1
     print("\tNumber of roughly normal value groups: " + str(len(normal_values)) + "\n")
+    if removed_count > 0:
+        print("\tNumber of groups removed due to non-normality: " + str(removed_count) + "\n")
+
     return normal_values
 
 
