@@ -13,28 +13,12 @@ def test():
         test_group(data, attribute, "DURATION")
         test_group(data, attribute, "SCENE TYPE")
         test_group(data, attribute, "ACTOR")
-
-    # print("\nDURATION")
-    # for attribute in attributes:
-    #     print("\nANOVA for " + attribute + " by duration")
-    #     print("----------------------------------------")
-    #     test_attribute_values_by_duration(data, attribute)
-    # print("\nSCENE TYPE")
-    # for attribute in attributes:
-    #     print("\nANOVA for " + attribute + " by scene type")
-    #     print("----------------------------------------")
-    #     test_attribute_values_by_scene_type(data, attribute)
-    # print("\nACTOR")
-    # for attribute in attributes:
-    #     print("\nANOVA for " + attribute + " by actor")
-    #     print("----------------------------------------")
-    #     test_attribute_values_by_actor(data, attribute)
     
 
 def test_group(data, attribute, group):
     values = []
-    print("\nShapiro for " + attribute)
-    print("----------------------------------------")
+    print("\n" + attribute + " by " + group)
+    print("----------------------------")
     if group == "DURATION":
         values = _get_attribute_values_by_duration(data, attribute)
     elif group == "SCENE TYPE":
@@ -43,58 +27,24 @@ def test_group(data, attribute, group):
         values = _get_attribute_values_by_actor(data, attribute)
     values = test_normality(data, values, attribute, group)
     if len(values) < 2:
-        print("Not enough groups to perform ANOVA\n")
+        print("\tNot enough groups to perform ANOVA\n")
         return
-    print("\nANOVA for " + attribute + " by " + group)
-    print("----------------------------------------")
-    print(stats.f_oneway(*values))
+    print("\n\tANOVA result:")
+    print("\t" + str(stats.f_oneway(*values)) + "\n")
+
 
 def test_normality(data, values, attribute="view_count", group="") -> list:
     normal_values = []
     _check_attribute_is_valid(data, attribute)
-    print("\n" + group + "\n")
     for vals in values:
         if len(vals) > 5:
             if stats.shapiro(vals).pvalue > 0.05:
-                # print(stats.shapiro(vals).pvalue)
+                # print(\tstats.shapiro(vals).pvalue)
                 normal_values.append(vals)
             # else:
-            #     print("p-value < 0.05")
-    print("Final number of value groups: " + str(len(normal_values)) + "\n")
+            #     print("\tp-value < 0.05")
+    print("\tNumber of roughly normal value groups: " + str(len(normal_values)) + "\n")
     return normal_values
-
-def test_attribute_values_by_duration(data, attribute="view_count"):
-    vals_by_duration = _get_attribute_values_by_duration(data, attribute)
-    # print("Printing length of vals in vals_by_duration...")
-    # for vals in vals_by_duration:
-    #     print(len(vals))
-    for i in range(3):
-        print("ANOVA for all groups after duration group " + str(i+1))
-        vals_by_duration = vals_by_duration[i:]
-        print(stats.f_oneway(*vals_by_duration))
-        print(stats.f_oneway(*vals_by_duration).pvalue)
-
-
-def test_attribute_values_by_scene_type(data, attribute="view_count"):
-    vals_by_scene_type = _get_attribute_values_by_scene_type(data, attribute)
-    # print("Printing length of vals in vals_by_scene_type...")
-    # for vals in vals_by_scene_type:
-    #     print(len(vals))
-    # remove lists of vals from vals_by_scene_type that have less than 10 vals
-    vals_by_scene_type = [vals for vals in vals_by_scene_type if len(vals) > 10]
-    print(stats.f_oneway(*vals_by_scene_type))
-    print(stats.f_oneway(*vals_by_scene_type).pvalue)
-
-
-def test_attribute_values_by_actor(data, attribute="view_count"):
-    vals_by_actor = _get_attribute_values_by_actor(data, attribute)
-    # print("Printing length of vals in vals_by_actor...")
-    # for vals in vals_by_actor:
-    #     print(len(vals))
-    # remove lists of vals from vals_by_actor that have less than 5 vals
-    vals_by_actor = [vals for vals in vals_by_actor if len(vals) > 5]
-    print(stats.f_oneway(*vals_by_actor))
-    print(stats.f_oneway(*vals_by_actor).pvalue)
 
 
 def _get_attribute_values_by_duration(data, attribute):
