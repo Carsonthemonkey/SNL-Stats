@@ -65,7 +65,7 @@ def _get_attribute_values_by_duration(data, attribute) -> dict:
         value_dict[d] = _get_duration_attribute_values(data, attribute, d)
     return value_dict
 
-def _get_durations(data):
+def _get_durations(data) -> list:
     global stored_durations
     if stored_durations is not None:
         return stored_durations
@@ -82,7 +82,7 @@ def _get_durations(data):
         durations.append(min_duration + i*(max_duration-min_duration)/4)
     return durations
 
-def _get_duration_attribute_values(data, attribute, duration):
+def _get_duration_attribute_values(data, attribute, duration) -> list:
     data = sorted(data, key=lambda x: x.duration) # sort data by duration
     attribute_values = []
     for d in data:
@@ -100,7 +100,7 @@ def _get_attribute_values_by_scene_type(data, attribute) -> dict:
         value_dict[scene_type] = _get_scene_type_attribute_values(data, attribute, scene_type)
     return value_dict
 
-def _get_scene_types(data):
+def _get_scene_types(data) -> set:
     global stored_scene_types
     if stored_scene_types is not None:
         return stored_scene_types
@@ -109,7 +109,7 @@ def _get_scene_types(data):
         scene_types.add(d.scene_type)
     return scene_types
 
-def _get_scene_type_attribute_values(data, attribute, scene_type):
+def _get_scene_type_attribute_values(data, attribute, scene_type) -> list:
     attribute_values = []
     for d in data:
         if d.scene_type == scene_type and getattr(d, attribute) is not None:
@@ -124,7 +124,7 @@ def _get_attribute_values_by_actor(data, attribute) -> dict:
         value_dict[actor] = _get_actor_attribute_values(data, attribute, actor)
     return value_dict
 
-def _get_actors(data):
+def _get_actors(data) -> set:
     global stored_actors
     if stored_actors is not None:
         return stored_actors
@@ -135,7 +135,7 @@ def _get_actors(data):
                 actors.add(actor)
     return actors
 
-def _get_actor_attribute_values(data, attribute, actor):
+def _get_actor_attribute_values(data, attribute, actor) -> list:
     attribute_values = []
     for d in data:
         if actor in d.cast and getattr(d, attribute) is not None:
