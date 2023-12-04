@@ -1,6 +1,7 @@
 import scipy.stats as stats
 import numpy as np
 from analysis.load_data import load_full_data
+from statsmodels.stats.multicomp import MultiComparison # for Tukey's HSD test
 
 stored_durations = None
 stored_scene_types = None
@@ -13,7 +14,7 @@ def test():
         _check_attribute_is_valid(data, attribute)
         # test_group(data, attribute, "DURATION")
         test_group(data, attribute, "SCENE TYPE")
-        test_group(data, attribute, "ACTOR")
+        # test_group(data, attribute, "ACTOR")
     
 
 def test_group(data, attribute, group):
@@ -34,9 +35,20 @@ def test_group(data, attribute, group):
     result = stats.f_oneway(*values.values())
     if result.pvalue < 0.01:
         print("REJECT NULL (p-value < 0.01)")
+        # Tukey's HSD test
+        print("\tTukey's HSD result:")
+        # create list of all values
+        all_values = [value for sublist in values.values() for value in sublist]
+        # create list of group names (needs to be same length as all_values)
+        group_names = [name for name in values.keys() for i in range(len(values[name]))]
+        # create MultiComparison object
+        mc = MultiComparison(all_values, group_names)
+        # perform test
+        result = mc.tukeyhsd()
+        print(result)
     else:
         print("FAIL TO REJECT NULL (p-value > 0.01)")
-    print("\t\tstatistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
+    # print("\t\tANOVA statistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
 
 
 def _get_all_attribute_values_for_durations(data, attribute) -> dict:
