@@ -63,8 +63,9 @@ def _get_attribute_values_by_duration(data, attribute) -> dict:
     value_dict = {} # key is duration, value is list of attribute values
     for d in durations:
         # add only if there are more than 2 sketches of this duration
-        if len(_get_duration_attribute_values(data, attribute, d)) > 2:
-            value_dict[d] = _get_duration_attribute_values(data, attribute, d)
+        attribute_values = _get_duration_attribute_values(data, attribute, d)
+        if len(attribute_values) > 2:
+            value_dict[d] = attribute_values
     return value_dict
 
 def _get_durations(data) -> list:
@@ -100,8 +101,9 @@ def _get_attribute_values_by_scene_type(data, attribute) -> dict:
     value_dict = {} # key is scene type, value is list of attribute values
     for scene_type in scene_types:
         # add only if there are more than 2 sketches of this scene type
-        if len(_get_scene_type_attribute_values(data, attribute, scene_type)) > 2:
-            value_dict[scene_type] = _get_scene_type_attribute_values(data, attribute, scene_type)
+        attribute_values = _get_scene_type_attribute_values(data, attribute, scene_type)
+        if len(attribute_values) > 2:
+            value_dict[scene_type] = attribute_values
     return value_dict
 
 def _get_scene_types(data) -> set:
@@ -126,8 +128,9 @@ def _get_attribute_values_by_actor(data, attribute) -> dict:
     value_dict = {} # key is actor, value is list of attribute values
     for actor in actors:
         # add only if there are more than 2 sketches of this actor
-        if len(_get_actor_attribute_values(data, attribute, actor)) > 2:
-            value_dict[actor] = _get_actor_attribute_values(data, attribute, actor)
+        attribute_values = _get_actor_attribute_values(data, attribute, actor)
+        if len(attribute_values) > 2:
+            value_dict[actor] = attribute_values
     return value_dict
 
 def _get_actors(data) -> set:
