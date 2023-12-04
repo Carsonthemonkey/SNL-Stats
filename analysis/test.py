@@ -11,7 +11,7 @@ def test():
     attributes = ["view_count", "like_count", "comment_count", "mean_sentiment", "std_sentiment"]
     for attribute in attributes:
         _check_attribute_is_valid(data, attribute)
-        test_group(data, attribute, "DURATION")
+        # test_group(data, attribute, "DURATION")
         test_group(data, attribute, "SCENE TYPE")
         test_group(data, attribute, "ACTOR")
     
