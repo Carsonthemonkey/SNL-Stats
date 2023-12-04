@@ -21,11 +21,11 @@ def test_group(data, attribute, group):
     print("\n" + attribute + " by " + group)
     print("----------------------------")
     if group == "DURATION":
-        values = _get_attribute_values_by_duration(data, attribute)
+        values = _get_all_attribute_values_for_durations(data, attribute)
     elif group == "SCENE TYPE":
-        values = _get_attribute_values_by_scene_type(data, attribute)
+        values = _get_all_attribute_values_for_scene_types(data, attribute)
     elif group == "ACTOR":
-        values = _get_attribute_values_by_actor(data, attribute)
+        values = _get_all_attribute_values_for_actors(data, attribute)
     # ANOVA test
     if len(values) < 2:
         print("\tNot enough groups to perform ANOVA\n")
@@ -39,7 +39,7 @@ def test_group(data, attribute, group):
     print("\t\tstatistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
 
 
-def _get_attribute_values_by_duration(data, attribute) -> dict:
+def _get_all_attribute_values_for_durations(data, attribute) -> dict:
     durations = _get_durations(data)
     value_dict = {} # key is duration, value is list of attribute values
     for d in durations:
@@ -77,7 +77,7 @@ def _get_duration_attribute_values(data, attribute, duration) -> list:
     return attribute_values
 
 
-def _get_attribute_values_by_scene_type(data, attribute) -> dict:
+def _get_all_attribute_values_for_scene_types(data, attribute) -> dict:
     scene_types = _get_scene_types(data)
     value_dict = {} # key is scene type, value is list of attribute values
     for scene_type in scene_types:
@@ -104,7 +104,7 @@ def _get_scene_type_attribute_values(data, attribute, scene_type) -> list:
     return attribute_values
 
 
-def _get_attribute_values_by_actor(data, attribute) -> dict:
+def _get_all_attribute_values_for_actors(data, attribute) -> dict:
     actors = _get_actors(data)
     value_dict = {} # key is actor, value is list of attribute values
     for actor in actors:
