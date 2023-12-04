@@ -32,10 +32,10 @@ def test_group(data, attribute, group):
         return
     print("\n\tANOVA result:", end=" ")
     result = stats.f_oneway(*values.values())
-    if result.pvalue < 0.05:
-        print("REJECT NULL (p-value < 0.05)")
+    if result.pvalue < 0.01:
+        print("REJECT NULL (p-value < 0.01)")
     else:
-        print("FAIL TO REJECT NULL (p-value > 0.05)")
+        print("FAIL TO REJECT NULL (p-value > 0.01)")
     print("\t\tstatistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
 
 
