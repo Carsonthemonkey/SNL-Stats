@@ -26,7 +26,7 @@ def test_group(data, attribute, group):
         values = _get_attribute_values_by_scene_type(data, attribute)
     elif group == "ACTOR":
         values = _get_attribute_values_by_actor(data, attribute)
-    values = test_normality(values)
+    # values = test_normality(values)
     if len(values) < 2:
         print("\tNot enough groups to perform ANOVA\n")
         return
@@ -37,32 +37,34 @@ def test_group(data, attribute, group):
     else:
         print("FAIL TO REJECT NULL (p-value > 0.05)")
     print("\t\tstatistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
-    print(group + "S tested: " + str(list(values.keys())) + "\n")
+    # print(group + "S tested: " + str(list(values.keys())) + "\n")
 
 
-def test_normality(values) -> dict:
-    normal_values = {}
-    removed_count = 0
-    for key in values:
-        vals = values[key]
-        if len(vals) > 5:
-            if stats.shapiro(vals).pvalue > 0.05:
-                # print(\tstats.shapiro(vals).pvalue)
-                normal_values[key] = vals
-            else:
-            #     print("\tp-value < 0.05")
-                removed_count += 1
-    print("\tNumber of roughly normal value groups: " + str(len(normal_values)) + "\n")
-    if removed_count > 0:
-        print("\tNumber of groups removed due to non-normality: " + str(removed_count) + "\n")
-    return normal_values
+# def test_normality(values) -> dict:
+#     normal_values = {}
+#     removed_count = 0
+#     for key in values:
+#         vals = values[key]
+#         if len(vals) > 5:
+#             if stats.shapiro(vals).pvalue > 0.05:
+#                 # print(\tstats.shapiro(vals).pvalue)
+#                 normal_values[key] = vals
+#             else:
+#             #     print("\tp-value < 0.05")
+#                 removed_count += 1
+#     print("\tNumber of roughly normal value groups: " + str(len(normal_values)) + "\n")
+#     if removed_count > 0:
+#         print("\tNumber of groups removed due to non-normality: " + str(removed_count) + "\n")
+#     return normal_values
 
 
 def _get_attribute_values_by_duration(data, attribute) -> dict:
     durations = _get_durations(data)
     value_dict = {} # key is duration, value is list of attribute values
     for d in durations:
-        value_dict[d] = _get_duration_attribute_values(data, attribute, d)
+        # add only if there are more than 2 sketches of this duration
+        if len(_get_duration_attribute_values(data, attribute, d)) > 2:
+            value_dict[d] = _get_duration_attribute_values(data, attribute, d)
     return value_dict
 
 def _get_durations(data) -> list:
@@ -97,7 +99,9 @@ def _get_attribute_values_by_scene_type(data, attribute) -> dict:
     scene_types = _get_scene_types(data)
     value_dict = {} # key is scene type, value is list of attribute values
     for scene_type in scene_types:
-        value_dict[scene_type] = _get_scene_type_attribute_values(data, attribute, scene_type)
+        # add only if there are more than 2 sketches of this scene type
+        if len(_get_scene_type_attribute_values(data, attribute, scene_type)) > 2:
+            value_dict[scene_type] = _get_scene_type_attribute_values(data, attribute, scene_type)
     return value_dict
 
 def _get_scene_types(data) -> set:
@@ -121,7 +125,9 @@ def _get_attribute_values_by_actor(data, attribute) -> dict:
     actors = _get_actors(data)
     value_dict = {} # key is actor, value is list of attribute values
     for actor in actors:
-        value_dict[actor] = _get_actor_attribute_values(data, attribute, actor)
+        # add only if there are more than 2 sketches of this actor
+        if len(_get_actor_attribute_values(data, attribute, actor)) > 2:
+            value_dict[actor] = _get_actor_attribute_values(data, attribute, actor)
     return value_dict
 
 def _get_actors(data) -> set:
