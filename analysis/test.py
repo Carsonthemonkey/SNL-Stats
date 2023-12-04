@@ -26,7 +26,7 @@ def test_group(data, attribute, group):
         values = _get_attribute_values_by_scene_type(data, attribute)
     elif group == "ACTOR":
         values = _get_attribute_values_by_actor(data, attribute)
-    # values = test_normality(values)
+    # ANOVA test
     if len(values) < 2:
         print("\tNot enough groups to perform ANOVA\n")
         return
@@ -37,25 +37,6 @@ def test_group(data, attribute, group):
     else:
         print("FAIL TO REJECT NULL (p-value > 0.05)")
     print("\t\tstatistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
-    # print(group + "S tested: " + str(list(values.keys())) + "\n")
-
-
-# def test_normality(values) -> dict:
-#     normal_values = {}
-#     removed_count = 0
-#     for key in values:
-#         vals = values[key]
-#         if len(vals) > 5:
-#             if stats.shapiro(vals).pvalue > 0.05:
-#                 # print(\tstats.shapiro(vals).pvalue)
-#                 normal_values[key] = vals
-#             else:
-#             #     print("\tp-value < 0.05")
-#                 removed_count += 1
-#     print("\tNumber of roughly normal value groups: " + str(len(normal_values)) + "\n")
-#     if removed_count > 0:
-#         print("\tNumber of groups removed due to non-normality: " + str(removed_count) + "\n")
-#     return normal_values
 
 
 def _get_attribute_values_by_duration(data, attribute) -> dict:
