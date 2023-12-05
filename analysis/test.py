@@ -5,6 +5,7 @@ from statsmodels.stats.multicomp import MultiComparison # for Tukey's HSD test
 import statsmodels.api as sm # for ANOVA table
 from statsmodels.formula.api import ols # for ANOVA table
 import pandas as pd
+from itertools import combinations # to check tukey's result
 
 stored_durations = None
 stored_scene_types = None
@@ -41,37 +42,31 @@ def test_group(data, attribute, group):
     df = pd.DataFrame(values_for_df, columns=["value", "group"])
     model = ols('value ~ group', data=df).fit()
     anova_table = sm.stats.anova_lm(model, typ=2)
-    # Print the ANOVA table
-    # print(anova_table)
-    # print lenth of each group
-    # print("group lengths:", end=" ")
-    # for key, vals in values.items():
-    #     print(len(vals), end=" ")
-    # print()
     if result.pvalue < 0.01:
         print("REJECT NULL (p-value < 0.01)")
         # Tukey's HSD test
         # print("\tTukey's HSD result:")
-        # # create list of all values
-        # all_values = [value for sublist in values.values() for value in sublist]
-        # # create list of group names (needs to be same length as all_values)
-        # group_names = [name for name in values.keys() for i in range(len(values[name]))]
-        # # create MultiComparison object
-        # mc = MultiComparison(all_values, group_names)
-        # # perform test
-        # result = mc.tukeyhsd()
-        # print(result.summary)
-        # run fisher lsd test on all pairs of groups
-        print("\tFisher LSD result:")
+        tukey_result = tukey_hsd(values)
+        # print(tukey_result)
+        tukey_rejects = []
+        group_pairs = list(combinations(tukey_result.groupsunique, 2))
+        for i, reject in enumerate(tukey_result.reject):
+            if reject:
+                tukey_rejects.append(group_pairs[i])
+        # # run fisher lsd test on all pairs of groups
+        # print("\tFisher LSD result:")
+        fisher_rejects = []
         for i in range(len(values)):
             for j in range(i+1, len(values)):
                 if fisher_lsd(values, anova_table, list(values.keys())[i], list(values.keys())[j]):
-                    print("\t\t" + list(values.keys())[i] + " vs " + list(values.keys())[j] + ": REJECT NULL")
+                    # print("\t\t" + list(values.keys())[i] + " vs " + list(values.keys())[j] + ": REJECT NULL")
+                    fisher_rejects.append((list(values.keys())[i], list(values.keys())[j]))
+        compare_rejects(tukey_rejects, fisher_rejects)
     else:
         print("FAIL TO REJECT NULL (p-value > 0.01)")
     # print("\t\tANOVA statistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
 
-# function to get the result for Fisher LSD test
+# get the result for Fisher LSD test
 def fisher_lsd(values, anova_table, key1, key2):
     residual_df = anova_table['df']['Residual']
     t025 = stats.t.ppf(0.975, residual_df)
@@ -83,6 +78,38 @@ def fisher_lsd(values, anova_table, key1, key2):
     mean_difference = np.mean(values[key1]) - np.mean(values[key2])
     # return true if mean difference is greater than LSD (reject null hypothesis)
     return mean_difference >= lsd
+
+# get the result for Tukey's HSD test
+def tukey_hsd(values):
+    # create list of all values
+    all_values = [value for sublist in values.values() for value in sublist]
+    # create list of group names (needs to be same length as all_values)
+    group_names = [name for name in values.keys() for i in range(len(values[name]))]
+    # create MultiComparison object
+    mc = MultiComparison(all_values, group_names)
+    # perform test and return result
+    return mc.tukeyhsd()
+
+# compare rejects of the two tests
+def compare_rejects(tukey_rejects, fisher_rejects):
+    differences = []
+    for reject in tukey_rejects:
+        if reject in fisher_rejects:
+            print("\t\t" + reject[0] + " vs " + reject[1] + ": test agree REJECT NULL")
+        else:
+            # print("\t\t" + reject[0] + " vs " + reject[1] + ": test disagree")
+            differences.append(reject)
+    for reject in fisher_rejects:
+        if reject not in tukey_rejects:
+            # print("\t\t" + reject[0] + " vs " + reject[1] + ": test disagree")
+            differences.append(reject)
+    if len(differences) == 0:
+        print("\t\tAll tests agree")
+    else:
+        # print("\t\tTests disagree on:")
+        # for reject in differences:
+        #     print("\t\t\t" + reject[0] + " vs " + reject[1])
+        print("\t\tTests disagree on " + str(len(differences)) + " pairs of groups")
 
 def _get_all_attribute_values_for_durations(data, attribute) -> dict:
     durations = _get_durations(data)
