@@ -67,9 +67,9 @@ def test_group(data, attribute, group):
     # print("\t\tANOVA statistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
 
 # get the result for Fisher LSD test
-def fisher_lsd(values, anova_table, key1, key2):
+def fisher_lsd(values, anova_table, key1, key2, alpha=0.05):
     residual_df = anova_table['df']['Residual']
-    t025 = stats.t.ppf(0.975, residual_df)
+    t025 = stats.t.ppf(1 - (alpha / 2), residual_df)
     residual_sum_of_squares = anova_table['sum_sq']['Residual']
     mse = residual_sum_of_squares / residual_df
     # find LSD: LSD = t.025, DFw * √MSW(1/n1 + 1/n1)
@@ -93,9 +93,13 @@ def tukey_hsd(values):
 # compare rejects of the two tests
 def compare_rejects(tukey_rejects, fisher_rejects):
     differences = []
+    # print number of rejects in each test
+    print("\t\tTukey's HSD rejects " + str(len(tukey_rejects)) + " pairs of groups")
+    print("\t\tFisher LSD rejects " + str(len(fisher_rejects)) + " pairs of groups")
     for reject in tukey_rejects:
         if reject in fisher_rejects:
-            print("\t\t" + reject[0] + " vs " + reject[1] + ": test agree REJECT NULL")
+            # print("\t\t" + reject[0] + " vs " + reject[1] + ": test agree REJECT NULL")
+            pass
         else:
             # print("\t\t" + reject[0] + " vs " + reject[1] + ": test disagree")
             differences.append(reject)
