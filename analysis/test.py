@@ -60,41 +60,31 @@ def test_group(data, attribute, group):
         # mc = MultiComparison(all_values, group_names)
         # # perform test
         # result = mc.tukeyhsd()
-        print(fisher_lsd_p_value(values, anova_table))
         # print(result.summary)
+        # run fisher lsd test on all pairs of groups
+        print("\tFisher LSD result:")
+        for i in range(len(values)):
+            for j in range(i+1, len(values)):
+                # print("\t\t" + list(values.keys())[i] + " vs " + list(values.keys())[j] + ": ", end="")
+                # print(fisher_lsd_p_value(values, anova_table, list(values.keys())[i], list(values.keys())[j]))
+                if fisher_lsd_p_value(values, anova_table, list(values.keys())[i], list(values.keys())[j]):
+                    print("\t\t" + list(values.keys())[i] + " vs " + list(values.keys())[j] + ": REJECT NULL")
     else:
         print("FAIL TO REJECT NULL (p-value > 0.01)")
     # print("\t\tANOVA statistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
 
 # function to get the p value for Fisher LSD test
-def fisher_lsd_p_value(values, anova_table):
-    # get all values in one list
-    # all_values = [value for sublist in values.values() for value in sublist]
-    # get mean of each group
-    # means = []
-    # for key, values in values:
-    #     means.append(np.mean(values))
-    # means = []
-    # for key in values.keys():
-    #     means.append(np.mean(values[key]))
-    # find degrees of freedom within groups
+def fisher_lsd_p_value(values, anova_table, key1, key2):
     residual_df = anova_table['df']['Residual']
-    # find t.025
     t025 = stats.t.ppf(0.975, residual_df)
-    # find MS(within)
     residual_sum_of_squares = anova_table['sum_sq']['Residual']
     mse = residual_sum_of_squares / residual_df
-    # # get grand mean
-    # grand_mean = np.mean(all_values)
-    # # calculate LSD
-    # lsd = 2.77 * np.sqrt(np.var(all_values) * (1/len(all_values) + 1/len(means)))
-    # # calculate p value
-    # p_value = 0
-    # for mean in means:
-    #     if abs(grand_mean - mean) > lsd:
-    #         p_value += 1
-    # p_value = p_value * 2 / (len(means) * (len(means) - 1))
-    # return p_value
+    # find LSD: LSD = t.025, DFw * √MSW(1/n1 + 1/n1)
+    lsd = t025 * np.sqrt(mse * (len(values[key1]) + len(values[key2])))
+    # find mean difference
+    mean_difference = np.mean(values[key1]) - np.mean(values[key2])
+    # return true if mean difference is greater than LSD (reject null hypothesis)
+    return mean_difference >= lsd
 
 def _get_all_attribute_values_for_durations(data, attribute) -> dict:
     durations = _get_durations(data)
