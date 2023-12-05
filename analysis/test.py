@@ -17,7 +17,7 @@ def test():
         _check_attribute_is_valid(data, attribute)
         # test_group(data, attribute, "DURATION")
         test_group(data, attribute, "SCENE TYPE")
-        test_group(data, attribute, "ACTOR")
+        # test_group(data, attribute, "ACTOR")
     
 
 def test_group(data, attribute, group):
@@ -44,10 +44,10 @@ def test_group(data, attribute, group):
     # Print the ANOVA table
     # print(anova_table)
     # print lenth of each group
-    print("group lengths:", end=" ")
-    for key, vals in values.items():
-        print(len(vals), end=" ")
-    print()
+    # print("group lengths:", end=" ")
+    # for key, vals in values.items():
+    #     print(len(vals), end=" ")
+    # print()
     if result.pvalue < 0.01:
         print("REJECT NULL (p-value < 0.01)")
         # Tukey's HSD test
@@ -65,22 +65,20 @@ def test_group(data, attribute, group):
         print("\tFisher LSD result:")
         for i in range(len(values)):
             for j in range(i+1, len(values)):
-                # print("\t\t" + list(values.keys())[i] + " vs " + list(values.keys())[j] + ": ", end="")
-                # print(fisher_lsd_p_value(values, anova_table, list(values.keys())[i], list(values.keys())[j]))
-                if fisher_lsd_p_value(values, anova_table, list(values.keys())[i], list(values.keys())[j]):
+                if fisher_lsd(values, anova_table, list(values.keys())[i], list(values.keys())[j]):
                     print("\t\t" + list(values.keys())[i] + " vs " + list(values.keys())[j] + ": REJECT NULL")
     else:
         print("FAIL TO REJECT NULL (p-value > 0.01)")
     # print("\t\tANOVA statistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
 
-# function to get the p value for Fisher LSD test
-def fisher_lsd_p_value(values, anova_table, key1, key2):
+# function to get the result for Fisher LSD test
+def fisher_lsd(values, anova_table, key1, key2):
     residual_df = anova_table['df']['Residual']
     t025 = stats.t.ppf(0.975, residual_df)
     residual_sum_of_squares = anova_table['sum_sq']['Residual']
     mse = residual_sum_of_squares / residual_df
     # find LSD: LSD = t.025, DFw * √MSW(1/n1 + 1/n1)
-    lsd = t025 * np.sqrt(mse * (len(values[key1]) + len(values[key2])))
+    lsd = t025 * np.sqrt(mse * ((1/len(values[key1])) + (1/len(values[key2]))))
     # find mean difference
     mean_difference = np.mean(values[key1]) - np.mean(values[key2])
     # return true if mean difference is greater than LSD (reject null hypothesis)
