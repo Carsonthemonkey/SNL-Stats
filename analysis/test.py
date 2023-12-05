@@ -17,7 +17,7 @@ def test():
         _check_attribute_is_valid(data, attribute)
         # test_group(data, attribute, "DURATION")
         test_group(data, attribute, "SCENE TYPE")
-        # test_group(data, attribute, "ACTOR")
+        test_group(data, attribute, "ACTOR")
     
 
 def test_group(data, attribute, group):
@@ -36,13 +36,18 @@ def test_group(data, attribute, group):
         return
     print("\n\tANOVA result:", end=" ")
     result = stats.f_oneway(*values.values())
-    # Fit the ANOVA model
+    # # Fit the ANOVA model
     values_for_df = [(value, key) for key, values in values.items() for value in values]
     df = pd.DataFrame(values_for_df, columns=["value", "group"])
     model = ols('value ~ group', data=df).fit()
     anova_table = sm.stats.anova_lm(model, typ=2)
     # Print the ANOVA table
-    print(anova_table)
+    # print(anova_table)
+    # print lenth of each group
+    print("group lengths:", end=" ")
+    for key, vals in values.items():
+        print(len(vals), end=" ")
+    print()
     if result.pvalue < 0.01:
         print("REJECT NULL (p-value < 0.01)")
         # Tukey's HSD test
@@ -55,11 +60,41 @@ def test_group(data, attribute, group):
         # mc = MultiComparison(all_values, group_names)
         # # perform test
         # result = mc.tukeyhsd()
+        print(fisher_lsd_p_value(values, anova_table))
         # print(result.summary)
     else:
         print("FAIL TO REJECT NULL (p-value > 0.01)")
     # print("\t\tANOVA statistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
 
+# function to get the p value for Fisher LSD test
+def fisher_lsd_p_value(values, anova_table):
+    # get all values in one list
+    # all_values = [value for sublist in values.values() for value in sublist]
+    # get mean of each group
+    # means = []
+    # for key, values in values:
+    #     means.append(np.mean(values))
+    # means = []
+    # for key in values.keys():
+    #     means.append(np.mean(values[key]))
+    # find degrees of freedom within groups
+    residual_df = anova_table['df']['Residual']
+    # find t.025
+    t025 = stats.t.ppf(0.975, residual_df)
+    # find MS(within)
+    residual_sum_of_squares = anova_table['sum_sq']['Residual']
+    mse = residual_sum_of_squares / residual_df
+    # # get grand mean
+    # grand_mean = np.mean(all_values)
+    # # calculate LSD
+    # lsd = 2.77 * np.sqrt(np.var(all_values) * (1/len(all_values) + 1/len(means)))
+    # # calculate p value
+    # p_value = 0
+    # for mean in means:
+    #     if abs(grand_mean - mean) > lsd:
+    #         p_value += 1
+    # p_value = p_value * 2 / (len(means) * (len(means) - 1))
+    # return p_value
 
 def _get_all_attribute_values_for_durations(data, attribute) -> dict:
     durations = _get_durations(data)
