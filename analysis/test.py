@@ -43,9 +43,9 @@ def test_group(data, attribute, group):
     model = ols('value ~ group', data=df).fit()
     anova_table = sm.stats.anova_lm(model, typ=2)
     if result.pvalue < 0.01:
-        print("REJECT NULL (p-value < 0.01)")
+        # print("REJECT NULL (p-value < 0.01)")
         # Tukey's HSD test
-        # print("\tTukey's HSD result:")
+        print("\tTukey's HSD result:")
         tukey_result = tukey_hsd(values)
         # print(tukey_result)
         tukey_rejects = []
@@ -53,36 +53,21 @@ def test_group(data, attribute, group):
         for i, reject in enumerate(tukey_result.reject):
             if reject:
                 tukey_rejects.append(group_pairs[i])
-        # # run fisher lsd test on all pairs of groups
-        # print("\tFisher LSD result:")
-        # fisher_rejects = []
-        # reject_count = 0
-        # key_list = list(values.keys())
-        # for i in range(len(values)):
-        #     key1 = key_list[i]
-        #     for j in range(i+1, len(values)):
-        #         key2 = key_list[j]
-        #         if fisher_lsd(values, anova_table, key1, key2):
-        #             # print("\t\t" + key1 + " vs " + key2 + ": REJECT NULL")
-        #             fisher_rejects.append([key1, key2])
-        #             reject_count += 1
-        # print("\t\tFisher LSD rejects " + str(len(fisher_rejects)) + " pairs of groups")
-        # print("reject count: " + str(reject_count))
-        # print(fisher_rejects)
-        # compare_rejects(tukey_rejects, fisher_rejects)
-        fisher_rejects = []
-        reject_count = 0
+        # run fisher lsd test on all pairs of groups
+        fisher_rejects = set()
         key_list = list(values.keys())
         for i in range(len(values)):
             key1 = key_list[i]
             for j in range(len(values)):
                 key2 = key_list[j]
-                if i != j and key1 in tukey_result.groupsunique and key2 in tukey_result.groupsunique and key1 != key2:
-                    if fisher_lsd(values, anova_table, key1, key2):
+                if i != j:
+                    if fisher_lsd(values, anova_table, key1, key2, alpha=0.005):
                         # print("\t\t" + key1 + " vs " + key2 + ": REJECT NULL")
-                        fisher_rejects.append([key1, key2])
-                        reject_count += 1
+                        fisher_rejects.add(frozenset([key1, key2])) # use frozenset so that order doesn't matter
         print("\t\tFisher LSD rejects " + str(len(fisher_rejects)) + " pairs of groups")
+        # Check for duplicates
+        print("No duplicates:", len(fisher_rejects) == len(set(map(tuple, fisher_rejects))))
+        compare_rejects(tukey_rejects, fisher_rejects)
     else:
         print("FAIL TO REJECT NULL (p-value > 0.01)")
     # print("\t\tANOVA statistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
@@ -119,24 +104,18 @@ def compare_rejects(tukey_rejects, fisher_rejects):
     # print number of rejects in each test
     print("\t\tTukey's HSD rejects " + str(len(tukey_rejects)) + " pairs of groups")
     print("\t\tFisher LSD rejects " + str(len(fisher_rejects)) + " pairs of groups")
+    # make tukeys_rejects into set of frozensets, ensure order of pair doesn't matter
+    tukey_rejects = set(map(frozenset, tukey_rejects))
+    # fisher_rejects = set(map(frozenset, fisher_rejects))
+    # find differences between the two tests
     for reject in tukey_rejects:
-        if reject in fisher_rejects:
-            # print("\t\t" + reject[0] + " vs " + reject[1] + ": test agree REJECT NULL")
-            pass
-        else:
-            # print("\t\t" + reject[0] + " vs " + reject[1] + ": test disagree")
+        if reject not in fisher_rejects:
             differences.append(reject)
     for reject in fisher_rejects:
         if reject not in tukey_rejects:
-            # print("\t\t" + reject[0] + " vs " + reject[1] + ": test disagree")
             differences.append(reject)
-    if len(differences) == 0:
-        print("\t\tAll tests agree")
-    else:
-        # print("\t\tTests disagree on:")
-        # for reject in differences:
-        #     print("\t\t\t" + reject[0] + " vs " + reject[1])
-        print("\t\tTests disagree on " + str(len(differences)) + " pairs of groups")
+    # print out the length of differences
+    print("\t\t" + str(len(differences)) + " differences between the two tests")
 
 def _get_all_attribute_values_for_durations(data, attribute) -> dict:
     durations = _get_durations(data)
