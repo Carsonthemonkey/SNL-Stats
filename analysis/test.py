@@ -63,10 +63,10 @@ def test_group(data, attribute, group):
                     else:
                         # print("\t\t" + key1 + " vs " + key2 + ": FAIL TO REJECT NULL")
                         results_table = results_table._append({"group1": key1, "group2": key2, "reject_null": "FAIL TO REJECT"}, ignore_index=True)
-        print("\t\tFisher LSD rejects " + str(len(rejects)) + " pairs of groups")
+        print("\n\tFisher LSD: rejects null for " + str(len(rejects)) + " pairs of groups")
         # print results dict
         for key, value in results_dict.items():
-            print("\t\t" + key + ": " + str(value))
+            print("\t\t" + key + ": " + str(len(value))+ " groups\n\t\t\t" + str(value))
         # print("No duplicates:", len(fisher_rejects) == len(set(map(tuple, fisher_rejects)))) # Check for duplicates
     else:
         print("FAIL TO REJECT NULL (p-value > 0.01)")
