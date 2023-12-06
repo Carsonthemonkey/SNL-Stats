@@ -8,21 +8,22 @@ all_scene_types = None
 all_actors = None
 
 def draw_all_graphs_and_tables(attribute, show=False):
+    # Load data
+    data = load_full_data()
     # check attribute is valid
     if not hasattr(data[0], attribute):
         raise AttributeError("Attribute " + attribute + " does not exist in data")
     # check is attribute is numeric
     if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
         raise TypeError("Attribute " + attribute + " is not numeric")
-    # Load data
-    data = load_full_data()
-    # draw_boxplot_for_scene_type(data, attribute, show)
+    draw_boxplot_for_scene_type(data, attribute, show)
+    draw_boxplot_for_scene_type(data, attribute, show, show_outliers=False)
     # table_of_mean_and_std_by_scene_type(data, attribute)
     # bar_chart_of_mean_and_std_by_scene_type(data, attribute, show)
     # bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=15)
     # time_series_of_attribute_over_time(data, attribute, show)
 
-def draw_boxplot_for_scene_type(data, attribute, show=True):
+def draw_boxplot_for_scene_type(data, attribute, show=True, show_outliers=True):
     # find all scene types
     scene_types = get_scene_types(data)
     # box plot of views for different scene types
@@ -31,12 +32,18 @@ def draw_boxplot_for_scene_type(data, attribute, show=True):
     ]
     boxplot_data = list(boxplot_data)
     fig, ax = plt.subplots(figsize=(12, 5)) # set size so y labels aren't cut off
-    ax.boxplot(boxplot_data, vert=False, labels=scene_types)
-    ax.set_title('Boxplot of ' + attribute + ' by Scene Types')
+    ax.boxplot(boxplot_data, vert=False, labels=scene_types, showfliers = show_outliers)
+    if show_outliers:
+        ax.set_title('Boxplot of ' + attribute + ' by Scene Types')
+    else:
+        ax.set_title('Boxplot of ' + attribute + ' by Scene Types (without outliers)')
     ax.set_xlabel(attribute)
     ax.set_ylabel('Scene Types')
     # save figure
-    fig.savefig('graphs/' + attribute + '/' + attribute + '_by_scene_type_boxplot.png', bbox_inches='tight')
+    if show_outliers:
+        fig.savefig('graphs/' + attribute + '/' + attribute + '_by_scene_type_boxplot.png', bbox_inches='tight')
+    else:
+        fig.savefig('graphs/' + attribute + '/' + attribute + '_by_scene_type_boxplot_without_outliers.png', bbox_inches='tight')
     if show is True:
         plt.show()
     plt.clf()
