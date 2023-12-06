@@ -43,9 +43,7 @@ def test_group(data, attribute, group):
     if result.pvalue < 0.01:
         print("REJECT NULL (p-value < 0.01)")
         # Fisher's LSD test
-        results_table = pd.DataFrame(columns=["group1", "group2", "reject_null"])
         results_dict = {} # key is group1, value is list of group2 that rejects null
-        rejects = set()
         key_list = list(values.keys())
         for i in range(len(values)):
             key1 = key_list[i]
@@ -54,16 +52,15 @@ def test_group(data, attribute, group):
                 if i != j:
                     if fisher_lsd(values, anova_table, key1, key2, alpha=0.005):
                         # print("\t\t" + key1 + " vs " + key2 + ": REJECT NULL")
-                        rejects.add(frozenset([key1, key2])) # use frozenset so that order doesn't matter
                         if key1 in results_dict:
                             results_dict[key1].append(key2)
                         else:
                             results_dict[key1] = [key2]
-                        results_table = results_table._append({"group1": key1, "group2": key2, "reject_null": "REJECT"}, ignore_index=True)
+                        # results_table = results_table._append({"group1": key1, "group2": key2, "reject_null": "REJECT"}, ignore_index=True)
                     else:
                         # print("\t\t" + key1 + " vs " + key2 + ": FAIL TO REJECT NULL")
-                        results_table = results_table._append({"group1": key1, "group2": key2, "reject_null": "FAIL TO REJECT"}, ignore_index=True)
-        print("\n\tFisher LSD: rejects null for " + str(len(rejects)) + " pairs of groups")
+                        pass
+        # print("\n\tFisher LSD: rejects null for " + str(len(rejects)) + " pairs of groups")
         # print results dict
         for key, value in results_dict.items():
             print("\t\t" + key + ": " + str(len(value))+ " groups\n\t\t\t" + str(value))
@@ -82,8 +79,8 @@ def fisher_lsd(values, anova_table, key1, key2, alpha=0.05):
     mse = residual_sum_of_squares / residual_df
     # find LSD: LSD = t.025, DFw * √MSW(1/n1 + 1/n1)
     lsd = t025 * np.sqrt(mse * ((1/len(values[key1])) + (1/len(values[key2]))))
-    # find mean difference
-    mean_difference = np.mean(values[key1]) - np.mean(values[key2])
+    # find absolute mean difference
+    mean_difference = abs(np.mean(values[key1]) - np.mean(values[key2]))
     # return true if mean difference is greater than LSD (reject null hypothesis)
     return mean_difference >= lsd
 
