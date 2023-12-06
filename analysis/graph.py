@@ -16,11 +16,11 @@ def draw_all_graphs_and_tables(attribute, show=False):
         raise TypeError("Attribute " + attribute + " is not numeric")
     # Load data
     data = load_full_data()
-    draw_boxplot_for_scene_type(data, attribute, show)
-    table_of_mean_and_std_by_scene_type(data, attribute)
-    bar_chart_of_mean_and_std_by_scene_type(data, attribute, show)
-    bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=15)
-    time_series_of_attribute_over_time(data, attribute, show)
+    # draw_boxplot_for_scene_type(data, attribute, show)
+    # table_of_mean_and_std_by_scene_type(data, attribute)
+    # bar_chart_of_mean_and_std_by_scene_type(data, attribute, show)
+    # bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=15)
+    # time_series_of_attribute_over_time(data, attribute, show)
 
 def draw_boxplot_for_scene_type(data, attribute, show=True):
     # find all scene types
