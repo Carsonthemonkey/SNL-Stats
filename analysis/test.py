@@ -42,7 +42,8 @@ def test_group(data, attribute, group):
     anova_table = sm.stats.anova_lm(model, typ=2)
     if result.pvalue < 0.01:
         print("REJECT NULL (p-value < 0.01)")
-        # Tukey's HSD test
+        # Fisher's LSD test
+        fisher_results_table = pd.DataFrame(columns=["group1", "group2", "reject_null"])
         fisher_rejects = set()
         key_list = list(values.keys())
         for i in range(len(values)):
@@ -53,7 +54,12 @@ def test_group(data, attribute, group):
                     if fisher_lsd(values, anova_table, key1, key2, alpha=0.005):
                         # print("\t\t" + key1 + " vs " + key2 + ": REJECT NULL")
                         fisher_rejects.add(frozenset([key1, key2])) # use frozenset so that order doesn't matter
+                        fisher_results_table = fisher_results_table._append({"group1": key1, "group2": key2, "reject_null": "REJECT"}, ignore_index=True)
+                    else:
+                        # print("\t\t" + key1 + " vs " + key2 + ": FAIL TO REJECT NULL")
+                        fisher_results_table = fisher_results_table._append({"group1": key1, "group2": key2, "reject_null": "FAIL TO REJECT"}, ignore_index=True)
         print("\t\tFisher LSD rejects " + str(len(fisher_rejects)) + " pairs of groups")
+        print(fisher_results_table)
         # print("No duplicates:", len(fisher_rejects) == len(set(map(tuple, fisher_rejects)))) # Check for duplicates
     else:
         print("FAIL TO REJECT NULL (p-value > 0.01)")
