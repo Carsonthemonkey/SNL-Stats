@@ -42,8 +42,10 @@ def test_group(data, attribute, group):
     anova_table = sm.stats.anova_lm(model, typ=2)
     if result.pvalue < 0.01:
         print("REJECT NULL (p-value < 0.01)")
-        # Tukey's HSD test
-        fisher_rejects = set()
+        # Fisher's LSD test
+        results_table = pd.DataFrame(columns=["group1", "group2", "reject_null"])
+        results_dict = {} # key is group1, value is list of group2 that rejects null
+        rejects = set()
         key_list = list(values.keys())
         for i in range(len(values)):
             key1 = key_list[i]
@@ -52,8 +54,19 @@ def test_group(data, attribute, group):
                 if i != j:
                     if fisher_lsd(values, anova_table, key1, key2, alpha=0.005):
                         # print("\t\t" + key1 + " vs " + key2 + ": REJECT NULL")
-                        fisher_rejects.add(frozenset([key1, key2])) # use frozenset so that order doesn't matter
-        print("\t\tFisher LSD rejects " + str(len(fisher_rejects)) + " pairs of groups")
+                        rejects.add(frozenset([key1, key2])) # use frozenset so that order doesn't matter
+                        if key1 in results_dict:
+                            results_dict[key1].append(key2)
+                        else:
+                            results_dict[key1] = [key2]
+                        results_table = results_table._append({"group1": key1, "group2": key2, "reject_null": "REJECT"}, ignore_index=True)
+                    else:
+                        # print("\t\t" + key1 + " vs " + key2 + ": FAIL TO REJECT NULL")
+                        results_table = results_table._append({"group1": key1, "group2": key2, "reject_null": "FAIL TO REJECT"}, ignore_index=True)
+        print("\n\tFisher LSD: rejects null for " + str(len(rejects)) + " pairs of groups")
+        # print results dict
+        for key, value in results_dict.items():
+            print("\t\t" + key + ": " + str(len(value))+ " groups\n\t\t\t" + str(value))
         # print("No duplicates:", len(fisher_rejects) == len(set(map(tuple, fisher_rejects)))) # Check for duplicates
     else:
         print("FAIL TO REJECT NULL (p-value > 0.01)")
