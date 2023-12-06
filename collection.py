@@ -276,7 +276,7 @@ def _multi_core_wrapper(args: tuple):
 def _get_combined_data_from_video_info(
     video_info: dict, scene_titles, scene_data: list
 ) -> dict:
-    matching_scene_title = get_matching_string(video_info["title"], scene_titles, 0.9)
+    matching_scene_title = get_matching_string(video_info["title"], scene_titles, 0.8)
     if matching_scene_title is not None:
         logging.info('matched video: "%s" with scene "%s"', video_info['title'], matching_scene_title)
         # print(f'matched video: "{video_info['title']}" with scene "{matching_scene_title}"')
