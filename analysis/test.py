@@ -43,8 +43,9 @@ def test_group(data, attribute, group):
     if result.pvalue < 0.01:
         print("REJECT NULL (p-value < 0.01)")
         # Fisher's LSD test
-        fisher_results_table = pd.DataFrame(columns=["group1", "group2", "reject_null"])
-        fisher_rejects = set()
+        results_table = pd.DataFrame(columns=["group1", "group2", "reject_null"])
+        results_dict = {} # key is group1, value is list of group2 that rejects null
+        rejects = set()
         key_list = list(values.keys())
         for i in range(len(values)):
             key1 = key_list[i]
@@ -53,13 +54,19 @@ def test_group(data, attribute, group):
                 if i != j:
                     if fisher_lsd(values, anova_table, key1, key2, alpha=0.005):
                         # print("\t\t" + key1 + " vs " + key2 + ": REJECT NULL")
-                        fisher_rejects.add(frozenset([key1, key2])) # use frozenset so that order doesn't matter
-                        fisher_results_table = fisher_results_table._append({"group1": key1, "group2": key2, "reject_null": "REJECT"}, ignore_index=True)
+                        rejects.add(frozenset([key1, key2])) # use frozenset so that order doesn't matter
+                        if key1 in results_dict:
+                            results_dict[key1].append(key2)
+                        else:
+                            results_dict[key1] = [key2]
+                        results_table = results_table._append({"group1": key1, "group2": key2, "reject_null": "REJECT"}, ignore_index=True)
                     else:
                         # print("\t\t" + key1 + " vs " + key2 + ": FAIL TO REJECT NULL")
-                        fisher_results_table = fisher_results_table._append({"group1": key1, "group2": key2, "reject_null": "FAIL TO REJECT"}, ignore_index=True)
-        print("\t\tFisher LSD rejects " + str(len(fisher_rejects)) + " pairs of groups")
-        print(fisher_results_table)
+                        results_table = results_table._append({"group1": key1, "group2": key2, "reject_null": "FAIL TO REJECT"}, ignore_index=True)
+        print("\t\tFisher LSD rejects " + str(len(rejects)) + " pairs of groups")
+        # print results dict
+        for key, value in results_dict.items():
+            print("\t\t" + key + ": " + str(value))
         # print("No duplicates:", len(fisher_rejects) == len(set(map(tuple, fisher_rejects)))) # Check for duplicates
     else:
         print("FAIL TO REJECT NULL (p-value > 0.01)")
