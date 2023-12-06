@@ -82,8 +82,8 @@ def fisher_lsd(values, anova_table, key1, key2, alpha=0.05):
     mse = residual_sum_of_squares / residual_df
     # find LSD: LSD = t.025, DFw * √MSW(1/n1 + 1/n1)
     lsd = t025 * np.sqrt(mse * ((1/len(values[key1])) + (1/len(values[key2]))))
-    # find mean difference
-    mean_difference = np.mean(values[key1]) - np.mean(values[key2])
+    # find absolute mean difference
+    mean_difference = abs(np.mean(values[key1]) - np.mean(values[key2]))
     # return true if mean difference is greater than LSD (reject null hypothesis)
     return mean_difference >= lsd
 
