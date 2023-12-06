@@ -55,16 +55,34 @@ def test_group(data, attribute, group):
                 tukey_rejects.append(group_pairs[i])
         # # run fisher lsd test on all pairs of groups
         # print("\tFisher LSD result:")
+        # fisher_rejects = []
+        # reject_count = 0
+        # key_list = list(values.keys())
+        # for i in range(len(values)):
+        #     key1 = key_list[i]
+        #     for j in range(i+1, len(values)):
+        #         key2 = key_list[j]
+        #         if fisher_lsd(values, anova_table, key1, key2):
+        #             # print("\t\t" + key1 + " vs " + key2 + ": REJECT NULL")
+        #             fisher_rejects.append([key1, key2])
+        #             reject_count += 1
+        # print("\t\tFisher LSD rejects " + str(len(fisher_rejects)) + " pairs of groups")
+        # print("reject count: " + str(reject_count))
+        # print(fisher_rejects)
+        # compare_rejects(tukey_rejects, fisher_rejects)
         fisher_rejects = []
+        reject_count = 0
         key_list = list(values.keys())
         for i in range(len(values)):
             key1 = key_list[i]
-            for j in range(i+1, len(values)):
+            for j in range(len(values)):
                 key2 = key_list[j]
-                if fisher_lsd(values, anova_table, key1, key2):
-                    # print("\t\t" + key1 + " vs " + key2 + ": REJECT NULL")
-                    fisher_rejects.append([key1, key2])
-        # compare_rejects(tukey_rejects, fisher_rejects)
+                if i != j and key1 in tukey_result.groupsunique and key2 in tukey_result.groupsunique and key1 != key2:
+                    if fisher_lsd(values, anova_table, key1, key2):
+                        # print("\t\t" + key1 + " vs " + key2 + ": REJECT NULL")
+                        fisher_rejects.append([key1, key2])
+                        reject_count += 1
+        print("\t\tFisher LSD rejects " + str(len(fisher_rejects)) + " pairs of groups")
     else:
         print("FAIL TO REJECT NULL (p-value > 0.01)")
     # print("\t\tANOVA statistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
@@ -76,7 +94,7 @@ def fisher_lsd(values, anova_table, key1, key2, alpha=0.05):
     residual_sum_of_squares = anova_table['sum_sq']['Residual']
     mse = residual_sum_of_squares / residual_df
     # print out all the above variables
-    print("\t\tresidual_df=" + str(residual_df) + "\n\t\tt025=" + str(t025) + "\n\t\tresidual_sum_of_squares=" + str(residual_sum_of_squares) + "\n\t\tmse=" + str(mse))
+    # print("\t\tresidual_df=" + str(residual_df) + "\n\t\tt025=" + str(t025) + "\n\t\tresidual_sum_of_squares=" + str(residual_sum_of_squares) + "\n\t\tmse=" + str(mse))
     # find LSD: LSD = t.025, DFw * √MSW(1/n1 + 1/n1)
     lsd = t025 * np.sqrt(mse * ((1/len(values[key1])) + (1/len(values[key2]))))
     # find mean difference
