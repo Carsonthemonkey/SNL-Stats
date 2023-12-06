@@ -8,6 +8,12 @@ all_scene_types = None
 all_actors = None
 
 def draw_all_graphs_and_tables(attribute, show=False):
+    # check attribute is valid
+    if not hasattr(data[0], attribute):
+        raise AttributeError("Attribute " + attribute + " does not exist in data")
+    # check is attribute is numeric
+    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
+        raise TypeError("Attribute " + attribute + " is not numeric")
     # Load data
     data = load_full_data()
     draw_boxplot_for_scene_type(data, attribute, show)
@@ -17,12 +23,6 @@ def draw_all_graphs_and_tables(attribute, show=False):
     time_series_of_attribute_over_time(data, attribute, show)
 
 def draw_boxplot_for_scene_type(data, attribute, show=True):
-    # check attribute is valid
-    if not hasattr(data[0], attribute):
-        raise AttributeError("Attribute " + attribute + " does not exist in data")
-    # check is attribute is numeric
-    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
-        raise TypeError("Attribute " + attribute + " is not numeric")
     # find all scene types
     scene_types = get_scene_types(data)
     # box plot of views for different scene types
@@ -43,12 +43,6 @@ def draw_boxplot_for_scene_type(data, attribute, show=True):
 
 # make table of mean and std of an attribute for each scene type
 def table_of_mean_and_std_by_scene_type(data, attribute):
-    # check attribute is valid
-    if not hasattr(data[0], attribute):
-        raise AttributeError("Attribute " + attribute + " does not exist in data")
-    # check is attribute is numeric
-    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
-        raise TypeError("Attribute " + attribute + " is not numeric")
     # calculate mean and std for each scene type
     scene_types, means, sds = get_mean_and_std_by_scene_type(data, attribute)
     # print table
@@ -60,12 +54,6 @@ def table_of_mean_and_std_by_scene_type(data, attribute):
 
 # make a bar chart of mean and std on an attribute for each scene type
 def bar_chart_of_mean_and_std_by_scene_type(data, attribute, show=True):
-    # check attribute is valid
-    if not hasattr(data[0], attribute):
-        raise AttributeError("Attribute " + attribute + " does not exist in data")
-    # check is attribute is numeric
-    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
-        raise TypeError("Attribute " + attribute + " is not numeric")
     # calculate mean and std for each scene type
     scene_types, means, sds = get_mean_and_std_by_scene_type(data, attribute)
     # plot bar chart
@@ -83,12 +71,6 @@ def bar_chart_of_mean_and_std_by_scene_type(data, attribute, show=True):
     
 # make a bar chart of the actors with highest/lowest mean of an attribute
 def bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=10):
-    # check attribute is valid
-    if not hasattr(data[0], attribute):
-        raise AttributeError("Attribute " + attribute + " does not exist in data")
-    # check is attribute is numeric
-    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
-        raise TypeError("Attribute " + attribute + " is not numeric")
     # find correct n actors and their means
     actors, means = get_sorted_actors_and_means(data, attribute)
     if top:
@@ -118,12 +100,6 @@ def bar_chart_of_most_extreme_actors_by_mean(data, attribute, show, top=True, n=
 
 # make a time series of an attribute over time (based on upload_date)
 def time_series_of_attribute_over_time(data, attribute, show=True):
-    # check attribute is valid
-    if not hasattr(data[0], attribute):
-        raise AttributeError("Attribute " + attribute + " does not exist in data")
-    # check is attribute is numeric
-    if not np.issubdtype(type(getattr(data[0], attribute)), np.number):
-        raise TypeError("Attribute " + attribute + " is not numeric")
     # sort data by upload date
     data = sorted(data, key=lambda x: x.upload_date)
     # Convert the 'upload_date' column to datetime
