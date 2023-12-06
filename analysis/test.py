@@ -1,6 +1,9 @@
 import scipy.stats as stats
 import numpy as np
 from analysis.load_data import load_full_data
+import statsmodels.api as sm # for ANOVA table
+from statsmodels.formula.api import ols # for ANOVA table
+import pandas as pd
 
 stored_durations = None
 stored_scene_types = None
@@ -13,7 +16,7 @@ def test():
         _check_attribute_is_valid(data, attribute)
         # test_group(data, attribute, "DURATION")
         test_group(data, attribute, "SCENE TYPE")
-        test_group(data, attribute, "ACTOR")
+        # test_group(data, attribute, "ACTOR")
     
 
 def test_group(data, attribute, group):
@@ -21,25 +24,58 @@ def test_group(data, attribute, group):
     print("\n" + attribute + " by " + group)
     print("----------------------------")
     if group == "DURATION":
-        values = _get_attribute_values_by_duration(data, attribute)
+        values = _get_all_attribute_values_for_durations(data, attribute)
     elif group == "SCENE TYPE":
-        values = _get_attribute_values_by_scene_type(data, attribute)
+        values = _get_all_attribute_values_for_scene_types(data, attribute)
     elif group == "ACTOR":
-        values = _get_attribute_values_by_actor(data, attribute)
-    # ANOVA test
+        values = _get_all_attribute_values_for_actors(data, attribute)
     if len(values) < 2:
         print("\tNot enough groups to perform ANOVA\n")
         return
+    # ANOVA test
     print("\n\tANOVA result:", end=" ")
     result = stats.f_oneway(*values.values())
-    if result.pvalue < 0.05:
-        print("REJECT NULL (p-value < 0.05)")
+    # Fit the ANOVA model
+    values_for_df = [(value, key) for key, values in values.items() for value in values]
+    df = pd.DataFrame(values_for_df, columns=["value", "group"])
+    model = ols('value ~ group', data=df).fit()
+    anova_table = sm.stats.anova_lm(model, typ=2)
+    if result.pvalue < 0.01:
+        print("REJECT NULL (p-value < 0.01)")
+        # Tukey's HSD test
+        fisher_rejects = set()
+        key_list = list(values.keys())
+        for i in range(len(values)):
+            key1 = key_list[i]
+            for j in range(len(values)):
+                key2 = key_list[j]
+                if i != j:
+                    if fisher_lsd(values, anova_table, key1, key2, alpha=0.005):
+                        # print("\t\t" + key1 + " vs " + key2 + ": REJECT NULL")
+                        fisher_rejects.add(frozenset([key1, key2])) # use frozenset so that order doesn't matter
+        print("\t\tFisher LSD rejects " + str(len(fisher_rejects)) + " pairs of groups")
+        # print("No duplicates:", len(fisher_rejects) == len(set(map(tuple, fisher_rejects)))) # Check for duplicates
     else:
-        print("FAIL TO REJECT NULL (p-value > 0.05)")
-    print("\t\tstatistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
+        print("FAIL TO REJECT NULL (p-value > 0.01)")
+    # print("\t\tANOVA statistic=" + str(result.statistic) + "\n\t\tp-value=" + str(result.pvalue) + "\n")
 
 
-def _get_attribute_values_by_duration(data, attribute) -> dict:
+# get the result for Fisher LSD test
+# return true if there is significant data to reject the null hypothesis
+def fisher_lsd(values, anova_table, key1, key2, alpha=0.05):
+    residual_df = anova_table['df']['Residual']
+    t025 = stats.t.ppf(1 - (alpha / 2), residual_df)
+    residual_sum_of_squares = anova_table['sum_sq']['Residual']
+    mse = residual_sum_of_squares / residual_df
+    # find LSD: LSD = t.025, DFw * √MSW(1/n1 + 1/n1)
+    lsd = t025 * np.sqrt(mse * ((1/len(values[key1])) + (1/len(values[key2]))))
+    # find mean difference
+    mean_difference = np.mean(values[key1]) - np.mean(values[key2])
+    # return true if mean difference is greater than LSD (reject null hypothesis)
+    return mean_difference >= lsd
+
+
+def _get_all_attribute_values_for_durations(data, attribute) -> dict:
     durations = _get_durations(data)
     value_dict = {} # key is duration, value is list of attribute values
     for d in durations:
@@ -77,7 +113,7 @@ def _get_duration_attribute_values(data, attribute, duration) -> list:
     return attribute_values
 
 
-def _get_attribute_values_by_scene_type(data, attribute) -> dict:
+def _get_all_attribute_values_for_scene_types(data, attribute) -> dict:
     scene_types = _get_scene_types(data)
     value_dict = {} # key is scene type, value is list of attribute values
     for scene_type in scene_types:
@@ -104,7 +140,7 @@ def _get_scene_type_attribute_values(data, attribute, scene_type) -> list:
     return attribute_values
 
 
-def _get_attribute_values_by_actor(data, attribute) -> dict:
+def _get_all_attribute_values_for_actors(data, attribute) -> dict:
     actors = _get_actors(data)
     value_dict = {} # key is actor, value is list of attribute values
     for actor in actors:
